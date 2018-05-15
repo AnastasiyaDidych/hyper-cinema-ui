@@ -1,0 +1,68 @@
+<div class="my-wrapper">
+    <ng-container *ngFor="let ticket of tickets">
+        <div class="ticket">
+
+            <div class="h-block-1">
+                <div class="film-name">
+                    <p>{{ticket.filmName}}</p>
+                </div>
+                <div class="tech">
+                    <p>Technology: {{ticket.tech}}</p>
+                </div>
+                <div class="date-time">
+                    <div>
+                        <p>Time: {{ticket.sessionTime}}</p>
+                    </div>
+                    <div>
+                        <p>Date: {{ticket.sessionDate}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="h-block-2">
+                <div class="hall-name">
+                    {{ticket.hallName}} hall
+                </div>
+                <div class="seat">
+                    <div class="seat-block">
+                        <p>Row</p>
+                        <br>
+                        <p style="font-weight: 500; font-size: 25px">{{ticket.seatRow}}</p>
+                    </div>
+                    <div class="seat-block">
+                        <p>Seat</p>
+                        <br>
+                        <p style="font-weight: 500; font-size: 25px">{{ticket.seatNumber}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="h-block-3">
+                <div class="ticket-price">
+                    <p>Price :  {{ticket.price}} UAH</p>
+                </div>
+                <div class="barcode-pic">
+                    <!-- <p>Here will be a picture</p> -->
+                    <ngx-barcode 
+                    [bc-value]="ticket.barcode" 
+                    [bc-display-value]="false" 
+                    [bc-width]="0.8"
+                    [bc-height]="45"
+                    [bc-margin]="0"
+                    ></ngx-barcode>
+                </div>
+                <div class="ticket-barcode">
+                    <p>{{ticket.barcode}}</p>
+                </div>
+            </div>
+
+            <div class="h-block-4">
+                <button class="ticket-button" mat-button (click)="edit(ticket)">Edit</button>
+                <button class="ticket-button" mat-button (click)="delete(ticket)">Delete</button>
+            </div>
+
+        </div>
+    </ng-container>
+
+
+</div>

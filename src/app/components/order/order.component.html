@@ -1,0 +1,9 @@
+<mat-selection-list>
+  <mat-list-item *ngFor="let order of orders">
+      <h3 mat-line>
+        {{order.id}}
+        <br> {{order.price}}
+        <a mat-button href="/orders/{{order.id}}">Order details</a>
+      </h3>
+  </mat-list-item>
+</mat-selection-list>
