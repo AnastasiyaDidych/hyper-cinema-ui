@@ -1,0 +1,14 @@
+<h1>Movie create</h1>
+<form>
+  <input type="text" [(ngModel)] = "movie.title" placeholder="title" name = "title" >
+  <input type="text" [(ngModel)] = "movie.description" placeholder="description" name = "description">
+  <input type="number" [(ngModel)] = "movie.duration" placeholder="duration" name = "duration" min="0">
+  <input type="text" [(ngModel)] = "movie.genre" placeholder="genre" name = "genre">
+  start rent
+  <input type="date"[(ngModel)] = "movie.startRent"  class = "datepicker" name = "startRent">
+  end rent
+  <input type="date" [(ngModel)] = "movie.endRent" class = "datepicker" name = "endRent">
+  <input type="number" [(ngModel)] = "movie.ageRating" name="ageRating" min="0" placeholder="age rating">
+  <input type="number" [(ngModel)] = "movie.price" name="price" min="0" placeholder="price">
+  <input type="button"  value="save" (click) = "saveMovie()" >
+</form>
