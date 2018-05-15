@@ -10,7 +10,7 @@ import {TokenStorage} from '../core/token.storage';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
+ 
   constructor(private router: Router, public dialog: MatDialog, private authService: AuthService, private token: TokenStorage) {
   }
 
