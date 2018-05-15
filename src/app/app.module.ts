@@ -1,8 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
+
+import { HallComponent } from './hall/hallcom/hall.component';
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
+
 
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { RouterModule, Routes } from '@angular/router';
