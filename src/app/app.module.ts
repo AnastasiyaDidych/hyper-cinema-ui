@@ -7,7 +7,8 @@ import { HallComponent } from './hall/hallcom/hall.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HallComponent
   ],
   imports: [
     BrowserModule
