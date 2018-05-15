@@ -1,0 +1,33 @@
+<mat-card>
+  <form>
+      <mat-card-content>
+         <mat-form-field>
+          <input matInput type="date" class = "datepicker" [(ngModel)]="session.date" placeholder="date" name="date" id="date" >
+        
+        </mat-form-field>
+
+            <mat-form-field>
+             <input matInput type="number" [(ngModel)]="session.hallId" placeholder="hallId" name="hallId" id="hallId">
+           </mat-form-field>
+
+              <mat-form-field>
+               <input matInput type="number" [(ngModel)]="session.movieId" placeholder="movieId" name="movieId" id="movieId">
+             </mat-form-field>
+
+                <mat-form-field>
+                 <input matInput type="time" [(ngModel)]="session.startTime" placeholder="startTime" name="startTime" id="startTime">
+               </mat-form-field>
+
+               <input type="radio" name="virtualActive"  [(ngModel)]="session.virtualActive" [value]=true>True
+               <input type="radio" name="virtualActive" [(ngModel)]="session.virtualActive" [value]=false>False
+                
+              </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="createSession()">Create</button>
+    <button mat-raised-button color="primary" (click)="gotoList()">Back</button>
+  </mat-card-actions>
+  
+</form>
+
+</mat-card>
