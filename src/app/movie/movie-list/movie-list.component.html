@@ -1,0 +1,17 @@
+
+<mat-card>
+ <h1>Movie list</h1>
+  <mat-card-content>
+      <input type="button" value="Create" [routerLink] = "['/movie-create']">
+    <mat-list>
+        <input type = "text" [(ngModel)]="searchText" placeholder="search text goes here">
+      <mat-list-item *ngFor="let movie of movies | filter : searchText">
+
+<h3 mat-line>{{movie?.title}}</h3>
+
+<input type="button" value="Edit" [routerLink] = "['/movie-create/' + movie.id]">
+<input type="button" value="Delete" (click) = "deleteMovie(movie.id)" [routerLink] = "['/movies']">
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

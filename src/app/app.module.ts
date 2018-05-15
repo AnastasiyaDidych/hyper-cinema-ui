@@ -18,11 +18,13 @@ import { LoginComponent } from './sessions/login/login.component';
 import { ErrorDialogComponent } from './sessions/core/error-dialog.component';
 import { SearchPipe } from './sessions/session-list/search.pipe';
 import { FilterPipe } from './sessions/session-list/filter.pipe';
+import { FilterPipe } from './movie/filter/filter.pipe';
 import { UniquePipe } from './sessions/session-list/unique.pipe';
 import { ASD } from './sessions/session-list/asd.pipe';
 import { CustomMaterialModule } from './sessions/core/material.module';
 import { AppRoutingModule } from './sessions/core/app.routing.module';
 import { AuthService } from './sessions/core/auth.service';
+import { AuthService } from './movie/login/login.service';
 import { SessionService } from './sessions/shared/session.service';
 import { TokenStorage } from './sessions/core/token.storage';
 import { Interceptor } from './sessions/core/inteceptor';
@@ -30,6 +32,9 @@ import { HallComponent } from './hall/hall.component';
 import { TicketModule } from './ticket/ticket.module';
 import { OrderModule } from './order/order.module';
 import { OrderDetailsModule } from './order/order-details/order-details.module';
+import { MovieListComponent } from './movie/movie-list/movie-list.component';
+import { MovieCreateComponent } from './movie/movie-create/movie-create.component';
+import { MovieService } from './movie/services/movie.service';
 
 import {
   MatButtonModule,
@@ -39,6 +44,7 @@ import {
   MatToolbarModule,
   MatTableModule
 } from '@angular/material';
+
 
 
 
@@ -66,6 +72,11 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+
+    MovieListComponent,
+    MovieCreateComponent,
+    LoginComponent,
+    FilterPipe
     LoginComponent,
     ErrorDialogComponent,
     SessionListComponent,
@@ -75,10 +86,12 @@ const appRoutes: Routes = [
     FilterPipe,
     UniquePipe,
     ASD
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+
     CustomMaterialModule,
     AppRoutingModule,
     HallComponent,
@@ -87,6 +100,7 @@ const appRoutes: Routes = [
     OrderDetailsModule,
 
     // Angular material Modules
+
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
@@ -103,10 +117,10 @@ const appRoutes: Routes = [
   
   providers: [
     ErrorDialogComponent, 
+    MovieService,
     AuthService,
     SessionService,
     TokenStorage, 
-    TokenStorage,
     DatePipe,
     {provide: HTTP_INTERCEPTORS,
     useClass: Interceptor,
@@ -123,8 +137,6 @@ exports: [
   MatToolbarModule,
   MatTableModule
 ],
-
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
