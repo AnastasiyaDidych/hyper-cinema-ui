@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { HallComponent } from './hall/hall.component';
+import { HallComponent } from './hall/hallcomp/hall.component';
 
 @NgModule({
   declarations: [
