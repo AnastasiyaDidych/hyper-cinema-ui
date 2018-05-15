@@ -1,13 +1,35 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
-
 import { AppComponent } from './app.component';
 
 import { HallComponent } from './hall/hallcom/hall.component';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {FormsModule} from '@angular/forms';
+
+
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import { RouterModule, Routes } from '@angular/router';
+import { DatePipe } from '@angular/common';
+import { SessionListComponent } from './sessions/session-list/session-list.component';
+import { DisplaySessionComponent } from './sessions/display-session/display-session.component';
+import { SessionEditComponent } from './sessions/session-edit/session-edit.component';
+import { LoginComponent } from './sessions/login/login.component';
+import { ErrorDialogComponent } from './sessions/core/error-dialog.component';
+import { SearchPipe } from './sessions/session-list/search.pipe';
+import { FilterPipe } from './sessions/session-list/filter.pipe';
+import { UniquePipe } from './sessions/session-list/unique.pipe';
+import { ASD } from './sessions/session-list/asd.pipe';
+import { CustomMaterialModule } from './sessions/core/material.module';
+import { AppRoutingModule } from './sessions/core/app.routing.module';
+import { AuthService } from './sessions/core/auth.service';
+import { SessionService } from './sessions/shared/session.service';
+import { TokenStorage } from './sessions/core/token.storage';
+import { Interceptor } from './sessions/core/inteceptor';
+import { HallComponent } from './hall/hall.component';
 import { TicketModule } from './ticket/ticket.module';
 import { OrderModule } from './order/order.module';
+import { OrderDetailsModule } from './order/order-details/order-details.module';
 
 import {
   MatButtonModule,
@@ -17,19 +39,49 @@ import {
   MatToolbarModule,
   MatTableModule
 } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { OrderDetailsModule } from './order/order-details/order-details.module';
+
+
+
+const appRoutes: Routes = [
+  { path: '', redirectTo: '/session-list', pathMatch: 'full' },
+  {
+    path: 'session-list',
+    component: SessionListComponent
+  },
+  {
+    path: 'session-add',
+    component: SessionListComponent
+  },
+  {
+    path: 'display-session/:id',
+    component: DisplaySessionComponent
+  },
+  {
+    path: 'session-delete',
+    component: SessionEditComponent
+  }
+];
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HallComponent
+    LoginComponent,
+    ErrorDialogComponent,
+    SessionListComponent,
+    SessionEditComponent,
+    DisplaySessionComponent,
+    SearchPipe,
+    FilterPipe,
+    UniquePipe,
+    ASD
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    CustomMaterialModule,
     AppRoutingModule,
-
+    HallComponent,
     TicketModule,
     OrderModule,
     OrderDetailsModule,
@@ -41,8 +93,26 @@ import { OrderDetailsModule } from './order/order-details/order-details.module';
     MatInputModule,
     MatListModule,
     MatToolbarModule,
-    MatTableModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
+  
+  entryComponents: [
+    ErrorDialogComponent
+  ],
+  
+  providers: [
+    ErrorDialogComponent, 
+    AuthService,
+    SessionService,
+    TokenStorage, 
+    TokenStorage,
+    DatePipe,
+    {provide: HTTP_INTERCEPTORS,
+    useClass: Interceptor,
+    multi : true}
+  ],
+
 exports: [
   // Angular material Modules
   BrowserAnimationsModule,
