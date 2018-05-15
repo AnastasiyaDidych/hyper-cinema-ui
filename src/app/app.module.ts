@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { HallComponent } from './hall/hallcomp/hall.component';
+import { HallComponent } from './hall/hall.component';
 
 import { TicketModule } from './ticket/ticket.module';
 import { OrderModule } from './order/order.module';
