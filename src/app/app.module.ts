@@ -5,7 +5,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule} from '@angular/forms';
 
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { SessionListComponent } from './sessions/session-list/session-list.component';
@@ -23,6 +22,19 @@ import { AuthService } from './sessions/core/auth.service';
 import { SessionService } from './sessions/shared/session.service';
 import { TokenStorage } from './sessions/core/token.storage';
 import { Interceptor } from './sessions/core/inteceptor';
+import { HallComponent } from './hall/hall.component';
+import { TicketModule } from './ticket/ticket.module';
+import { OrderModule } from './order/order.module';
+import { OrderDetailsModule } from './order/order-details/order-details.module';
+
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatInputModule,
+  MatListModule,
+  MatToolbarModule,
+  MatTableModule
+} from '@angular/material';
 
 
 
@@ -47,8 +59,6 @@ const appRoutes: Routes = [
 ];
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,10 +75,15 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
-    BrowserAnimationsModule,
     CustomMaterialModule,
-    FormsModule,
     AppRoutingModule,
+    HallComponent,
+    TicketModule,
+    OrderModule,
+    OrderDetailsModule,
+
+    // Angular material Modules
+    BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
     MatInputModule,
@@ -77,12 +92,35 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  entryComponents: [ErrorDialogComponent],
-  providers: [ErrorDialogComponent, AuthService,SessionService,TokenStorage, TokenStorage,DatePipe,
+  
+  entryComponents: [
+    ErrorDialogComponent
+  ],
+  
+  providers: [
+    ErrorDialogComponent, 
+    AuthService,
+    SessionService,
+    TokenStorage, 
+    TokenStorage,
+    DatePipe,
     {provide: HTTP_INTERCEPTORS,
     useClass: Interceptor,
     multi : true}
   ],
+
+exports: [
+  // Angular material Modules
+  BrowserAnimationsModule,
+  MatButtonModule,
+  MatCardModule,
+  MatInputModule,
+  MatListModule,
+  MatToolbarModule,
+  MatTableModule
+],
+
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
