@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { MovieListComponent } from './movie/movie-list/movie-list.component';
 import { TicketComponent } from './ticket/ticket.component';
 import { OrderComponent } from './order/order.component';
+import { HallComponent } from './hall/hallcom/hall.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'sessions', component: SessionListComponent },
   { path: 'session-add', component: SessionEditComponent },
   { path: 'session-edit', component: SessionListComponent },
-  { path: 'display-session', component: DisplaySessionComponent }
+  { path: 'display-session', component: DisplaySessionComponent },
+  { path: 'halls', component: HallComponent}
 ];
 
 @NgModule({
