@@ -1,0 +1,44 @@
+<mat-card class="login-card">
+  <mat-card-title>Login</mat-card-title>
+  <mat-card-content>
+    <form class="full-width" [formGroup]="loginForm" (ngSubmit)="login()">
+      <table class="full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field>
+              <input matInput placeholder="Email" formControlName="email" required>
+              <mat-error *ngIf="!loginForm.get('email').hasError('required') && loginForm.get('email').hasError('email')">
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="loginForm.get('email').hasError('required')">
+                Email is required
+              </mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field>
+              <input matInput placeholder="Password" formControlName="password" type="password" required>
+              <mat-error *ngIf="loginForm.get('password').hasError('required')">
+                Password is required
+              </mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <div class="form-actions">
+        <div fxLayout="row" fxLayoutAlign="space-between">
+          <button mat-raised-button type="submit" color="primary" [disabled]="loginForm.invalid">Login</button>
+          <div [style.display]="isSpinnerVisible ? 'flex' : 'none'">
+            <div>Logging...</div>
+            <mat-spinner diameter="36"></mat-spinner>
+          </div>
+        </div>
+      </div>
+    </form>
+    <p *ngIf="errorMessage" class="login-error">
+      {{ errorMessage }}
+    </p>
+  </mat-card-content>
+</mat-card>

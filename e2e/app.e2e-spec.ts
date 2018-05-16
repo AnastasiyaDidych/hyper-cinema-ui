@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('hyper-cinema App', () => {
+describe('hypercinema-ui App', () => {
   let page: AppPage;
 
   beforeEach(() => {
