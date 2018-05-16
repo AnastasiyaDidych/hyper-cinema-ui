@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 const hostUrl = '//localhost:1305/halls';
 @Injectable()
-export class HttpService {
+export class HallService {
 
   constructor(private http: HttpClient) {
   }

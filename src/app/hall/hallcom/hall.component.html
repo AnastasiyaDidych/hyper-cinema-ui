@@ -1,39 +1,38 @@
 <div>
-  {{hall.type}}
-  <br> {{hall.capacity}}
-</div>
 
-<div *ngFor="let seat of hall.seats" style="display: inline;">
-  {{seat.row}}
-  <div *ngIf="seat.number == 10">
-    <br>
+  <div class="divPossition" style="width: 30%; height: 100%;">
+    <mat-card>
+      <mat-card-title>Selected Seats</mat-card-title>
+      <div class="cleanPossition" *ngIf = "selectedSeats.length > 0">
+        <button mat-raised-button (click) = "throwSelectedSeatsToOrder()">Pay order</button>  
+        <button mat-raised-button (click) = "cleanSelect()">Clean list</button>
+      </div>
+      <br>
+      <mat-card-content class="demo-basic-list" *ngFor="let seat of selectedSeats, let i = index">
+        <span>
+          number: {{seat.number}} row: {{seat.row}} type: {{seat.type}} price: 100;
+        </span>
+      </mat-card-content>
+    </mat-card>
+    
+  </div>
+
+
+
+  <div class="divPossition" style="width: 70%">
+    <mat-card>
+      <mat-card-title>Hall</mat-card-title>
+      <mat-card-content class="demo-basic-list">
+        <mat-grid-list cols="10">
+          <mat-grid-tile *ngFor="let seat of seats" (click)="seatClick(seat)" 
+                  [ngSwitch]="getStatus(seat, session)">
+            <span *ngSwitchCase="'selected'" class="selectedSeat">{{seat.number}}</span>
+            <span *ngSwitchCase="'bought'" class="boughtSeat">{{seat.number}}</span>
+            <span *ngSwitchDefault class="freeSeat">{{seat.number}}</span>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card-content>
+    </mat-card>
   </div>
 
 </div>
-
-<!-- 
-<div *ngFor="let row of rows">
-    <span class="seat" *ngFor="let col of cols" (click)="seatClicked(row + col)" 
-            [ngSwitch]="getStatus(row + col)">
-    </span>
-</div>
-
-
-<mat-card>
-    <mat-card-title>Basic grid list</mat-card-title>
-    <mat-card-content class="demo-basic-list">
-      <mat-grid-list cols="4" [rowHeight]="basicRowHeight">
-        <mat-grid-tile> One </mat-grid-tile>
-        <mat-grid-tile> Two </mat-grid-tile>
-        <mat-grid-tile> Three </mat-grid-tile>
-        <mat-grid-tile> Four </mat-grid-tile>
-        <mat-grid-tile> Five </mat-grid-tile>
-        <mat-grid-tile> Six </mat-grid-tile>
-        <mat-grid-tile> Seven </mat-grid-tile>
-        <mat-grid-tile> Eight </mat-grid-tile>
-        <mat-grid-tile> Nine </mat-grid-tile>
-        <mat-grid-tile> Ten </mat-grid-tile>
-      </mat-grid-list>
-    </mat-card-content>
-  </mat-card> -->
-

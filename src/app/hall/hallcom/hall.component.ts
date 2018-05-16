@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from './http.service'
+import { HallService } from '../hall.service'
 import { Observable } from 'rxjs/Observable';
+import { Hall } from '../hall.model';
+import { Seat } from '../seat.model';
 
 @Component({
   selector: 'app-hall',
@@ -8,42 +10,75 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./hall.component.css']
 })
 export class HallComponent implements OnInit {
-  collumns: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  rows: number[] = [1,2,3];
+
   halls: Array<Hall> = [];
   hall: Hall = Object();
-  constructor(private httpService: HttpService) { }
+  seats: Array<Seat> = [];
+
+  selectedSeats: Seat[] = [];
+  boughtSeats: Seat[] = [];
+  constructor(private hallService: HallService) { }
 
   ngOnInit() {
     this.getHall();
-    // this.getHalls();
+    this.fillBoughtSeats();
   }
 
   public getHalls() {
-    this.httpService.getAll().subscribe(data => {
+    this.hallService.getAll().subscribe(data => {
       this.halls = data;
-
     });
   }
 
   public getHall() {
-    this.httpService.getOne('6').subscribe(data => {
+    this.hallService.getOne('6').subscribe(data => {
       this.hall = data;
+      for (var i = 1; i < this.hall.seats.length; i++) {
+        this.seats.push(this.hall.seats[i])
+      }
     });
+  }
+
+  public seatClick(seat: Seat) {
+    console.log(seat.number + ", " + seat.row + " start of seatClick");
+    var index = this.selectedSeats.indexOf(seat);
+    if (index !== -1) {
+      this.selectedSeats.splice(index, 1);
+      console.log("removing from selectedSeats array")
+    } else {
+      this.selectedSeats.push(seat);
+      console.log("pushing to selectedSeats array")
+    }
+    console.log("end of seatClick")
+  }
+
+  public cleanSelect() {
+    console.log("start of clean")
+    this.selectedSeats = [];
+    console.log("end of clean")
+  }
+
+
+  public getStatus(seat: Seat) {
+    // console.log("start of getStatus")
+    if (this.boughtSeats.indexOf(seat) !== -1) {
+      console.log("bought status")
+      return 'bought';
+    } else if (this.selectedSeats.indexOf(seat) !== -1) {
+      console.log("selected status")
+      return 'selected';
+
+    }
+    // console.log("end of getStatus")
+  }
+
+  public fillBoughtSeats(){
+
+  }
+
+  public throwSelectedSeatsToOrder() {
+    console.log("forwarded selectedSeats list to the order page")
   }
 }
 
 
-export class Hall {
-  name: string;
-  capacity: number;
-  type: string;
-  tech: string;
-  seats: Array<Seat>;
-}
-export class Seat {
-  id: number;
-  number: number;
-  row: number;
-  type: string
-}
