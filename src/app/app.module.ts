@@ -9,7 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { LoginComponent } from './login/login.component';
-import { HallComponent } from './hall/hallcom/hall.component';
 import { MovieListComponent } from './movie/movie-list/movie-list.component';
 import { MovieCreateComponent } from './movie/movie-create/movie-create.component';
 import { SessionListComponent } from './sessions/session-list/session-list.component';
@@ -32,6 +31,7 @@ import { Interceptor } from './sessions/core/inteceptor';
 import { TicketModule } from './ticket/ticket.module';
 import { OrderModule } from './order/order.module';
 import { OrderDetailsModule } from './order/order-details/order-details.module';
+import { HallModule } from './hall/hall.module';
 import { MovieService } from './movie/services/movie.service';
 
 import { MaterialModule } from './material.module';
@@ -51,8 +51,8 @@ import { MaterialModule } from './material.module';
     SearchPipe,
     FilterPipe,
     UniquePipe,
-    ASD,
-    HallComponent
+    ASD
+
   ],
   imports: [
     BrowserModule,
@@ -61,6 +61,7 @@ import { MaterialModule } from './material.module';
     TicketModule,
     OrderModule,
     OrderDetailsModule,
+    HallModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
