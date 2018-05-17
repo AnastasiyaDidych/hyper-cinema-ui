@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { TicketService } from './ticket.servise';
+import { TicketService } from '../ticket.servise';
+import { Ticket } from '../ticket.model';
 
 @Component({
-    selector: 'app-ticket',
-    templateUrl: './ticket.component.html',
-    styleUrls: ['./ticket.component.css']
+    selector: 'app-ticket-list',
+    templateUrl: './ticket-list.component.html',
+    styleUrls: ['./ticket-list.component.css']
 })
-export class TicketComponent implements OnInit {
+export class TicketListComponent implements OnInit {
 
     tickets: Ticket[] = [];
 
@@ -26,7 +27,7 @@ export class TicketComponent implements OnInit {
                 (error) => {
                     console.log(error);
                 });
-    };
+    }
 
     delete(ticket: Ticket): void {
         if (window.confirm('Delete ticket?')) {
@@ -37,21 +38,14 @@ export class TicketComponent implements OnInit {
                 });
         }
     }
+
+    select(id: number): void {
+        console.log('button select was clicked:' + id);
+        this.router.navigateByUrl('/tickets/'+ id);
+        // this.ticketService.selectTicket(id).subscribe();
+    }
 }
 
 
 
-export class Ticket {
 
-    id: number;
-    filmName: string;
-    tech: string;
-    sessionDate: number;
-    sessionTime: number;
-    seatRow: number;
-    seatNumber: number;
-    hallName: string;
-    price: number;
-    barcode: string;
-
-}

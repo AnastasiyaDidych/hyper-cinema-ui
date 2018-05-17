@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Hall } from '../hall.model';
 import { Seat } from '../seat.model';
 import { DisplaySessionComponent } from '../../sessions/display-session/display-session.component';
-import { Ticket } from '../../ticket/ticket.component';
+import { Ticket } from '../../ticket/ticket.model';
 
 const seatArrayInStorage = "storedSeats";
 

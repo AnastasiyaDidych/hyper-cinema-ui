@@ -1,50 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-
-import {
-    MatButtonModule,
-    MatCardModule,
-    MatInputModule,
-    MatListModule,
-    MatToolbarModule,
-    MatTableModule
-} from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { NgxBarcodeModule } from 'ngx-barcode';
-
-import { TicketComponent } from './ticket.component';
 import { TicketService } from './ticket.servise';
-import { BrowserModule } from '@angular/platform-browser';
+import { TicketListComponent } from './ticket-list/ticket-list.component';
+import { TicketListModule } from './ticket-list/ticket-list.module';
+import { SingleTicketModule } from './single-ticket/single-ticket.module';
+import { SingleTicketComponent } from './single-ticket/single-ticket.component';
 
 @NgModule({
     declarations: [
-        TicketComponent
     ],
-    imports: [
-        HttpClientModule,
+    imports: [ 
         CommonModule,
-        BrowserModule,
-        
-        NgxBarcodeModule,
-
-        // Angular material Modules
-        BrowserAnimationsModule,
-        MatButtonModule,
-        MatCardModule,
-        MatInputModule,
-        MatListModule,
-        MatToolbarModule,
-        MatTableModule
+        TicketListModule,
+        SingleTicketModule
     ],
     exports: [
-        TicketComponent
+        TicketListComponent,
+        SingleTicketComponent
     ],
     providers: [
         TicketService
     ],
 })
-export class TicketModule {
-
-}
+export class TicketModule {}

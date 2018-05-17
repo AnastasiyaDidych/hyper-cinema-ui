@@ -33,7 +33,6 @@ import { OrderModule } from './order/order.module';
 import { OrderDetailsModule } from './order/order-details/order-details.module';
 import { HallModule } from './hall/hall.module';
 import { MovieService } from './movie/services/movie.service';
-
 import { MaterialModule } from './material.module';
 
 
@@ -51,7 +50,7 @@ import { MaterialModule } from './material.module';
     SearchPipe,
     FilterPipe,
     UniquePipe,
-    ASD
+    ASD,
 
   ],
   imports: [

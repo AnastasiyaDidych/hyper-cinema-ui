@@ -1,0 +1,16 @@
+.ticket-card {
+    max-width: 600px;
+}
+
+.ticket-column {
+    background-color: aquamarine;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+
+} 
+
+.ticket-row {
+    background-color: blueviolet;
+    flex: 0 1 auto;
+}

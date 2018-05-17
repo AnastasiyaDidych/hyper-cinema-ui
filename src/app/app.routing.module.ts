@@ -5,8 +5,10 @@ import { SessionEditComponent } from './sessions/session-edit/session-edit.compo
 import { DisplaySessionComponent } from './sessions/display-session/display-session.component';
 import { LoginComponent } from './login/login.component';
 import { MovieListComponent } from './movie/movie-list/movie-list.component';
-import { TicketComponent } from './ticket/ticket.component';
+import { TicketListComponent } from './ticket/ticket-list/ticket-list.component';
 import { OrderComponent } from './order/order.component';
+import { OrderDetailsComponent } from './order/order-details/order-details.component';
+import { SingleTicketComponent } from './ticket/single-ticket/single-ticket.component';
 import { HallComponent } from './hall/hallcom/hall.component';
 
 const routes: Routes = [
@@ -14,7 +16,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'movies', component: MovieListComponent },
   { path: 'orders', component: OrderComponent },
-  { path: 'tickets', component: TicketComponent },
+  { path: 'orders/:id', component: OrderDetailsComponent},
+  { path: 'tickets', component: TicketListComponent },
+  { path: 'tickets/:id', component: SingleTicketComponent},
   { path: 'sessions', component: SessionListComponent },
   { path: 'session-add', component: SessionEditComponent },
   { path: 'session-edit', component: SessionListComponent },

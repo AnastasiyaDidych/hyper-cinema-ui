@@ -1,4 +1,4 @@
-import { Ticket } from "../../ticket/ticket.component";
+import { Ticket } from '../../ticket/ticket.model';
 
 export class Session {
   id : number;
