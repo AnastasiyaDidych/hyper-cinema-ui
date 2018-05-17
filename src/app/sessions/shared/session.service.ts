@@ -15,6 +15,10 @@ export class SessionService {
     return this.http.get(this.API);
   }
 
+  getSchedule(): Observable<any> { 
+    return this.http.get(this.API+"/schedule");
+  }
+
   get(id: number):Observable<any> {
     return this.http.get(this.API + '/'+id);
   }
