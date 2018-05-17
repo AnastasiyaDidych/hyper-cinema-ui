@@ -52,7 +52,7 @@ import { MaterialModule } from './material.module';
     FilterPipe,
     UniquePipe,
     ASD,
-    HallComponent
+    HallComponent,
   ],
   imports: [
     BrowserModule,
