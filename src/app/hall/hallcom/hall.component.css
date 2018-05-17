@@ -15,7 +15,8 @@
     justify-content: flex-end;    
 }
 
-.backColor{
-    background-color: #3b3b38
+.seatSize{
+    width: 2px;
+    height: 2px;
 }
 

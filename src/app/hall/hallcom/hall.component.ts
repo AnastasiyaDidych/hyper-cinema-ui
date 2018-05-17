@@ -3,31 +3,41 @@ import { HallService } from '../hall.service'
 import { Observable } from 'rxjs/Observable';
 import { Hall } from '../hall.model';
 import { Seat } from '../seat.model';
+import { DisplaySessionComponent } from '../../sessions/display-session/display-session.component';
+import { Ticket } from '../../ticket/ticket.component';
+
+const seatArrayInStorage = "storedSeats";
 
 @Component({
   selector: 'app-hall',
   templateUrl: './hall.component.html',
   styleUrls: ['./hall.component.css']
 })
+
+
 export class HallComponent implements OnInit {
 
   halls: Array<Hall> = [];
   hall: Hall = Object();
   seats: Array<Seat> = [];
+  tickets: Array<Ticket> = [];
 
   selectedSeats: Seat[] = [];
   boughtSeats: Seat[] = [];
+  // ???
+
   constructor(private hallService: HallService) { }
 
   ngOnInit() {
     this.getHall('6');
-    this.fillBoughtSeats();
+    // ???
+    // this.fillBoughtSeats(this.session);
   }
 
+  // ???
+  // public fillBoughtSeats(session: DisplaySessionComponent) {
 
-  public fillBoughtSeats() {
-
-  }
+  // }
 
 
   public getHalls() {
@@ -64,10 +74,8 @@ export class HallComponent implements OnInit {
 
   public getStatus(seat: Seat) {
     if (this.boughtSeats.indexOf(seat) !== -1) {
-      console.log("bought status")
       return 'bought';
     } else if (this.selectedSeats.indexOf(seat) !== -1) {
-      console.log("selected status")
       return 'selected';
     }
   }
@@ -78,11 +86,34 @@ export class HallComponent implements OnInit {
     this.selectedSeats.splice(index, 1);
   }
 
+  storedSeats: Array<Seat> = [];
+  notCleanedSeats: Array<Seat> = [];
 
   public throwSelectedSeatsToOrder() {
-    console.log("forwarded selectedSeats list to the order page")
 
+    //0. check if there is some data in LocalStorage
+    console.log("forwarded selectedSeats list to the order page");
+    this.notCleanedSeats.push(JSON.parse(localStorage.getItem(seatArrayInStorage)));
+    console.log("X");
+    console.log(this.notCleanedSeats);
+
+    //1. set seat array to LocalStorage
+    localStorage.setItem(seatArrayInStorage, JSON.stringify(this.selectedSeats));
+    console.log("seats send to the local storage");
+
+    //2. get seat array from LocalStorage
+    this.storedSeats.push(JSON.parse(localStorage.getItem(seatArrayInStorage)));
+    console.log("Y");
+    console.log(this.storedSeats);
+    console.log("seats taken from the local storage");
+
+    //3. remove seat array from LocalStorage
+    console.log("start removing");
+    localStorage.removeItem(seatArrayInStorage);
+    console.log("end removing");
   }
+
+
 }
 
 
