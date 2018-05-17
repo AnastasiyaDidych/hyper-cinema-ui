@@ -7,10 +7,10 @@ import { Session } from "protractor";
 
 export class FilterPipe implements PipeTransform {
     
-    transform(sessions,value){
-        if(!value) return sessions;
-        return sessions.filter(session =>{
-            return session.date.includes(value)
+    transform(schedule,value){
+        if(!value) return schedule;
+        return schedule.filter(schedule =>{
+            return schedule.localDate.includes(value)
         })
     }
 
