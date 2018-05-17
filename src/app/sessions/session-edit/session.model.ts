@@ -1,3 +1,5 @@
+import { Ticket } from "../../ticket/ticket.component";
+
 export class Session {
   id : number;
   date: string;

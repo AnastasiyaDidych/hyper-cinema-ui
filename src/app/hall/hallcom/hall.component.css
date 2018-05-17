@@ -1,0 +1,22 @@
+.boughtSeat {
+    color: #be0909;
+}
+.selectedSeat {
+    color: #f0e110;
+}
+.freeSeat {
+    color: rgb(0, 0, 0);
+}
+.divPossition{
+    float: left;
+}
+.cleanPossition{
+    display: flex;
+    justify-content: flex-end;    
+}
+
+.seatSize{
+    width: 2px;
+    height: 2px;
+}
+
