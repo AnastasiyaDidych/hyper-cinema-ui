@@ -1,0 +1,14 @@
+Film: <input id="first_name" class="validate" [(ngModel)]="searchStr">
+<div>
+    <input type="radio" name="day" (click)="setToday()" checked="checked">Today
+    <input type="radio" name="day" (click)="setTomorow()">Tomorow
+    <input type="radio" name="day" (click)="setAll()">Whole Week
+  </div>
+<div *ngFor="let schedule_data of schedule |search:searchStr |filter:dateStr">
+  {{schedule_data.title}}
+  {{schedule_data.localDate}}
+    <div *ngFor="let sch of schedule_data.sessionEntityList">
+        <a [routerLink]="['/display-session',sch.id]">{{sch.localTime}}</a>
+    </div>
+</div>
+

@@ -22,21 +22,15 @@ export class SessionListComponent implements OnInit {
   public now: Date = new Date();
   tomorow : Date;
   titles: Array<any>; 
+  schedule: Array<Schedule>=[];
   constructor(private sessionService: SessionService, private router: Router, private datePipe: DatePipe) { }
 
   ngOnInit() {
     
-    // this.sessionService.getAll().subscribe(data  => {
-    //   this.sessions = data;
-    // });
-    this.sessionService.getAll().subscribe(data  => {
-      this.sessions = data;
-    });
-    // this.titles=this.sessions;
-    // const curr = this.sessions.map(data => data.metadata.title);
-    this.setToday();
-
-    // this.titles=curr.filter((x, i, a) => x && a.indexOf(x) === i);
+   this.setToday();
+    this.sessionService.getSchedule().subscribe(data  => {
+        this.schedule = data;
+       });
   }
   public setAll(){
     this.dateStr = "";
@@ -57,8 +51,16 @@ export class SessionListComponent implements OnInit {
       .subscribe(data => {
         this.sessions = this.sessions.filter(s => s !== session);
       })
-  }
-  
+  } 
+}
+export class Schedule{
+  title:string;
+  localDate:string;
+  sessionEntityList:Array<Ses>;
+}
+export class Ses{
+  id : number;
+  localTime:string;
 }
 
 

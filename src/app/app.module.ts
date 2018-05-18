@@ -8,38 +8,37 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { LoginComponent } from './login/login.component';
-import { MovieListComponent } from './movie/movie-list/movie-list.component';
-import { MovieCreateComponent } from './movie/movie-create/movie-create.component';
-import { SessionListComponent } from './sessions/session-list/session-list.component';
-import { DisplaySessionComponent } from './sessions/display-session/display-session.component';
-import { SessionEditComponent } from './sessions/session-edit/session-edit.component';
-import { ErrorDialogComponent } from './sessions/core/error-dialog.component';
+import { MovieListComponent } from './modules/movie/movie-list/movie-list.component';
+import { MovieCreateComponent } from './modules/movie/movie-create/movie-create.component';
+import { SessionListComponent } from './modules/sessions/session-list/session-list.component';
+import { DisplaySessionComponent } from './modules/sessions/display-session/display-session.component';
+import { SessionEditComponent } from './modules/sessions/session-edit/session-edit.component';
+import { ErrorDialogComponent } from './modules/sessions/core/error-dialog.component';
 
 
-import { SearchPipe } from './sessions/session-list/search.pipe';
-import { FilterPipe } from './sessions/session-list/filter.pipe';
+import { SearchPipe } from './modules/sessions/session-list/search.pipe';
+import { FilterPipe } from './modules/sessions/session-list/filter.pipe';
 // import { FilterPipe } from './movie/filter/filter.pipe';
-import { UniquePipe } from './sessions/session-list/unique.pipe';
-import { ASD } from './sessions/session-list/asd.pipe';
+import { UniquePipe } from './modules/sessions/session-list/unique.pipe';
+import { ASD } from './modules/sessions/session-list/asd.pipe';
 import { AppRoutingModule } from './app.routing.module';
-import { AuthService } from './sessions/core/auth.service';
 // import { AuthService } from './movie/login/login.service';
-import { SessionService } from './sessions/shared/session.service';
-import { TokenStorage } from './sessions/core/token.storage';
-import { Interceptor } from './sessions/core/inteceptor';
-import { TicketModule } from './ticket/ticket.module';
-import { OrderModule } from './order/order.module';
-import { OrderDetailsModule } from './order/order-details/order-details.module';
-import { HallModule } from './hall/hall.module';
-import { MovieService } from './movie/services/movie.service';
+import { SessionService } from './modules/sessions/shared/session.service';
+import { TicketModule } from './modules/ticket/ticket.module';
+import { OrderModule } from './modules/order/order.module';
+import { OrderDetailsModule } from './modules/order/order-details/order-details.module';
+import { HallModule } from './modules/hall/hall.module';
+import { MovieService } from './modules/movie/services/movie.service';
 import { MaterialModule } from './material.module';
+import { LoginModule } from './modules/login/login.module';
+import { AuthService } from './shared/auth/auth.service';
+import { TokenStorage } from './shared/auth/token.storage';
+import { Interceptor } from './shared/auth/inteceptor';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     MovieListComponent,
     MovieCreateComponent,
     FilterPipe,
@@ -58,6 +57,7 @@ import { MaterialModule } from './material.module';
     HttpClientModule,
     AppRoutingModule,
     TicketModule,
+    LoginModule,
     OrderModule,
     OrderDetailsModule,
     HallModule,
@@ -68,10 +68,10 @@ import { MaterialModule } from './material.module';
     MaterialModule
   ],
 
-  entryComponents: [
-    ErrorDialogComponent,
-    LoginComponent
-  ],
+  //entryComponents: [
+    //ErrorDialogComponent,
+   // LoginComponent
+  //],
 
   providers: [
     ErrorDialogComponent,
