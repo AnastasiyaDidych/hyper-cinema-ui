@@ -3,7 +3,7 @@ import { PipeTransform, Pipe } from "@angular/core";
 @Pipe({
     name: 'filter'
   })
-export class FilterPipe implements PipeTransform {
+export class MovieFilterPipe implements PipeTransform {
     transform(movies, value){
 
         if(!value)return movies;

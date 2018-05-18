@@ -38,7 +38,7 @@ export class MovieCreateComponent implements OnInit {
     console.log(this.movie);
     this.movieService.saveMovie(this.movie)
         .subscribe(params => {
-          alert("Movie added");
+          alert("Done");
           this.movieService.gotoList();
         });
   }
