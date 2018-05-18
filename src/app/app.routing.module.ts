@@ -10,20 +10,23 @@ import { OrderComponent } from './modules/order/order.component';
 import { OrderDetailsComponent } from './modules/order/order-details/order-details.component';
 import { SingleTicketComponent } from './modules/ticket/single-ticket/single-ticket.component';
 import { HallComponent } from './modules/hall/hall.component';
+import { CartComponent } from './modules/cart/cart.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'movies', component: MovieListComponent },
   { path: 'orders', component: OrderComponent },
-  { path: 'orders/:id', component: OrderDetailsComponent},
+  { path: 'orders/:id', component: OrderDetailsComponent },
   { path: 'tickets', component: TicketListComponent },
-  { path: 'tickets/:id', component: SingleTicketComponent},
+  { path: 'tickets/:id', component: SingleTicketComponent },
   { path: 'sessions', component: SessionListComponent },
   { path: 'session-add', component: SessionEditComponent },
   { path: 'session-edit', component: SessionListComponent },
   { path: 'display-session/:id', component: DisplaySessionComponent },
-  { path: 'halls', component: HallComponent}
+  { path: 'halls', component: HallComponent },
+  { path: 'cart2', component: CartComponent }
+
 ];
 
 @NgModule({

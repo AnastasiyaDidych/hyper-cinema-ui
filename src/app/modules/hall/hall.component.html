@@ -2,9 +2,11 @@
   <div class="divPossition" style="width: 265px; height: 100%">
     About movie
     <div *ngIf="selectedSeats.length > 0">
-      <a routerLink="/cart">
+
+      <a routerLink="/cart2">
         <button mat-button (click)="throwSelectedSeatsToOrder()">Pay Order</button>
       </a>
+
       <button mat-button (click)="cleanSelect()">Clean list</button>
     </div>
     <br>

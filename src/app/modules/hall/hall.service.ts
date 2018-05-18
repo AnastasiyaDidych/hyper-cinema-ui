@@ -8,7 +8,6 @@ const hostUrl = '//localhost:1305/halls';
 @Injectable()
 export class HallService {
 
-  //, private session: DisplaySessionComponent
   constructor(private http: HttpClient) {
   }
 
@@ -17,7 +16,6 @@ export class HallService {
   }
 
   getOne(hall_id :number): Observable<any>{
-    //must me a this.session.hallId
       return this.http.get(hostUrl + '/' + hall_id);
   }
 }
