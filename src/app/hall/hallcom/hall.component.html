@@ -25,9 +25,9 @@
     <mat-card-content class="demo-basic-list">
       <mat-grid-list cols="10">
         <mat-grid-tile class="seatSize" *ngFor="let seat of seats" (click)="seatClick(seat)" [ngSwitch]="getStatus(seat, session)">
-          <span *ngSwitchCase="'selected'" class="selectedSeat">{{seat.number}}</span>
-          <span *ngSwitchCase="'bought'" class="boughtSeat">{{seat.number}}</span>
-          <span *ngSwitchDefault class="freeSeat">{{seat.number}}</span>
+          <span *ngSwitchCase="'selected'" class="selectedSeat"><mat-icon>done_outline</mat-icon></span>
+          <span *ngSwitchCase="'bought'" class="boughtSeat"><mat-icon>clear</mat-icon></span>
+          <span *ngSwitchDefault class="freeSeat"><mat-icon>crop_3_2</mat-icon></span>
         </mat-grid-tile>
       </mat-grid-list>
     </mat-card-content>

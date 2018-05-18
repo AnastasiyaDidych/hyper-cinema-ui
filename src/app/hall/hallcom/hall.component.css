@@ -2,10 +2,10 @@
     color: #be0909;
 }
 .selectedSeat {
-    color: #f0e110;
+    color: #09d11a;
 }
 .freeSeat {
-    color: rgb(0, 0, 0);
+    color: rgb(9, 6, 143);
 }
 .divPossition{
     float: left;
