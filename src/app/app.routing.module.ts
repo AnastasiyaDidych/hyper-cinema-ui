@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'sessions', component: SessionListComponent },
   { path: 'session-add', component: SessionEditComponent },
   { path: 'session-edit', component: SessionListComponent },
-  { path: 'display-session', component: DisplaySessionComponent },
+  { path: 'display-session/:id', component: DisplaySessionComponent },
   { path: 'halls', component: HallComponent}
 ];
 
