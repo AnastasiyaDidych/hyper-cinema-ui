@@ -6,15 +6,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { NgxBarcodeModule } from 'ngx-barcode';
 
-
 import { BrowserModule } from '@angular/platform-browser';
 import { TicketService } from '../ticket.servise';
 import { MaterialModule } from '../../../material.module';
 import { TicketListComponent } from './ticket-list.component';
+import { FormsModule } from '@angular/forms';
+import { FilmPipe } from './film-filter.pipe';
 
 @NgModule({
     declarations: [
-        TicketListComponent
+        TicketListComponent,
+        FilmPipe
     ],
     imports: [
         HttpClientModule,
@@ -22,12 +24,13 @@ import { TicketListComponent } from './ticket-list.component';
         BrowserModule,
         NgxBarcodeModule,
         MaterialModule,
+        FormsModule,
     ],
     exports: [
-        TicketListComponent
+        TicketListComponent,
     ],
     providers: [
-        TicketService
+        TicketService,
     ],
 })
 export class TicketListModule {
