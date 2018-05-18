@@ -6,7 +6,7 @@
         <tr>
           <td>
             <mat-form-field>
-              <input matInput placeholder="Email" formControlName="email" required>
+              <input matInput placeholder="Email" formControlName="email" [(ngModel)]="email" required>
               <mat-error *ngIf="!loginForm.get('email').hasError('required') && loginForm.get('email').hasError('email')">
                 Please enter a valid email address
               </mat-error>
@@ -19,7 +19,7 @@
         <tr>
           <td>
             <mat-form-field>
-              <input matInput placeholder="Password" formControlName="password" type="password" required>
+              <input matInput placeholder="Password" formControlName="password" type="password" [(ngModel)]="password" required>
               <mat-error *ngIf="loginForm.get('password').hasError('required')">
                 Password is required
               </mat-error>
@@ -36,9 +36,9 @@
           </div>
         </div>
       </div>
+      <div *ngIf="isLoginFailed" class="login-error">
+        Incorrect login or password
+      </div>
     </form>
-    <p *ngIf="errorMessage" class="login-error">
-      {{ errorMessage }}
-    </p>
   </mat-card-content>
 </mat-card>

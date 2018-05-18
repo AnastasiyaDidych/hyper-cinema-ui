@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { HallService } from '../hall.service'
+import { HallService } from './hall.service'
 import { Observable } from 'rxjs/Observable';
-import { Hall } from '../hall.model';
-import { Seat } from '../seat.model';
-import { DisplaySessionComponent } from '../../sessions/display-session/display-session.component';
-import { Ticket } from '../../ticket/ticket.model';
+import { Hall } from './model/hall.model';
+import { Seat } from './model/seat.model';
+import { DisplaySessionComponent } from '../sessions/display-session/display-session.component';
+import { Ticket } from '../ticket/ticket.model';
 
 const seatArrayInStorage = "storedSeats";
 

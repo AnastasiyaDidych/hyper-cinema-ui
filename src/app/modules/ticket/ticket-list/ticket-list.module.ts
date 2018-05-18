@@ -9,7 +9,7 @@ import { NgxBarcodeModule } from 'ngx-barcode';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { TicketService } from '../ticket.servise';
-import { MaterialModule } from '../../material.module';
+import { MaterialModule } from '../../../material.module';
 import { TicketListComponent } from './ticket-list.component';
 
 @NgModule({

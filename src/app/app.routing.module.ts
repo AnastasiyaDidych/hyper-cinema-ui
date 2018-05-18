@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SessionListComponent } from './sessions/session-list/session-list.component';
-import { SessionEditComponent } from './sessions/session-edit/session-edit.component';
-import { DisplaySessionComponent } from './sessions/display-session/display-session.component';
-import { LoginComponent } from './login/login.component';
-import { MovieListComponent } from './movie/movie-list/movie-list.component';
-import { TicketListComponent } from './ticket/ticket-list/ticket-list.component';
-import { OrderComponent } from './order/order.component';
-import { OrderDetailsComponent } from './order/order-details/order-details.component';
-import { SingleTicketComponent } from './ticket/single-ticket/single-ticket.component';
-import { HallComponent } from './hall/hallcom/hall.component';
+import { SessionListComponent } from './modules/sessions/session-list/session-list.component';
+import { SessionEditComponent } from './modules/sessions/session-edit/session-edit.component';
+import { DisplaySessionComponent } from './modules/sessions/display-session/display-session.component';
+import { LoginComponent } from './modules/login/login.component';
+import { MovieListComponent } from './modules/movie/movie-list/movie-list.component';
+import { TicketListComponent } from './modules/ticket/ticket-list/ticket-list.component';
+import { OrderComponent } from './modules/order/order.component';
+import { OrderDetailsComponent } from './modules/order/order-details/order-details.component';
+import { SingleTicketComponent } from './modules/ticket/single-ticket/single-ticket.component';
+import { HallComponent } from './modules/hall/hall.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },

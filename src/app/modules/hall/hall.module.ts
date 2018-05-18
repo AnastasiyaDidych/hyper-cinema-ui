@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule, MatTableModule, MatGridListModule, MatDialogModule, MatSidenavModule, MatIconModule, MatFormFieldModule, MatMenuModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { HallComponent } from './hallcom/hall.component';
+import { HallComponent } from './hall.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { HallService } from './hall.service';
 
@@ -16,7 +16,7 @@ import { HallService } from './hall.service';
         HttpClientModule,
         CommonModule,
         BrowserModule,
-    
+
 
         // Angular material Modules
         MatMenuModule,
@@ -27,7 +27,7 @@ import { HallService } from './hall.service';
         MatIconModule,
         MatSidenavModule,
         MatDialogModule,
-        
+
         MatListModule,
         BrowserAnimationsModule,
         MatButtonModule,
