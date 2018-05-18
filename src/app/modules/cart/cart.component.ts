@@ -69,4 +69,8 @@ export class CartComponent implements OnInit {
     localStorage.removeItem(seatArrayInStorage);
   }
 
+  public payOrder(){
+    
+  }
+
 }

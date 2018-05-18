@@ -7,16 +7,29 @@
 .freeSeat {
     color: rgb(9, 6, 143);
 }
-.divPossition{
-    float: left;
-}
-.cleanPossition{
-    display: flex;
-    justify-content: flex-end;    
-}
 
-.seatSize{
-    width: 2px;
-    height: 2px;
+.divPossition{
+    width: 600px;
+    float: right;
+    margin-left: 10px;
+
 }
+.order-cart {
+    max-width: 295px;
+    margin: auto;
+    width: 50%;
+    margin-top: 10px;
+    float: left;
+  }
+
+  .pay-button{
+      color: primary;
+    width: 100%;
+    display: flex;
+    justify-content: center;     
+  }
+
+  .widthOfHallPage{
+    min-width: 800px;
+  }
 
