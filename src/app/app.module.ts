@@ -53,7 +53,7 @@ import { CartComponent } from './modules/cart/cart.component';
     UniquePipe,
     MovieFilterPipe,
     ASD,
-    CartComponent,
+    CartComponent
 
   ],
   imports: [

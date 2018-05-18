@@ -6,7 +6,7 @@ import { Session } from '../sessions/session-edit/session.model';
 import { Hall } from '../hall/model/hall.model';
 import { sessionInStorage } from '../sessions/display-session/display-session.component';
 import { seatArrayInStorage } from '../hall/hall.component';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -26,23 +26,30 @@ export class CartComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getSessionFromStorage();
-    this.getSeatFromStorage();
-    this.getHallFromSession(this.session.hallId);
-    this.calculateOrderTotalPrice();
+    this.start();
   }
   ngOnDestroy(): void {
     this.cleanSeatArrayInStorage();
   }
 
+  public start() {
+    if (localStorage.getItem(sessionInStorage) !== null) {
+      this.getSessionFromStorage();
+      this.getSeatFromStorage();
+      this.getHallFromSession(this.session.hallId);
+      this.calculateOrderTotalPrice();
+    }else{
+      throw Error;
+    }
+  }
   public calculateOrderTotalPrice() {
-    this.seatsFromStorage.forEach(seat => {this.totalPrice = this.totalPrice + seat.price
+    this.seatsFromStorage.forEach(seat => {
+    this.totalPrice = this.totalPrice + seat.price
     });
     console.log(this.totalPrice);
   }
 
   public getSessionFromStorage() {
-    console.log("session from localStorage")
     this.session = JSON.parse(localStorage.getItem(sessionInStorage));
     console.log(this.session);
   }

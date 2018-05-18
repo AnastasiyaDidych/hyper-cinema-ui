@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HallComponent } from './hall.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { HallService } from './hall.service';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations: [
@@ -16,6 +17,7 @@ import { HallService } from './hall.service';
         HttpClientModule,
         CommonModule,
         BrowserModule,
+        RouterModule,
 
 
         // Angular material Modules
