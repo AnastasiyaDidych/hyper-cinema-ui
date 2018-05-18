@@ -8,4 +8,5 @@ export class Movie {
     endRent : string;
     ageRating : number;
     price : number;
+    tmdbId : number;
 }

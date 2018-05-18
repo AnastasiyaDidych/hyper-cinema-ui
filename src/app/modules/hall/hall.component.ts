@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Hall } from './model/hall.model';
 import { Ticket } from '../ticket/ticket.model';
 import { Seat } from './model/seat.model';

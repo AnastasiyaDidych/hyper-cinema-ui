@@ -18,11 +18,10 @@ import { ErrorDialogComponent } from './modules/sessions/core/error-dialog.compo
 
 import { SearchPipe } from './modules/sessions/session-list/search.pipe';
 import { FilterPipe } from './modules/sessions/session-list/filter.pipe';
-// import { FilterPipe } from './movie/filter/filter.pipe';
+import { MovieFilterPipe } from './modules/movie/filter/filter.pipe';
 import { UniquePipe } from './modules/sessions/session-list/unique.pipe';
 import { ASD } from './modules/sessions/session-list/asd.pipe';
 import { AppRoutingModule } from './app.routing.module';
-// import { AuthService } from './movie/login/login.service';
 import { SessionService } from './modules/sessions/shared/session.service';
 import { TicketModule } from './modules/ticket/ticket.module';
 import { OrderModule } from './modules/order/order.module';
@@ -34,6 +33,7 @@ import { LoginModule } from './modules/login/login.module';
 import { AuthService } from './shared/auth/auth.service';
 import { TokenStorage } from './shared/auth/token.storage';
 import { Interceptor } from './shared/auth/inteceptor';
+import { MovieDetailsComponent } from './modules/movie/movie-details/movie-details.component';
 import { CartComponent } from './modules/cart/cart.component';
 
 
@@ -42,6 +42,7 @@ import { CartComponent } from './modules/cart/cart.component';
     AppComponent,
     MovieListComponent,
     MovieCreateComponent,
+    MovieDetailsComponent,
     FilterPipe,
     ErrorDialogComponent,
     SessionListComponent,
@@ -50,8 +51,9 @@ import { CartComponent } from './modules/cart/cart.component';
     SearchPipe,
     FilterPipe,
     UniquePipe,
+    MovieFilterPipe,
     ASD,
-    CartComponent,
+    CartComponent
 
   ],
   imports: [

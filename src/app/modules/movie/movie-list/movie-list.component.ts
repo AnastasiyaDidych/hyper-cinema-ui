@@ -29,7 +29,7 @@ export class MovieListComponent implements OnInit {
   deleteMovie(id : string) {
     this.movieService.deleteMovie(id)
       .subscribe(params => {
-      alert("movies deleted");
+      alert("movie deleted");
       window.location.reload();
     });
  

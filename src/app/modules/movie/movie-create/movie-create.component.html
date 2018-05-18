@@ -10,5 +10,6 @@
   <input type="date" [(ngModel)] = "movie.endRent" class = "datepicker" name = "endRent">
   <input type="number" [(ngModel)] = "movie.ageRating" name="ageRating" min="0" placeholder="age rating">
   <input type="number" [(ngModel)] = "movie.price" name="price" min="0" placeholder="price">
+  <input type="number" [(ngModel)] = "movie.tmdbId" name="tmdbId" min="0" placeholder="tmdbId">
   <input type="button"  value="save" (click) = "saveMovie()" >
 </form>

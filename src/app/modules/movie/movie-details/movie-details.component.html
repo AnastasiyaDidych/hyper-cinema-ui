@@ -1,0 +1,11 @@
+Title : {{movie?.title}} <br>
+description : {{movie?.description}} <br>
+price : {{movie?.price}}
+ <br>
+<div *ngIf="tmdb">
+    <img  [src] = "getEmbedUrlImage()" >
+
+</div>
+<div *ngIf="tmdbVideo" >
+<iframe width="560" height="315" [src]="getEmbedUrlVideo()" ></iframe>
+</div>
