@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { HallService } from './hall.service'
 import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 import { Hall } from './model/hall.model';
-import { Seat } from './model/seat.model';
-import { DisplaySessionComponent } from '../sessions/display-session/display-session.component';
 import { Ticket } from '../ticket/ticket.model';
+import { Seat } from './model/seat.model';
+import { HallService } from './hall.service';
+import { Session } from '../sessions/session-edit/session.model';
+import { sessionInStorage } from '../sessions/display-session/display-session.component';
 
-const seatArrayInStorage = "storedSeats";
+export const seatArrayInStorage = "storedSeats";
 
 @Component({
   selector: 'app-hall',
@@ -24,12 +26,13 @@ export class HallComponent implements OnInit {
 
   selectedSeats: Seat[] = [];
   boughtSeats: Seat[] = [];
-  // ???
+  session: Session = Object();
 
   constructor(private hallService: HallService) { }
 
   ngOnInit() {
-    this.getHall('6');
+    this.getSessionFromStorage();
+    this.getHall(this.session.hallId);
     // ???
     // this.fillBoughtSeats(this.session);
   }
@@ -38,7 +41,12 @@ export class HallComponent implements OnInit {
   // public fillBoughtSeats(session: DisplaySessionComponent) {
 
   // }
-
+  public getSessionFromStorage() {
+    console.log("session from localStorage")
+    this.session = JSON.parse(localStorage.getItem(sessionInStorage));
+    console.log(this.session);
+    console.log(this.session.hallId)
+  }
 
   public getHalls() {
     this.hallService.getAll().subscribe(data => {
@@ -47,7 +55,7 @@ export class HallComponent implements OnInit {
   }
 
 
-  public getHall(hall_id: string) {
+  public getHall(hall_id: number) {
     this.hallService.getOne(hall_id).subscribe(data => {
       this.hall = data;
       for (var i = 1; i < this.hall.seats.length; i++) {
@@ -57,15 +65,29 @@ export class HallComponent implements OnInit {
   }
 
 
+
   public seatClick(seat: Seat) {
     var index = this.selectedSeats.indexOf(seat);
     if (index !== -1) {
       this.removeSeatFromSelectedSeats(seat)
     } else {
-      this.selectedSeats.push(seat);
+      if (seat.type === "VIP") {
+        seat.price = this.session.vipPrice;
+        this.selectedSeats.push(seat);
+        console.log("Vip price:")
+        console.log(this.session.vipPrice)
+        console.log("Vip price on seat:")
+        console.log(seat.price);
+      } else{
+        seat.price = this.session.basePrice;
+        console.log("base price:")
+        console.log(this.session.basePrice)
+        console.log("base price on seat:")
+        console.log(seat.price);
+        this.selectedSeats.push(seat);
+      }
     }
   }
-
 
   public cleanSelect() {
     this.selectedSeats = [];
@@ -81,38 +103,17 @@ export class HallComponent implements OnInit {
   }
 
 
+
   public removeSeatFromSelectedSeats(seat: Seat) {
     var index = this.selectedSeats.indexOf(seat);
     this.selectedSeats.splice(index, 1);
   }
 
-  storedSeats: Array<Seat> = [];
-  notCleanedSeats: Array<Seat> = [];
 
   public throwSelectedSeatsToOrder() {
-
-    //0. check if there is some data in LocalStorage
-    console.log("forwarded selectedSeats list to the order page");
-    this.notCleanedSeats.push(JSON.parse(localStorage.getItem(seatArrayInStorage)));
-    console.log("X");
-    console.log(this.notCleanedSeats);
-
-    //1. set seat array to LocalStorage
     localStorage.setItem(seatArrayInStorage, JSON.stringify(this.selectedSeats));
     console.log("seats send to the local storage");
-
-    //2. get seat array from LocalStorage
-    this.storedSeats.push(JSON.parse(localStorage.getItem(seatArrayInStorage)));
-    console.log("Y");
-    console.log(this.storedSeats);
-    console.log("seats taken from the local storage");
-
-    //3. remove seat array from LocalStorage
-    console.log("start removing");
-    localStorage.removeItem(seatArrayInStorage);
-    console.log("end removing");
   }
-
 
 }
 
