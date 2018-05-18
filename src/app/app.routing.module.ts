@@ -10,6 +10,7 @@ import { OrderComponent } from './order/order.component';
 import { OrderDetailsComponent } from './order/order-details/order-details.component';
 import { SingleTicketComponent } from './ticket/single-ticket/single-ticket.component';
 import { HallComponent } from './hall/hallcom/hall.component';
+import { CartComponent } from './hall/cart/cart.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -22,8 +23,9 @@ const routes: Routes = [
   { path: 'sessions', component: SessionListComponent },
   { path: 'session-add', component: SessionEditComponent },
   { path: 'session-edit', component: SessionListComponent },
-  { path: 'display-session', component: DisplaySessionComponent },
-  { path: 'halls', component: HallComponent}
+  { path: 'display-session/:id', component: DisplaySessionComponent },
+  { path: 'halls', component: HallComponent},
+  { path: 'cart', component: CartComponent}
 ];
 
 @NgModule({

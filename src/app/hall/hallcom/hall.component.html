@@ -1,17 +1,10 @@
 <div>
-
-
   <div class="divPossition" style="width: 265px; height: 100%">
     About movie
-    <div *ngIf="storedSeats.length > 0">
-      <mat-card-content *ngFor="let seat2 of storedSeats">
-        {{seat2.row}}
-        HELLO!
-      </mat-card-content>
-    </div>
-
     <div *ngIf="selectedSeats.length > 0">
-      <button mat-button (click)="throwSelectedSeatsToOrder()">Pay order</button>
+      <a routerLink="/cart">
+        <button mat-button (click)="throwSelectedSeatsToOrder()">Pay Order</button>
+      </a>
       <button mat-button (click)="cleanSelect()">Clean list</button>
     </div>
     <br>
@@ -19,7 +12,7 @@
     <div>
       <mat-card-content class="demo-basic-list" *ngFor="let seat of selectedSeats, let i = index">
         <button mat-button (click)="removeSeatFromSelectedSeats(seat)">
-          {{i+1}}. number: {{seat.number}} row: {{seat.row}} type: {{seat.type}} price: 100;
+          {{i+1}}. number: {{seat.number}} row: {{seat.row}} type: {{seat.type}} price: {{seat.price}}₴;
         </button>
         <br>
       </mat-card-content>

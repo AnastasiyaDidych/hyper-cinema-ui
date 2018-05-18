@@ -1,0 +1,124 @@
+.order-cart {
+    max-width: 600px;
+    margin: auto;
+    width: 50%;
+    margin-top: 10px;
+  }
+
+  .pay-button{
+    width: 100%;
+    display: flex;
+    justify-content: center;     
+  }
+
+  p {
+    margin: 0;
+}
+
+.my-wrapper {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ticket{
+    background-color: white;
+    margin: 3px 0;
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    justify-content: space-between;
+    border-style: dotted;
+    border-color: #3f51b5;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+.h-block-1 {
+    margin: 2px;
+    height: 120px;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.film-name {
+    margin: 1px;
+    height: auto;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.tech {
+    margin: 1px;
+    height: 15%;
+    font-size: 16px;
+}
+
+.date-time{
+    margin: 1px;
+    display: flex;
+    flex-direction: row;
+    font-size: 12px;
+    justify-content: space-between;
+}
+
+.h-block-2 {
+    margin: 2px;
+    width:20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.hall-name{
+    height: 20%;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.seat{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 15px;
+}
+
+.seat-block{
+    width: 45%;
+}
+
+.h-block-3 {
+    margin: 2px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket-price {
+    height: 50%;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.h-block-4 {
+    margin: 2px;
+    width: 12%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.rightButton {
+    display: flex;
+    justify-content:space-between; 
+}

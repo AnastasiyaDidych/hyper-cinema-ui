@@ -7,4 +7,8 @@ export class Session {
   movieId: number;
   startTime: string;
   virtualActive: boolean;
+  title: string;
+  vipPrice: number;
+  basePrice: number;
+
 }

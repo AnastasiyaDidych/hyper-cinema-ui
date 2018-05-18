@@ -34,6 +34,7 @@ import { OrderDetailsModule } from './order/order-details/order-details.module';
 import { HallModule } from './hall/hall.module';
 import { MovieService } from './movie/services/movie.service';
 import { MaterialModule } from './material.module';
+import { CartComponent } from './hall/cart/cart.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { MaterialModule } from './material.module';
     FilterPipe,
     UniquePipe,
     ASD,
+    CartComponent,
 
   ],
   imports: [

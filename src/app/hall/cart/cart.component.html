@@ -1,0 +1,69 @@
+<mat-card class="order-cart">
+  <mat-card-title>
+    <div class="rightButton">
+      <div>
+        Your order
+      </div>
+      <div>
+        <button mat-button routerLink="/halls">Back</button>
+      </div>
+    </div>
+  </mat-card-title>
+  <mat-card-content *ngIf="seatsFromStorage.length > 0">
+    <button class="pay-button" mat-raised-button color="primary">Pay order ({{totalPrice}}₴)</button>
+  </mat-card-content>
+
+  <mat-card-content>
+    <div *ngFor="let seat of seatsFromStorage">
+      <div class="ticket">
+        <div class="h-block-1">
+          <div class="film-name">
+            <p>{{session.title}}</p>
+          </div>
+          <div class="tech">
+            <p>Technology: {{hall.tech}}</p>
+          </div>
+          <div class="date-time">
+            <div>
+              <p>Time: {{session.startTime}}</p>
+            </div>
+            <div>
+              <p>Date: {{session.date}}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="h-block-2">
+          <div class="hall-name">
+            {{hall.name}} hall
+          </div>
+          <div class="hall-name">
+            Type: {{seat.type}}
+          </div>
+          <div class="seat">
+            <div class="seat-block">
+              <p>Row</p>
+              <br>
+              <p style="font-weight: 500; font-size: 25px">{{seat.row}}</p>
+            </div>
+            <div class="seat-block">
+              <p>Seat</p>
+              <br>
+              <p style="font-weight: 500; font-size: 25px">{{seat.number}}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="h-block-3">
+          <div class="ticket-price">
+            <p>Price:
+              <br> {{seat.price}}₴
+            </p>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
