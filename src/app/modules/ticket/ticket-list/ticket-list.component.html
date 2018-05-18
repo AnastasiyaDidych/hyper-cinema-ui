@@ -1,8 +1,7 @@
 <div class="my-wrapper">
 
     Film:
-    <input [(ngModel)]="searchFilm"> 
-    User:
+    <input [(ngModel)]="searchFilm"> User:
     <input [(ngModel)]="searchUser">
 
     <ng-container *ngFor="let ticket of tickets|ticketFilter:searchFilm:searchUser">
@@ -26,6 +25,9 @@
             </div>
 
             <div class="h-block-2">
+                <div class="session-type">
+                    {{ticket.hallName}} session
+                </div>
                 <div class="hall-name">
                     {{ticket.hallName}} hall
                 </div>

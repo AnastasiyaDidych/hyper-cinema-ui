@@ -11,4 +11,7 @@ export class Ticket {
     price: number;
     barcode: string;
 
+    sessionId: number;
+    seatId: number;
+
 }

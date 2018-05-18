@@ -32,4 +32,8 @@ export class TicketService {
     return this.http.get<Ticket>(this.ticketUrl + `/full/` + id);
   }
 
+  createTicket(ticket: Ticket): Observable<Ticket> {
+    return this.http.post<Ticket>(this.ticketUrl, ticket);
+  }
+
 }
