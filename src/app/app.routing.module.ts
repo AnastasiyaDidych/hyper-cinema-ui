@@ -28,7 +28,8 @@ const routes: Routes = [
   { path: 'session-add', component: SessionEditComponent },
   { path: 'session-edit', component: SessionListComponent },
   { path: 'display-session/:id', component: DisplaySessionComponent },
-  { path: 'halls', component: HallComponent}
+  { path: 'halls', component: HallComponent},
+  { path: 'cart', component: CartComponent}
 ];
 
 @NgModule({
