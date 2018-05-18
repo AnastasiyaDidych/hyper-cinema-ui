@@ -1,16 +1,54 @@
 .ticket-card {
-    max-width: 600px;
+    max-width: 360px;
+    min-width: 350px;;
+    margin: auto;
+    margin-top: 10px;
+
+}
+
+h2,
+h3,
+h4,
+h5 {
+    margin: 5px;
 }
 
 .ticket-column {
-    background-color: aquamarine;
     display: flex;
-    flex-flow: column wrap;
-    align-items: center;
-
+    flex-flow: column nowrap;
+    text-align: center;
+    justify-content: center;
 } 
 
 .ticket-row {
-    background-color: blueviolet;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-content: stretch;
     flex: 0 1 auto;
 }
+
+.h25 {
+    height: 25px;
+}
+
+.h50 {
+    height: 50px;
+}
+
+.h75{
+    height: 75px;
+}
+
+.h100{
+    height: 100px;
+}
+
+@media print {
+    .not-printable { 
+        display: none !important; 
+    } 
+    @page {
+        size: 360px 450px landscape;
+    }
+ }

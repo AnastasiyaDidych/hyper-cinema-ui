@@ -5,6 +5,7 @@ import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Ticket } from './ticket.model';
 
+var email = require('emailjs/email');
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -26,9 +27,9 @@ export class TicketService {
     return this.http.delete<Ticket>(this.ticketUrl + `/${ticket.id}`, httpOptions);
   }
 
-  selectTicket(id: number): Observable<Ticket> {
-    return this.http.get<Ticket>(this.ticketUrl + `/` + id);
+  getTicket(id: number): Observable<Ticket> {
+    console.log('service works. ID = ' + id);
+    return this.http.get<Ticket>(this.ticketUrl + `/full/` + id);
   }
-
 
 }

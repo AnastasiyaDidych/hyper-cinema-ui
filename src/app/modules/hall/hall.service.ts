@@ -16,8 +16,8 @@ export class HallService {
     return this.http.get(hostUrl);
   }
 
-  getOne(hall_id : string): Observable<any>{
+  getOne(hall_id :number): Observable<any>{
     //must me a this.session.hallId
-      return this.http.get(hostUrl + '/' + '8');
+      return this.http.get(hostUrl + '/' + hall_id);
   }
 }

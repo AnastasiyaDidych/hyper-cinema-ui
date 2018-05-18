@@ -11,6 +11,9 @@ import { Ticket } from '../ticket.model';
 })
 export class TicketListComponent implements OnInit {
 
+    private searchFilm: string = '';
+    private searchUser: string = '';
+
     tickets: Ticket[] = [];
 
     constructor(

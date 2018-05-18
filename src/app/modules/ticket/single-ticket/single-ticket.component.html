@@ -1,31 +1,83 @@
-<mat-card class="ticket-card">
-    <mat-card-header>
-        <mat-card-title>HyperCinema Ticket</mat-card-title>
-        <mat-card-subtitle>Lviv</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-        <div class="ticket-column">
-            <div class="ticket-row n1">
-                {{ticket.id}}
+<mat-card id="ticket-pdf" class="ticket-card" *ngIf="ticket" >
+    <div class="ticket-column">
+        <div class="ticket-row h50">
+            <h4>
+                HyperCinema Ticket {{ticket.id}}
+            </h4>
+        </div>
+        <div class="ticket-row h25">
+            <div>
+                <span>Movie</span>
             </div>
-            <div class="ticket-row n2">
-
-            </div>
-            <div class="ticket-row n3">
-
-            </div>
-            <div class="ticket-row n4">
-
-            </div>
-            <div class="ticket-row n5">
-
-            </div>
-            <div class="ticket-row n6">
-
-            </div>
-            <div class="ticket-row n7">
-
+            <div>
+                <span>{{ticket.tech}}-technology</span>
             </div>
         </div>
-    </mat-card-content>
+        <div class="ticket-row">
+            <h2>{{ticket.filmName}}</h2>
+        </div>
+        <div class="ticket-row h75">
+            <div class="ticket-column">
+                <div>
+                    <h5>Date:</h5>
+                </div>
+                <div>
+                    <h4>{{ticket.sessionDate}}</h4>
+                </div>
+            </div>
+            <div class="ticket-column">
+                <div>
+                    <h5>Time:</h5>
+                </div>
+                <div>
+                    <h4>{{ticket.sessionTime}}</h4>
+                </div>
+            </div>
+        </div>
+        <div class="ticket-row h75">
+            <div class="ticket-column">
+                <div>
+                    <h5>Hall:</h5>
+                </div>
+                <div>
+                    <h3>{{ticket.hallName}}</h3>
+                </div>
+            </div>
+            <div class="ticket-column">
+                <div>
+                    <h5>Row:</h5>
+                </div>
+                <div>
+                    <h3>{{ticket.seatRow}}</h3>
+                </div>
+            </div>
+            <div class="ticket-column">
+                <div>
+                    <h5>Seat:</h5>
+                </div>
+                <div>
+                    <h3>{{ticket.seatNumber}}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="ticket-row">
+            <h4>Price: {{ticket.price}} UAH</h4>
+        </div>
+        <div class="ticket-row">
+            <div class="barcode-pic">
+                <ngx-barcode 
+                [bc-value]="ticket.barcode" 
+                [bc-display-value]="true" 
+                [bc-width]="1" 
+                [bc-height]="45" 
+                [bc-margin]="0"
+                ></ngx-barcode>
+            </div>
+        </div>
+        <div class="ticket-row h50 not-printable">
+                <!-- <button class="ticket-button" mat-button (click)="pdfHtml()">Send PDF by mail</button> -->
+                <button class="ticket-button" mat-button (click)="download()">Download PDF</button>
+                <button class="ticket-button" mat-button (click)="delete(ticket)">Cancel ticket</button>
+        </div>
+    </div>
 </mat-card>

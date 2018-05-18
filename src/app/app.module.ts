@@ -34,6 +34,7 @@ import { AuthService } from './shared/auth/auth.service';
 import { TokenStorage } from './shared/auth/token.storage';
 import { Interceptor } from './shared/auth/inteceptor';
 import { MovieDetailsComponent } from './modules/movie/movie-details/movie-details.component';
+import { CartComponent } from './modules/cart/cart.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { MovieDetailsComponent } from './modules/movie/movie-details/movie-detai
     UniquePipe,
     MovieFilterPipe,
     ASD,
+    CartComponent,
 
   ],
   imports: [
