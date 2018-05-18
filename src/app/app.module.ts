@@ -34,6 +34,7 @@ import { LoginModule } from './modules/login/login.module';
 import { AuthService } from './shared/auth/auth.service';
 import { TokenStorage } from './shared/auth/token.storage';
 import { Interceptor } from './shared/auth/inteceptor';
+import { CartComponent } from './modules/cart/cart.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { Interceptor } from './shared/auth/inteceptor';
     FilterPipe,
     UniquePipe,
     ASD,
+    CartComponent,
 
   ],
   imports: [
