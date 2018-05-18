@@ -12,6 +12,7 @@ import { SingleTicketComponent } from './modules/ticket/single-ticket/single-tic
 import { HallComponent } from './modules/hall/hall.component';
 import { MovieCreateComponent } from './modules/movie/movie-create/movie-create.component';
 import { MovieDetailsComponent } from './modules/movie/movie-details/movie-details.component';
+import { CartComponent } from './modules/cart/cart.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
