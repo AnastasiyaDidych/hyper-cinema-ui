@@ -67,6 +67,7 @@ export class HallComponent implements OnInit {
   }
 
 
+
   public seatClick(seat: Seat) {
     var index = this.selectedSeats.indexOf(seat);
     if (index !== -1) {
