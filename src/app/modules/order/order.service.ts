@@ -15,8 +15,16 @@ export class OrderService {
 
     constructor(private http: HttpClient) {}
 
+    getOrders(): Observable<Order[]>{
+        return this.http.get<Order[]>(this.ticketUrl);
+    }
+
     getAllOrders(): Observable<Order[]>{
         return this.http.get<Order[]>(this.ticketUrl+'/all');
+    }
+
+    createOrder(order: Order):Observable<Order>{
+        return this.http.post<Order>(this.ticketUrl, order);
     }
     
 }

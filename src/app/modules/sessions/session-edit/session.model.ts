@@ -1,4 +1,3 @@
-import { Ticket } from '../../ticket/ticket.model';
 
 export class Session {
   id : number;
