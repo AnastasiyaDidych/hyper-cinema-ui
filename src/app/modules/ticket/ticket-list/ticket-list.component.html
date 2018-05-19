@@ -25,9 +25,10 @@
             </div>
 
             <div class="h-block-2">
-                <div class="session-type">
-                    {{ticket.hallName}} session
-                </div>
+                <!-- <div class="session-type" [ngSwitch]="ticket.virtualActive">
+                    <span *ngSwitchCase="true">Virtual session</span>
+                    <span *ngSwitchCase="false">Static session</span>
+                </div> -->
                 <div class="hall-name">
                     {{ticket.hallName}} hall
                 </div>

@@ -3,8 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
-import { Order } from '../order.component';
 import { OrderDetailsService } from './order-details.service';
+import { Order } from '../order.model';
 
 @Component({
     selector: 'app-order-details',

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { HallService } from '../hall/hall.service';
-import { Order } from '../order/order.component';
 import { Seat } from '../hall/model/seat.model';
 import { Session } from '../sessions/session-edit/session.model';
 import { Hall } from '../hall/model/hall.model';
 import { sessionInStorage } from '../sessions/display-session/display-session.component';
 import { seatArrayInStorage } from '../hall/hall.component';
+import { Order } from '../order/order.model';
 
 
 @Component({

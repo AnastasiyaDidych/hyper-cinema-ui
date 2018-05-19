@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from './order.service';
+import { Order } from './order.model';
 
 @Component({
     selector: 'app-order',
@@ -21,8 +22,3 @@ export class OrderComponent implements OnInit {
 }
 
 
-
-export class Order{
-    id: number;
-    price: number;
-}
