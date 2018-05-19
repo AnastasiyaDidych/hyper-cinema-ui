@@ -1,8 +1,7 @@
 <div class="my-wrapper">
 
     Film:
-    <input [(ngModel)]="searchFilm"> 
-    User:
+    <input [(ngModel)]="searchFilm"> User:
     <input [(ngModel)]="searchUser">
 
     <ng-container *ngFor="let ticket of tickets|ticketFilter:searchFilm:searchUser">
@@ -26,6 +25,10 @@
             </div>
 
             <div class="h-block-2">
+                <!-- <div class="session-type" [ngSwitch]="ticket.virtualActive">
+                    <span *ngSwitchCase="true">Virtual session</span>
+                    <span *ngSwitchCase="false">Static session</span>
+                </div> -->
                 <div class="hall-name">
                     {{ticket.hallName}} hall
                 </div>

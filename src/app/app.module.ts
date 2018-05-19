@@ -25,7 +25,6 @@ import { AppRoutingModule } from './app.routing.module';
 import { SessionService } from './modules/sessions/shared/session.service';
 import { TicketModule } from './modules/ticket/ticket.module';
 import { OrderModule } from './modules/order/order.module';
-import { OrderDetailsModule } from './modules/order/order-details/order-details.module';
 import { HallModule } from './modules/hall/hall.module';
 import { MovieService } from './modules/movie/services/movie.service';
 import { MaterialModule } from './material.module';
@@ -63,7 +62,6 @@ import { CartComponent } from './modules/cart/cart.component';
     TicketModule,
     LoginModule,
     OrderModule,
-    OrderDetailsModule,
     HallModule,
     BrowserAnimationsModule,
     FormsModule,
