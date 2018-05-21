@@ -6,6 +6,7 @@ import { TicketListModule } from './ticket-list/ticket-list.module';
 import { SingleTicketModule } from './single-ticket/single-ticket.module';
 import { SingleTicketComponent } from './single-ticket/single-ticket.component';
 
+
 @NgModule({
     declarations: [
     ],

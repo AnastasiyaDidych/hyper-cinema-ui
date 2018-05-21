@@ -51,7 +51,6 @@
                     <p>Price : {{ticket.price}} UAH</p>
                 </div>
                 <div class="barcode-pic">
-                    <!-- <p>Here will be a picture</p> -->
                     <ngx-barcode [bc-value]="ticket.barcode" [bc-display-value]="false" [bc-width]="0.8" [bc-height]="45" [bc-margin]="0"></ngx-barcode>
                 </div>
                 <div class="ticket-barcode">
@@ -61,7 +60,6 @@
 
             <div class="h-block-4">
                 <button class="ticket-button" mat-button (click)="select(ticket.id)">Select</button>
-                <!-- <button class="ticket-button" mat-button [routerLink]="['/tickets', ticket.id]"]>Select</button> -->
                 <button class="ticket-button" mat-button (click)="delete(ticket)">Cancel</button>
             </div>
 

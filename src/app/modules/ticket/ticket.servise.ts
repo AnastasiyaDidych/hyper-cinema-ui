@@ -44,4 +44,8 @@ export class TicketService {
     return this.http.get<Ticket[]>(this.ticketUrl + session.id);
   }
 
+  sendTicketByMail(id: number): Observable<Ticket>{
+    return this.http.get<Ticket>(this.ticketUrl + '/send/'+ id);
+  }
+
 }

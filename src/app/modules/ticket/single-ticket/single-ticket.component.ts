@@ -1,8 +1,14 @@
 import { Component, OnInit, Input, Inject, ViewChild, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
-// import jsPDF from 'jspdf';
+
 import * as jsPDF from 'jspdf'
+
+import * as pdfMake from 'pdfmake/build/pdfmake';
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
+import * as html2canvas from 'html2canvas';
 
 import { TicketService } from '../ticket.servise';
 import { Ticket } from '../ticket.model';
@@ -45,29 +51,47 @@ export class SingleTicketComponent implements OnInit {
                     );
             }
         });
+
     }
 
     delete(ticket: Ticket): void {
         if (window.confirm('Delete ticket?')) {
             this.ticketService.deleteTicket(ticket)
-                .subscribe( (success) => {
+                .subscribe((success) => {
                     this.router.navigateByUrl('/tickets');
-                    
+
                 });
         }
     }
 
     download() {
         let page = document.getElementById('ticket-pdf');
-        console.log(page);
-        let doc = new jsPDF('p', 'pt', [0, 0]);
-        doc.deletePage(1);
 
-        doc.addPage(page.clientWidth, page.clientHeight);
-        doc.addHTML(page, 0, 0, { background: "#FFF" }, () => {
+        html2canvas(page, {
+            dpi: 192,
+            scale: 2
+        }).then(function (canvas) {
+            var img = canvas.toDataURL("image/png");
+            let doc = new jsPDF('p', 'pt', [0, 0]);
+            doc.deletePage(1);
+
+            doc.addPage(page.clientWidth, page.clientHeight);
+
+            doc.addImage(img, 'JPEG', 0, 0, page.clientWidth, page.clientHeight+100);
             doc.save('Ticket.pdf');
         });
     }
 
+    sendTicketByMail(id : number): void {
+        this.ticketService.sendTicketByMail(id)
+        .subscribe(
+            (success) => {
+                alert('Ticket sent');
+            },
+            (error) => {
+                alert('Error');
+            }
+        );
+    }
 
 }
