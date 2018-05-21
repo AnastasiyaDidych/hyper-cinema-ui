@@ -111,4 +111,8 @@ export class CartComponent implements OnInit {
     }
   }
 
+  createVirtualTicket(){
+    
+  }
+
 }

@@ -1,6 +1,10 @@
 <div class="widthOfHallPage">
   <div class="order-cart">
     <mat-card-title>
+      {{session.id}}
+    </mat-card-title>
+
+    <mat-card-title>
       <div *ngIf="selectedSeats.length > 0">
         <div>
           <a routerLink="/cart">
@@ -24,7 +28,7 @@
   </div>
   <div class="divPossition">
     <mat-card-content class="demo-basic-list">
-      <img src = "" title ="screen" style="width: 700px" > 
+      <!-- <img src = "https://i.pinimg.com/originals/b3/56/29/b356298b48475666f35537953e407690.png" title ="screen" style="width: 700px" >  -->
       <mat-grid-list cols="10" rowHeight="2:1">
         <mat-grid-tile *ngFor="let seat of seats" (click)="seatClick(seat)" [ngSwitch]="getStatus(seat)">
           <!-- Selected Seats -->
@@ -39,11 +43,11 @@
           <span *ngSwitchDefault>
             <!-- Free Vip Seats -->
             <div *ngIf="seat.type ==='VIP'">
-              <mat-icon  class="VIPSeat">check_box_outline_blank</mat-icon>
+              <mat-icon class="VIPSeat">check_box_outline_blank</mat-icon>
             </div>
             <!-- Free Base Seats -->
             <div *ngIf="seat.type === 'base'">
-              <mat-icon title = {{seat.type}} class="freeSeat">check_box_outline_blank</mat-icon>
+              <mat-icon title={{seat.type}} class="freeSeat">check_box_outline_blank</mat-icon>
             </div>
           </span>
         </mat-grid-tile>
