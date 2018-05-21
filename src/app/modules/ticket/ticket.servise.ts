@@ -7,8 +7,6 @@ import { Ticket } from './ticket.model';
 import { Seat } from '../hall/model/seat.model';
 import { Session } from '../sessions/session-edit/session.model';
 
-//var email = require('emailjs/email');
-
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -46,14 +44,6 @@ export class TicketService {
 
   sendTicketByMail(id: number): Observable<Ticket>{
     return this.http.get<Ticket>(this.ticketUrl + '/send/'+ id);
-  }
-
-  buyVirtualTicket(session: Session): Ticket {
-
-    // TODO not finished!
-    let ticket = new Ticket;
-    ticket.sessionId = session.id;
-    return ticket;
   }
 
 }
