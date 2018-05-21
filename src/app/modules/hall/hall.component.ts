@@ -80,9 +80,7 @@ export class HallComponent implements OnInit {
         this.seats.push(this.hall.seats[i])
       
       }
-      // this.fillBoughtSeats();
-
-      console.log(this.seats);
+      this.fillBoughtSeats();
     });
   }
 

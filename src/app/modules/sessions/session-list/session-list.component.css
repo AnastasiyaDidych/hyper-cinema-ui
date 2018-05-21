@@ -4,3 +4,11 @@
     top: 85%; /* Расстояние сверху */
     padding: 10px; /* Поля вокруг текста */   
    }
+
+   .editButton{
+    margin-top: 15px;
+    margin-right: 100px;
+  display: flex;
+  justify-content: flex-end;
+
+}
