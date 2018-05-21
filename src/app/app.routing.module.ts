@@ -12,6 +12,7 @@ import { HallComponent } from './modules/hall/hall.component';
 import { MovieCreateComponent } from './modules/movie/movie-create/movie-create.component';
 import { MovieDetailsComponent } from './modules/movie/movie-details/movie-details.component';
 import { CartComponent } from './modules/cart/cart.component';
+import { ScheduleListComponent } from './modules/sessions/schedule-list/schedule-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path: 'orders', component: OrderComponent },
   { path: 'tickets', component: TicketListComponent },
   { path: 'tickets/:id', component: SingleTicketComponent },
-  { path: 'sessions', component: SessionListComponent },
+  { path: 'session-list', component: SessionListComponent },
+  { path: 'schedule-list', component: ScheduleListComponent },
   { path: 'session-add', component: SessionEditComponent },
   { path: 'session-edit', component: SessionListComponent },
   { path: 'display-session/:id', component: DisplaySessionComponent },

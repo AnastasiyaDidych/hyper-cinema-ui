@@ -11,11 +11,4 @@ export class SearchPipe implements PipeTransform {
             return session.title.includes(value)
         })
     }
-
-    // transform(items: any[], filterQuery: any): any[] {
-    //     if (!filterQuery) return items;
-    //     return items.filter(function(item){
-    //         return item.whateverProperty.toLowerCase().includes(filterQuery.toLowerCase());
-    //     })
-    // }
 }

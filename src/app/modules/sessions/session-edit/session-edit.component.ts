@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SessionService } from '../shared/session.service';
 import { NgForm } from '@angular/forms';
-import {Session} from '../session-edit/session.model'
+import { Session } from '..//session-edit/session.model';
 
 @Component({
   selector: 'app-session-edit',
@@ -12,7 +12,7 @@ import {Session} from '../session-edit/session.model'
 })
 
 export class SessionEditComponent implements OnInit,OnDestroy {
-  session: any = {};
+  session: any = {Session};
 
   sub: Subscription;
 

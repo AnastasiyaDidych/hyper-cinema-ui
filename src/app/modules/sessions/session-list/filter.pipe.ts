@@ -1,8 +1,8 @@
 import { Pipe, PipeTransform } from "@angular/core";
-import { Session } from "protractor";
+import { Session } from "../session-edit/session.model";
 
 @Pipe({
-    name: 'filter'
+    name: 'filterd'
 })
 
 export class FilterPipe implements PipeTransform {

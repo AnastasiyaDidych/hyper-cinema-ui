@@ -34,6 +34,7 @@ import { TokenStorage } from './shared/auth/token.storage';
 import { Interceptor } from './shared/auth/inteceptor';
 import { MovieDetailsComponent } from './modules/movie/movie-details/movie-details.component';
 import { CartComponent } from './modules/cart/cart.component';
+import { ScheduleListComponent } from './modules/sessions/schedule-list/schedule-list.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { CartComponent } from './modules/cart/cart.component';
     UniquePipe,
     MovieFilterPipe,
     ASD,
-    CartComponent
+    CartComponent,
+    ScheduleListComponent
 
   ],
   imports: [
