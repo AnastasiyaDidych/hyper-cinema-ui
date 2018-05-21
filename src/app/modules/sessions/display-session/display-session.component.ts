@@ -8,7 +8,6 @@ import { Ticket } from '../../ticket/ticket.model';
 import { TicketForSession } from '../../hall/model/tictetForSession.model';
 
 
-
 export const sessionInStorage = "sessionInStorage";
 export const ticketsArray: Array<TicketForSession> = this.ticketsFromSession;
 
@@ -18,12 +17,19 @@ export const ticketsArray: Array<TicketForSession> = this.ticketsFromSession;
   styleUrls: ['./display-session.component.css']
 })
 export class DisplaySessionComponent implements OnInit {
+
   sessions: Session[] = [];
   session: Session;
   ticketsFromSession: Array<TicketForSession> = [];
   id: number;
   sub: Subscription;
-  constructor(private sessionService: SessionService, private router: Router, private route: ActivatedRoute) { }
+
+  constructor(
+    private sessionService: SessionService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
+
 
   ngOnInit() {
 
@@ -71,5 +77,6 @@ export class DisplaySessionComponent implements OnInit {
     console.log(localStorage.getItem(sessionInStorage));
     console.log("session send to the local storage");
   }
+
 
 }
