@@ -39,10 +39,6 @@ export class HallComponent implements OnInit {
     this.getHall(this.session.hallId);
   }
 
-  ngOnDestroy() {
-    this.boughtSeats = [];
-  }
-
 
   public fillBoughtSeats() {
     this.tickets = this.session.tickets;
@@ -95,7 +91,7 @@ export class HallComponent implements OnInit {
     var index = this.selectedSeats.indexOf(seat);
     if (index !== -1) {
       this.removeSeatFromSelectedSeats(seat)
-    } else {
+    } else if(!this.boughtSeats.includes(seat)) {
       if (seat.type === "VIP") {
         seat.price = this.session.vipPrice;
         this.selectedSeats.push(seat);

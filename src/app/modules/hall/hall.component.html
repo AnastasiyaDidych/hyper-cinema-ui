@@ -24,6 +24,7 @@
   </div>
   <div class="divPossition">
     <mat-card-content class="demo-basic-list">
+      <img src = "" title ="screen" style="width: 700px" > 
       <mat-grid-list cols="10" rowHeight="2:1">
         <mat-grid-tile *ngFor="let seat of seats" (click)="seatClick(seat)" [ngSwitch]="getStatus(seat)">
           <!-- Selected Seats -->
@@ -32,7 +33,7 @@
           </span>
           <!-- Bought Seats -->
           <span *ngSwitchCase="'buy'" class="boughtSeat">
-            <mat-icon>clear</mat-icon>
+            <mat-icon>indeterminate_check_box</mat-icon>
           </span>
           <!-- Free Seats -->
           <span *ngSwitchDefault>
