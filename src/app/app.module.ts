@@ -34,7 +34,10 @@ import { TokenStorage } from './shared/auth/token.storage';
 import { Interceptor } from './shared/auth/inteceptor';
 import { MovieDetailsComponent } from './modules/movie/movie-details/movie-details.component';
 import { CartComponent } from './modules/cart/cart.component';
+import { HallListModule } from './modules/hall/hall-list/hall-list.module';
+import { OneHallModule } from './modules/hall/one-hall/one-hall.module';
 import { ScheduleListComponent } from './modules/sessions/schedule-list/schedule-list.component';
+
 
 
 @NgModule({
@@ -62,6 +65,8 @@ import { ScheduleListComponent } from './modules/sessions/schedule-list/schedule
     HttpClientModule,
     AppRoutingModule,
     TicketModule,
+    HallListModule,
+    OneHallModule,
     LoginModule,
     OrderModule,
     HallModule,
@@ -69,7 +74,7 @@ import { ScheduleListComponent } from './modules/sessions/schedule-list/schedule
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    MaterialModule
+    MaterialModule,
   ],
 
   //entryComponents: [

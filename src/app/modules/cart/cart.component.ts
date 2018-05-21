@@ -32,6 +32,7 @@ export class CartComponent implements OnInit {
   session: Session = Object();
   hall: Hall = Object();
   totalPrice: number = 0;
+  seat: Seat = Object();
 
 
   ngOnInit() {
@@ -52,6 +53,7 @@ export class CartComponent implements OnInit {
       throw Error;
     }
   }
+
   public calculateOrderTotalPrice() {
     this.seatsFromStorage.forEach(seat => {
       this.totalPrice = this.totalPrice + seat.price
@@ -65,7 +67,7 @@ export class CartComponent implements OnInit {
   }
 
   public getHallFromSession(hall_id: number) {
-    this.hallService.getOne(hall_id).subscribe(data => {
+    this.hallService.getHall(hall_id).subscribe(data => {
       this.hall = data;
     });
 

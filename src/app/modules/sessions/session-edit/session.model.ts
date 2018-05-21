@@ -1,3 +1,6 @@
+
+import { TicketForSession } from '../../hall/model/tictetForSession.model';
+
 export class Session {
   id : number;
   date: string;
@@ -8,5 +11,6 @@ export class Session {
   active:boolean;
   vipPrice: number;
   basePrice: number;
-  virtualPrice: number;
+  tickets: Array<TicketForSession>;
 }
+

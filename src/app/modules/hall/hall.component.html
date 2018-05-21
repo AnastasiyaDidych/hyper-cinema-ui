@@ -1,39 +1,55 @@
-
-<div>
-
-  <div class="divPossition" style="width: 265px; height: 100%">
-    About movie
-    <div *ngIf="selectedSeats.length > 0">
-      <a routerLink="/cart">
-        <button mat-button (click)="throwSelectedSeatsToOrder()">Pay Order</button>
-      </a>
-
-      <button mat-button (click)="cleanSelect()">Clean list</button>
-    </div>
-    <br>
+<div class = "editButton">
+    <button  mat-raised-button color="primary" routerLink="/hall-list">Edit VIP seats</button>
+</div>
+<div class="widthOfHallPage">
+  <div class="order-cart">
+    <mat-card-title>
+      <div *ngIf="selectedSeats.length > 0">
+        <div>
+          <a routerLink="/cart">
+            <button class="pay-button" mat-raised-button color="primary" (click)="throwSelectedSeatsToCart()">Pay Order</button>
+          </a>
+        </div>
+        <div>
+          <button class="pay-button" mat-button (click)="cleanSelect()">Clean list</button>
+        </div>
+      </div>
+    </mat-card-title>
 
     <div>
-      <mat-card-content class="demo-basic-list" *ngFor="let seat of selectedSeats, let i = index">
+      <mat-card-content *ngFor="let seat of selectedSeats, let i = index">
         <button mat-button (click)="removeSeatFromSelectedSeats(seat)">
           {{i+1}}. number: {{seat.number}} row: {{seat.row}} type: {{seat.type}} price: {{seat.price}}₴;
         </button>
         <br>
       </mat-card-content>
     </div>
-
   </div>
-
-
-  <div class="divPossition" style="width: 66%">
+  <div class="divPossition">
     <mat-card-content class="demo-basic-list">
-      <mat-grid-list cols="10">
-        <mat-grid-tile class="seatSize" *ngFor="let seat of seats" (click)="seatClick(seat)" [ngSwitch]="getStatus(seat, session)">
-          <span *ngSwitchCase="'selected'" class="selectedSeat"><mat-icon>done_outline</mat-icon></span>
-          <span *ngSwitchCase="'bought'" class="boughtSeat"><mat-icon>clear</mat-icon></span>
-          <span *ngSwitchDefault class="freeSeat"><mat-icon>crop_3_2</mat-icon></span>
+      <mat-grid-list cols="10" rowHeight="2:1">
+        <mat-grid-tile *ngFor="let seat of seats" (click)="seatClick(seat)" [ngSwitch]="getStatus(seat)">
+          <!-- Selected Seats -->
+          <span *ngSwitchCase="'selected'" class="selectedSeat">
+            <mat-icon>done_outline</mat-icon>
+          </span>
+          <!-- Bought Seats -->
+          <span *ngSwitchCase="'bought'" class="boughtSeat">
+            <mat-icon>clear</mat-icon>
+          </span>
+          <!-- Free Seats -->
+          <span *ngSwitchDefault>
+            <!-- Free Vip Seats -->
+            <div *ngIf="seat.type ==='VIP'">
+              <mat-icon  class="VIPSeat">brightness_1</mat-icon>
+            </div>
+            <!-- Free Base Seats -->
+            <div *ngIf="seat.type === 'base'">
+              <mat-icon title = {{seat.type}} class="freeSeat">crop_3_2</mat-icon>
+            </div>
+          </span>
         </mat-grid-tile>
       </mat-grid-list>
     </mat-card-content>
   </div>
-
 </div>
