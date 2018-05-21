@@ -60,7 +60,11 @@
 
             <div class="h-block-4">
                 <button class="ticket-button" mat-button (click)="select(ticket.id)">Select</button>
-                <button class="ticket-button" mat-button (click)="delete(ticket)">Cancel</button>
+                <button class="ticket-button" mat-button (click)="delete(ticket)">
+                <!-- [ngSwitch]="ticket.virtualActive" -->
+                <!-- (*ngSwitchCase="true" display="hidden") -->
+                <!-- *ngSwitchCase="false" -->
+                Cancel</button>
             </div>
 
         </div>

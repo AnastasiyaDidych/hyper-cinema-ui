@@ -8,4 +8,5 @@ export class Session {
   active:boolean;
   vipPrice: number;
   basePrice: number;
+  virtualPrice: number;
 }

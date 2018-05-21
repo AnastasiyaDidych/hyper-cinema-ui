@@ -4,6 +4,7 @@ import { Session } from '../session-edit/session.model';
 import { ActivatedRoute } from '@angular/router';
 import {Router} from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
+import { TicketService } from '../../ticket/ticket.servise';
 
 export const sessionInStorage = "sessionInStorage";
 
@@ -17,7 +18,12 @@ export class DisplaySessionComponent implements OnInit {
   session:Session;
   id :number;
   sub: Subscription;
-  constructor(private sessionService: SessionService,private router: Router,private route: ActivatedRoute) { }
+  constructor(
+    private ticketService: TicketService,
+    private sessionService: SessionService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
 
@@ -56,6 +62,10 @@ export class DisplaySessionComponent implements OnInit {
     localStorage.setItem(sessionInStorage, JSON.stringify(session));
     console.log(localStorage.getItem(sessionInStorage));
     console.log("session send to the local storage");
+  }
+
+  public buyVirtualTicket(): void {
+    this.ticketService.buyVirtualTicket(this.session);
   }
 
 }

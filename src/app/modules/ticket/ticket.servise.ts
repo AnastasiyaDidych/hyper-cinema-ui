@@ -48,4 +48,12 @@ export class TicketService {
     return this.http.get<Ticket>(this.ticketUrl + '/send/'+ id);
   }
 
+  buyVirtualTicket(session: Session): Ticket {
+
+    // TODO not finished!
+    let ticket = new Ticket;
+    ticket.sessionId = session.id;
+    return ticket;
+  }
+
 }
