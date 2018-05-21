@@ -19,6 +19,7 @@ import { TicketService } from '../ticket/ticket.servise';
 export class CartComponent implements OnInit {
 
   constructor(
+    private router: Router,
     private hallService: HallService,
     private orderService: OrderService,
     private ticketService: TicketService
@@ -47,13 +48,13 @@ export class CartComponent implements OnInit {
       this.getHallFromSession(this.session.hallId);
       this.calculateOrderTotalPrice();
       this.initOrder();
-    }else{
+    } else {
       throw Error;
     }
   }
   public calculateOrderTotalPrice() {
     this.seatsFromStorage.forEach(seat => {
-    this.totalPrice = this.totalPrice + seat.price
+      this.totalPrice = this.totalPrice + seat.price
     });
     console.log(this.totalPrice);
   }
@@ -78,7 +79,7 @@ export class CartComponent implements OnInit {
     localStorage.removeItem(seatArrayInStorage);
   }
 
-  initOrder(): void{
+  initOrder(): void {
     this.order = new Order;
     this.seatsFromStorage.forEach(
       seat => {
@@ -91,16 +92,21 @@ export class CartComponent implements OnInit {
     this.order.price = this.totalPrice;
   }
 
-  createOrder(): void{
-    this.orderService.createOrder(this.order)
-    .subscribe(
-      (success) => {
-        console.log('Order created -> ' + this.order.tickets.length + ' tickets');
-      },
-      (error) =>{
-        console.log('Order not created')
-      }
-    );
+  createOrder(): void {
+    if (window.confirm('Are you sure?')) {
+      this.orderService.createOrder(this.order)
+        .subscribe(
+          (success) => {
+            console.log('Order created -> ' + this.order.tickets.length + ' tickets');
+            alert('You bought ' + this.order.tickets.length + ' tickets');
+            this.router.navigateByUrl('/tickets');
+          },
+          (error) => {
+            alert('Order not created');
+            console.log('Order not created')
+          }
+        );
+    }
   }
 
 }

@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { TicketService } from '../ticket.servise';
 import { Ticket } from '../ticket.model';
+
+
 
 @Component({
     selector: 'app-ticket-list',
@@ -10,6 +12,8 @@ import { Ticket } from '../ticket.model';
     styleUrls: ['./ticket-list.component.css']
 })
 export class TicketListComponent implements OnInit {
+
+    @ViewChild('barcode') barcode: ElementRef;
 
     private searchFilm: string = '';
     private searchUser: string = '';
@@ -26,11 +30,15 @@ export class TicketListComponent implements OnInit {
             .subscribe(
                 (success) => {
                     this.tickets = success;
+                    this.tickets.forEach(ticket =>{
+                    });
                 },
                 (error) => {
                     console.log(error);
                 });
     }
+
+    
 
     delete(ticket: Ticket): void {
         if (window.confirm('Delete ticket?')) {
