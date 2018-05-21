@@ -3,9 +3,9 @@ import { Observable,  } from 'rxjs';
 import { of } from 'rxjs/observable/of'
 import { Router } from '@angular/router';
 import { catchError, map, tap } from 'rxjs/operators';
-import { Movie } from '../movie-create/movie.model';
 import { HttpClient } from '@angular/common/http';
 import {DomSanitizer} from '@angular/platform-browser';
+import { Movie } from '../movie.model';
 
 @Injectable()
 export class MovieService {

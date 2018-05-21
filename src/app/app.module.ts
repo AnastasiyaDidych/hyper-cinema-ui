@@ -18,7 +18,6 @@ import { ErrorDialogComponent } from './modules/sessions/core/error-dialog.compo
 
 import { SearchPipe } from './modules/sessions/session-list/search.pipe';
 import { FilterPipe } from './modules/sessions/session-list/filter.pipe';
-import { MovieFilterPipe } from './modules/movie/filter/filter.pipe';
 import { UniquePipe } from './modules/sessions/session-list/unique.pipe';
 import { ASD } from './modules/sessions/session-list/asd.pipe';
 import { AppRoutingModule } from './app.routing.module';
@@ -35,15 +34,12 @@ import { TokenStorage } from './shared/auth/token.storage';
 import { Interceptor } from './shared/auth/inteceptor';
 import { MovieDetailsComponent } from './modules/movie/movie-details/movie-details.component';
 import { CartComponent } from './modules/cart/cart.component';
+import { MovieModule } from './modules/movie/movie.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MovieListComponent,
-    MovieCreateComponent,
-    MovieDetailsComponent,
-    FilterPipe,
     ErrorDialogComponent,
     SessionListComponent,
     SessionEditComponent,
@@ -51,15 +47,14 @@ import { CartComponent } from './modules/cart/cart.component';
     SearchPipe,
     FilterPipe,
     UniquePipe,
-    MovieFilterPipe,
     ASD,
     CartComponent,
-
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    MovieModule,
     TicketModule,
     LoginModule,
     OrderModule,
