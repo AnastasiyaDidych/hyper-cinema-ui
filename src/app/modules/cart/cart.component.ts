@@ -23,6 +23,7 @@ export class CartComponent implements OnInit {
   session: Session = Object();
   hall: Hall = Object();
   totalPrice: number = 0;
+  seat: Seat = Object();
 
 
   ngOnInit() {
@@ -38,13 +39,14 @@ export class CartComponent implements OnInit {
       this.getSeatFromStorage();
       this.getHallFromSession(this.session.hallId);
       this.calculateOrderTotalPrice();
-    }else{
-      throw Error;
+    } else {
+      console.log("No session in storage")
     }
   }
+
   public calculateOrderTotalPrice() {
     this.seatsFromStorage.forEach(seat => {
-    this.totalPrice = this.totalPrice + seat.price
+      this.totalPrice = this.totalPrice + seat.price
     });
     console.log(this.totalPrice);
   }
@@ -55,7 +57,7 @@ export class CartComponent implements OnInit {
   }
 
   public getHallFromSession(hall_id: number) {
-    this.hallService.getOne(hall_id).subscribe(data => {
+    this.hallService.getHall(hall_id).subscribe(data => {
       this.hall = data;
     });
 
@@ -69,8 +71,8 @@ export class CartComponent implements OnInit {
     localStorage.removeItem(seatArrayInStorage);
   }
 
-  public payOrder(){
-    
+  public payOrder() {
+
   }
 
 }

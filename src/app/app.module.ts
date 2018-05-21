@@ -35,6 +35,12 @@ import { TokenStorage } from './shared/auth/token.storage';
 import { Interceptor } from './shared/auth/inteceptor';
 import { MovieDetailsComponent } from './modules/movie/movie-details/movie-details.component';
 import { CartComponent } from './modules/cart/cart.component';
+import { HallListModule } from './modules/hall/hall-list/hall-list.module';
+import { OneHallModule } from './modules/hall/one-hall/one-hall.module';
+
+
+
+
 
 
 @NgModule({
@@ -53,7 +59,9 @@ import { CartComponent } from './modules/cart/cart.component';
     UniquePipe,
     MovieFilterPipe,
     ASD,
-    CartComponent
+    CartComponent,
+
+  
 
   ],
   imports: [
@@ -61,6 +69,8 @@ import { CartComponent } from './modules/cart/cart.component';
     HttpClientModule,
     AppRoutingModule,
     TicketModule,
+    HallListModule,
+    OneHallModule,
     LoginModule,
     OrderModule,
     OrderDetailsModule,
@@ -69,7 +79,7 @@ import { CartComponent } from './modules/cart/cart.component';
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    MaterialModule
+    MaterialModule,
   ],
 
   //entryComponents: [

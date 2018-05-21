@@ -1,4 +1,5 @@
 import { Ticket } from '../../ticket/ticket.model';
+import { TicketForSession } from '../../hall/model/tictetForSession.model';
 
 export class Session {
   id : number;
@@ -10,5 +11,6 @@ export class Session {
   title: string;
   vipPrice: number;
   basePrice: number;
+  tickets: Array<TicketForSession>;
 }
 

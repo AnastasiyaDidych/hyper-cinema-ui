@@ -1,0 +1,23 @@
+<mat-card class="hallCart">
+  <div *ngFor="let hall of halls">
+    <mat-card class="rightButton">
+      <div class="hallInf">
+        Id: {{hall.id}}
+        <br>
+        Name: {{hall.name}} hall
+        <br> Seats: {{hall.capacity}}
+        <br> Technology: {{hall.tech}}
+        <br> Virtual: true
+        <!-- <p *ngIf="hall.type === 'virtual'"> Virtual: true </p>
+        <p *ngIf="hall.type === 'static'">  Virtual: false </p> -->
+      </div>
+      <div>
+
+          <a routerLink="/hall">'
+            <button class="pay-button" mat-raised-button color="primary" (click)="throwHallIdToStorage(hall.id)">Click Here</button>
+          </a>
+        <button mat-raised-button color="primary">Edit</button>
+      </div>
+    </mat-card>
+  </div>
+</mat-card>

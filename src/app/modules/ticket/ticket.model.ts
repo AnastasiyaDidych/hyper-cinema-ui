@@ -10,5 +10,6 @@ export class Ticket {
     hallName: string;
     price: number;
     barcode: string;
+    seatId: number;
 
 }
