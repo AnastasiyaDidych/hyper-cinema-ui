@@ -1,4 +1,3 @@
-
 export class Session {
   id : number;
   date: string;
@@ -6,8 +5,7 @@ export class Session {
   movieId: number;
   startTime: string;
   virtualActive: boolean;
-  title: string;
+  active:boolean;
   vipPrice: number;
   basePrice: number;
 }
-

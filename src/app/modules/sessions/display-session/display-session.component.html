@@ -1,22 +1,24 @@
-<mat-card>
-  <mat-card-header>Session List</mat-card-header>
-  <mat-card-content>
-    <mat-list>
-      <mat-list-item>
-        <h3 mat-line>ID: {{session?.id}}</h3>
-        <h3 mat-line>Title: {{session?.title}}</h3>
-        <h3 mat-line>Date :{{session?.date}}</h3>
-        <h3 mat-line>StartTime: {{session?.startTime}}</h3>
-        <h3 mat-line>EndTime: {{session?.endTime}}</h3>
-        <h3 mat-line>HallId: {{session?.hallId}}</h3>
-        <h3 mat-line>BasePrice: {{session?.basePrice}}</h3>
-        <h3 mat-line>VipPrice: {{session?.vipPrice}}</h3>
-        <h3 mat-line>Virtual?: {{session?.virtualActive}}</h3>
-        <button mat-raised-button color="primary" [routerLink]="['/session-list']">Back</button>
-        <a routerLink="/halls">
-          <button mat-button (click)="setSessionToLocalStorage(session)">Hall</button>
-        </a>
-      </mat-list-item>
-    </mat-list>
-  </mat-card-content>
-</mat-card>
+        <mat-card>
+                <mat-card-header>Session List</mat-card-header>
+                <mat-card-content>
+                  <mat-list>
+                    <mat-list-item>
+                      <h3 mat-line>ID:  {{session?.id}}</h3>
+                      <h3 mat-line>Title:  {{session?.title}}</h3>
+                      <h3 mat-line>Date :{{session?.date}}</h3>
+                      <h3 mat-line>StartTime:  {{session?.startTime}}</h3>
+                      <h3 mat-line>EndTime:  {{session?.endTime}}</h3>
+                      <h3 mat-line>HallId:  {{session?.hallId}}</h3>
+                      <h3 mat-line>BasePrice:  {{session?.basePrice}}</h3>
+                      <h3 mat-line>VipPrice:  {{session?.vipPrice}}</h3>
+                      <h3 mat-line>Virtual?:  {{session?.virtualActive}}</h3>
+                      <h3 mat-line>Active?:  {{session?.active}}</h3>
+          <h3 mat-line><button mat-raised-button color="primary" (click)="generateForDay(session)"> Gen Session</button></h3>                      
+                      <button mat-raised-button color="primary" [routerLink]="['/halls']">Go to Hall</button>
+                      <button mat-raised-button color="primary" [routerLink]="['/cart']">Buy Virtual</button>
+                      <button mat-raised-button color="primary" [routerLink]="['/session-list']">Back</button>
+                      
+                    </mat-list-item>
+                  </mat-list>
+                </mat-card-content>
+              </mat-card>

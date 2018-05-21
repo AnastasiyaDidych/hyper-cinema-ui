@@ -1,0 +1,26 @@
+.asd {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.asd img {
+    margin-right: 10s0px;
+}
+
+.schBlock{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+.schInnerBlock1 {
+    width: 100%;
+}
+
+.schInnerBlock2 {
+    height: 100%;
+}
