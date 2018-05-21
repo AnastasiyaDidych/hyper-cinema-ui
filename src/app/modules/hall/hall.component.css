@@ -1,5 +1,7 @@
 .boughtSeat {
     color: #be0909;
+    pointer-events: none;
+    cursor: default;
 }
 .selectedSeat {
     color: #09d11a;
@@ -32,13 +34,6 @@
     width: 100%;
     display: flex;
     justify-content: center;     
-  }
-  .editButton{
-      margin-top: 15px;
-      margin-right: 100px;
-    display: flex;
-    justify-content: flex-end;
-
   }
 
   .widthOfHallPage{

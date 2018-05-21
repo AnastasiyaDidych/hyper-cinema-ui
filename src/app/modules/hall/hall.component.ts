@@ -39,28 +39,29 @@ export class HallComponent implements OnInit {
     this.getHall(this.session.hallId);
   }
 
+  ngOnDestroy() {
+    this.boughtSeats = [];
+  }
+
 
   public fillBoughtSeats() {
     this.tickets = this.session.tickets;
     if (this.tickets !== null) {
-
       for (var i = 0; i < this.tickets.length; i++) {
-        console.log(this.tickets[i].seatId);
         let seat = this.getSeatById(this.tickets[i].seatId);
         if (seat !== null) {
           this.boughtSeats.push(seat);
         }
-        /*this.getSeat(this.tickets[i].seatId, (seat: Seat) => {
-          this.boughtSeats.push(seat);
-        })*/
       }
-    } console.log("bought seats:" + this.boughtSeats);
+    }
+    console.log("bought seats")
+    console.log(this.boughtSeats);
 
   }
 
   public getSeatById(seatId: number): Seat {
     for (let i in this.seats) {
-      if (this.seats[i].id = seatId) {
+      if (this.seats[i].id === seatId) {
         return this.seats[i];
       }
     }
@@ -75,19 +76,12 @@ export class HallComponent implements OnInit {
   public getHall(hall_id: number) {
     this.hallService.getHall(hall_id).subscribe(data => {
       this.hall = data;
+      console.log(this.hall.id);
       for (var i = 1; i < this.hall.seats.length; i++) {
         this.hall.seats[i].hall_id = this.hall.id;
-        this.seats.push(this.hall.seats[i])
-      
+        this.seats.push(this.hall.seats[i]);
       }
       this.fillBoughtSeats();
-    });
-  }
-
-  public getSeat(seat_id: number, callback: Function) {
-    this.seatService.getSeat(seat_id).subscribe(data => {
-      this.seat = data;
-      callback(this.seat);
     });
   }
 
@@ -112,18 +106,21 @@ export class HallComponent implements OnInit {
     }
   }
 
+
   public cleanSelect() {
     this.selectedSeats = [];
   }
 
 
   public getStatus(seat: Seat) {
-    if (this.boughtSeats.indexOf(seat) !== -1) {
-      return 'bought';
-    } else if (this.selectedSeats.indexOf(seat) !== -1) {
+   if(this.boughtSeats.includes(seat)){
+     return 'buy'; 
+   }else 
+  if (this.selectedSeats.indexOf(seat) !== -1) {
       return 'selected';
     }
   }
+
 
 
   public getType(seat: Seat) {
