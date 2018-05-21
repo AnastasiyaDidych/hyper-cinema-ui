@@ -1,14 +1,30 @@
-Film: <input id="first_name" class="validate" [(ngModel)]="searchStr">
-<div>
-    <input type="radio" name="day" (click)="setToday()" checked="checked">Today
-    <input type="radio" name="day" (click)="setTomorow()">Tomorow
-    <input type="radio" name="day" (click)="setAll()">Whole Week
-  </div>
-<div *ngFor="let schedule_data of schedule |search:searchStr |filter:dateStr">
-  {{schedule_data.title}}
-  {{schedule_data.localDate}}
-    <div *ngFor="let sch of schedule_data.sessionEntityList">
-        <a [routerLink]="['/display-session',sch.id]">{{sch.localTime}}</a>
-    </div>
-</div>
 
+<mat-card>
+    <mat-card-header>Session List</mat-card-header>
+    Film: <input id="first_name" class="validate" [(ngModel)]="searchStr">
+   
+      <!-- Date: <input id="second_name" class="validate1" [(ngModel)]="dateStr"> -->
+    
+    <mat-card-content>
+      
+      <mat-list>         
+        <mat-list-item *ngFor="let session of sessions | search:searchStr |filter:dateStr">
+            <button mat-fab color="primary" [routerLink]="['/display-session',session.id]">View All Inf</button>
+          <h3 mat-line>Date :{{session.date}}</h3>
+          <h3 mat-line>StartTime:  {{session.startTime}}</h3>
+          
+          <h3 mat-line>Title:  {{session.title}}</h3>
+          <h3 mat-line><button mat-raised-button color="primary" (click)="deleteSession(session)"> Delete Session</button></h3>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+    <div class="menu">
+    <button mat-fab color="primary" [routerLink]="['/session-add']">Add</button>
+  </div>
+  </mat-card>
+  <div>
+  <input type="radio" name="day" (click)="setTomorow()" checked="checked">1
+  <input type="radio" name="day" (click)="setToday()">2
+  <input type="radio" name="day" (click)="setAll()">3
+</div>
+  

@@ -25,7 +25,6 @@ import { AppRoutingModule } from './app.routing.module';
 import { SessionService } from './modules/sessions/shared/session.service';
 import { TicketModule } from './modules/ticket/ticket.module';
 import { OrderModule } from './modules/order/order.module';
-import { OrderDetailsModule } from './modules/order/order-details/order-details.module';
 import { HallModule } from './modules/hall/hall.module';
 import { MovieService } from './modules/movie/services/movie.service';
 import { MaterialModule } from './material.module';
@@ -37,9 +36,7 @@ import { MovieDetailsComponent } from './modules/movie/movie-details/movie-detai
 import { CartComponent } from './modules/cart/cart.component';
 import { HallListModule } from './modules/hall/hall-list/hall-list.module';
 import { OneHallModule } from './modules/hall/one-hall/one-hall.module';
-
-
-
+import { ScheduleListComponent } from './modules/sessions/schedule-list/schedule-list.component';
 
 
 
@@ -60,8 +57,7 @@ import { OneHallModule } from './modules/hall/one-hall/one-hall.module';
     MovieFilterPipe,
     ASD,
     CartComponent,
-
-  
+    ScheduleListComponent
 
   ],
   imports: [
@@ -73,7 +69,6 @@ import { OneHallModule } from './modules/hall/one-hall/one-hall.module';
     OneHallModule,
     LoginModule,
     OrderModule,
-    OrderDetailsModule,
     HallModule,
     BrowserAnimationsModule,
     FormsModule,

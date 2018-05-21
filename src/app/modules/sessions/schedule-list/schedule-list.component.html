@@ -1,0 +1,50 @@
+
+
+
+
+
+
+<mat-card>
+
+  <mat-card>
+    <mat-card-content>
+        <mat-form-field >
+            <mat-icon matPrefix class="app-input-icon">local_movies</mat-icon>
+            <input matInput #film placeholder="Search Film" [(ngModel)]="searchStr"/>
+          </mat-form-field>
+   <input type="radio" name="day" (click)="setToday()" checked="checked">Today
+   <input type="radio" name="day" (click)="setTomorow()">Tomorow
+   <input type="radio" name="day" (click)="setAll()">Whole Week
+   </mat-card-content>
+   </mat-card>
+
+   <mat-card>
+  <mat-card-content> 
+      <mat-list *ngFor="let schedule_data of schedule |search:searchStr |filterd:dateStr"> 
+          <mat-card>
+              <mat-card-content class="asd">    
+        
+
+        <div class="schBlock">
+                
+            <div class="schInnerBlock1">
+                    <h3 mat-line>{{schedule_data.title}}</h3>
+                    <h3 mat-line>{{schedule_data.localDate}}</h3>
+                <div class="schList">
+                        <mat-list-item *ngFor="let sch of schedule_data.sessionEntityList" >  
+                            <button class="app-button"[routerLink]="['/display-session',sch.id]" mat-button>{{sch.localTime}}</button>
+                        </mat-list-item>
+                    </div>
+            </div>
+            
+            <div class="schInnerBlock2">
+                <img src = "https://vignette.wikia.nocookie.net/clootchie-and-the-lieutenant/images/a/a2/Quackers_the_Duck.jpg/revision/latest?cb=20150308214037" tab="photo" width=255 height=255> 
+            </div>
+        </div>
+        
+        </mat-card-content>
+        </mat-card>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+</mat-card>

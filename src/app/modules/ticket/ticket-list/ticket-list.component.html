@@ -1,8 +1,7 @@
 <div class="my-wrapper">
 
     Film:
-    <input [(ngModel)]="searchFilm"> 
-    User:
+    <input [(ngModel)]="searchFilm"> User:
     <input [(ngModel)]="searchUser">
 
     <ng-container *ngFor="let ticket of tickets|ticketFilter:searchFilm:searchUser">
@@ -26,6 +25,10 @@
             </div>
 
             <div class="h-block-2">
+                <!-- <div class="session-type" [ngSwitch]="ticket.virtualActive">
+                    <span *ngSwitchCase="true">Virtual session</span>
+                    <span *ngSwitchCase="false">Static session</span>
+                </div> -->
                 <div class="hall-name">
                     {{ticket.hallName}} hall
                 </div>
@@ -48,7 +51,6 @@
                     <p>Price : {{ticket.price}} UAH</p>
                 </div>
                 <div class="barcode-pic">
-                    <!-- <p>Here will be a picture</p> -->
                     <ngx-barcode [bc-value]="ticket.barcode" [bc-display-value]="false" [bc-width]="0.8" [bc-height]="45" [bc-margin]="0"></ngx-barcode>
                 </div>
                 <div class="ticket-barcode">
@@ -58,7 +60,6 @@
 
             <div class="h-block-4">
                 <button class="ticket-button" mat-button (click)="select(ticket.id)">Select</button>
-                <!-- <button class="ticket-button" mat-button [routerLink]="['/tickets', ticket.id]"]>Select</button> -->
                 <button class="ticket-button" mat-button (click)="delete(ticket)">Cancel</button>
             </div>
 

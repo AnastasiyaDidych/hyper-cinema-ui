@@ -10,9 +10,7 @@
     </div>
   </mat-card-title>
   <mat-card-content *ngIf="seatsFromStorage.length > 0">
-    <a>
-      <button class="pay-button" mat-raised-button color="primary" (click) = "payOrder()">Pay order ({{totalPrice}}₴)</button>
-    </a>
+    <button class="pay-button" mat-raised-button color="primary" (click)="createOrder()">Pay order ({{totalPrice}}₴)</button>
   </mat-card-content>
 
   <mat-card-content>

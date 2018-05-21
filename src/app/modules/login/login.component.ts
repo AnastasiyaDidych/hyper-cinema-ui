@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
       data => {
         this.token.saveToken(data.token);
         this.isSpinnerVisible = false;
-        this.router.navigate(['/sessions']);
+        this.router.navigate(['/schedule-list']);
       },
       () => {
         this.isSpinnerVisible = false;

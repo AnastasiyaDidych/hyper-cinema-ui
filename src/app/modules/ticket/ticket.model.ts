@@ -10,6 +10,8 @@ export class Ticket {
     hallName: string;
     price: number;
     barcode: string;
+    virtualActive: boolean;
+    sessionId: number;
     seatId: number;
 
 }

@@ -1,4 +1,4 @@
-import { Ticket } from '../../ticket/ticket.model';
+
 import { TicketForSession } from '../../hall/model/tictetForSession.model';
 
 export class Session {
@@ -8,7 +8,7 @@ export class Session {
   movieId: number;
   startTime: string;
   virtualActive: boolean;
-  title: string;
+  active:boolean;
   vipPrice: number;
   basePrice: number;
   tickets: Array<TicketForSession>;

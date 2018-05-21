@@ -12,10 +12,12 @@
                       <h3 mat-line>BasePrice:  {{session?.basePrice}}</h3>
                       <h3 mat-line>VipPrice:  {{session?.vipPrice}}</h3>
                       <h3 mat-line>Virtual?:  {{session?.virtualActive}}</h3>
+                      <h3 mat-line>Active?:  {{session?.active}}</h3>
+          <h3 mat-line><button mat-raised-button color="primary" (click)="generateForDay(session)"> Gen Session</button></h3>                      
+                      <button mat-raised-button color="primary" [routerLink]="['/halls']">Go to Hall</button>
+                      <button mat-raised-button color="primary" [routerLink]="['/cart']">Buy Virtual</button>
                       <button mat-raised-button color="primary" [routerLink]="['/session-list']">Back</button>
-                      <a routerLink="/halls">
-                        <button mat-button (click)="setSessionToLocalStorage(session)">Hall</button>
-                      </a>
+                      
                     </mat-list-item>
                   </mat-list>
                 </mat-card-content>

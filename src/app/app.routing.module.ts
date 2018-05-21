@@ -7,7 +7,6 @@ import { LoginComponent } from './modules/login/login.component';
 import { MovieListComponent } from './modules/movie/movie-list/movie-list.component';
 import { TicketListComponent } from './modules/ticket/ticket-list/ticket-list.component';
 import { OrderComponent } from './modules/order/order.component';
-import { OrderDetailsComponent } from './modules/order/order-details/order-details.component';
 import { SingleTicketComponent } from './modules/ticket/single-ticket/single-ticket.component';
 import { HallComponent } from './modules/hall/hall.component';
 import { MovieCreateComponent } from './modules/movie/movie-create/movie-create.component';
@@ -15,6 +14,7 @@ import { MovieDetailsComponent } from './modules/movie/movie-details/movie-detai
 import { CartComponent } from './modules/cart/cart.component';
 import { HallListComponent } from './modules/hall/hall-list/hall-list.component';
 import { OneHallComponent } from './modules/hall/one-hall/one-hall.component';
+import { ScheduleListComponent } from './modules/sessions/schedule-list/schedule-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -24,10 +24,10 @@ const routes: Routes = [
   { path: "movie-create/:id", component: MovieCreateComponent },
   { path: "movie/:id", component: MovieDetailsComponent },
   { path: 'orders', component: OrderComponent },
-  { path: 'orders/:id', component: OrderDetailsComponent },
   { path: 'tickets', component: TicketListComponent },
   { path: 'tickets/:id', component: SingleTicketComponent },
-  { path: 'sessions', component: SessionListComponent },
+  { path: 'session-list', component: SessionListComponent },
+  { path: 'schedule-list', component: ScheduleListComponent },
   { path: 'session-add', component: SessionEditComponent },
   { path: 'session-edit', component: SessionListComponent },
   { path: 'display-session/:id', component: DisplaySessionComponent },

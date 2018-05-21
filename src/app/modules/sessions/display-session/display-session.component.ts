@@ -58,6 +58,13 @@ export class DisplaySessionComponent implements OnInit {
     // });
 
   }
+  public  generateForDay(session: Session): void {
+    if (window.confirm('Delete ticket?')) {
+    this.sessionService.genetateForDay(session.id)
+      .subscribe(data => {
+        this.sessions = this.sessions.filter(s => s !== session);
+      })
+  }}
 
   public setSessionToLocalStorage(session: DisplaySessionComponent) {
     localStorage.setItem(sessionInStorage, JSON.stringify(session));
