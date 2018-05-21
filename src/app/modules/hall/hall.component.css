@@ -7,16 +7,41 @@
 .freeSeat {
     color: rgb(9, 6, 143);
 }
-.divPossition{
-    float: left;
-}
-.cleanPossition{
-    display: flex;
-    justify-content: flex-end;    
+
+.VIPSeat{
+    color: #d10956;
 }
 
-.seatSize{
-    width: 2px;
-    height: 2px;
+.divPossition{
+    width: 700px;
+    float: right;
+    margin-left: 10px;
+    margin-right: 100px;
+    margin-top: 100px;
+
 }
+.order-cart {
+    max-width: 295px;
+    margin: auto;
+    width: 50%;
+    margin-top: 10px;
+    float: left;
+  }
+
+  .pay-button{
+    width: 100%;
+    display: flex;
+    justify-content: center;     
+  }
+  .editButton{
+      margin-top: 15px;
+      margin-right: 100px;
+    display: flex;
+    justify-content: flex-end;
+
+  }
+
+  .widthOfHallPage{
+    min-width: 800px;
+  }
 
