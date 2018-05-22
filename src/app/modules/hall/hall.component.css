@@ -41,8 +41,10 @@
   }
 
   p{
+      color: #0a0324;
       display: inline;
-      font-size: 18px;
+      font-size: 24px;
+      font-family:Calibri;
   }
 
   .pricePosition{
