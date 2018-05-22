@@ -8,10 +8,11 @@ import { TicketForSession } from '../../hall/model/tictetForSession.model';
 import { Seat } from '../../hall/model/seat.model';
 import { Hall } from '../../hall/model/hall.model';
 import { HallService, seatArrayInStorage } from '../../hall/hall.service';
-
+import { MovieService } from '../../movie/services/movie.service';
 
 export const sessionInStorage = "sessionInStorage";
-export const ticketsArray = "ticketsInStorage";
+export const ticketsInStorage = "ticketsInStorage";
+
 
 @Component({
   selector: 'app-display-session',
@@ -27,7 +28,13 @@ export class DisplaySessionComponent implements OnInit {
   virtuaSeat: Array<Seat> = [];
   hall: Hall = Object();
 
-  constructor(private hallService: HallService, private sessionService: SessionService, private router: Router, private route: ActivatedRoute) { }
+  private imageUrl: string;
+
+  constructor(
+    private movieService: MovieService,
+    private hallService: HallService,
+    private sessionService: SessionService, private router: Router, private route: ActivatedRoute) { }
+
 
   ngOnInit() {
 
@@ -37,12 +44,14 @@ export class DisplaySessionComponent implements OnInit {
         this.sessionService.get(id).subscribe((car: any) => {
           if (car) {
             this.session = car;
-            for (var i = 1; i < this.session.tickets.length; i++) {
-              this.ticketsFromSession.push(this.session.tickets[i]);
-            }
-
-            console.log(this.ticketsFromSession);
-            this.getHall(this.session.hallId);
+            this.movieService.getImdbUrl(this.session.movieId, (url) => {
+              this.session.movieImageUrl = url;
+              console.log(this.session.movieImageUrl);
+              for (var i = 1; i < this.session.tickets.length; i++) {
+                this.ticketsFromSession.push(this.session.tickets[i]);
+              }
+              this.getHall(this.session.hallId);
+            });
           } else {
             console.log(`Car with id '${id}' not found, returning to list`);
 
@@ -63,7 +72,7 @@ export class DisplaySessionComponent implements OnInit {
 
   public setSessionToLocalStorage(session: DisplaySessionComponent) {
     localStorage.setItem(sessionInStorage, JSON.stringify(session));
-    localStorage.setItem(ticketsArray, JSON.stringify(this.ticketsFromSession));
+    localStorage.setItem(ticketsInStorage, JSON.stringify(this.ticketsFromSession));
 
   }
 
