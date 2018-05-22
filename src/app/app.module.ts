@@ -45,8 +45,6 @@ import { OneHallModule } from './modules/hall/one-hall/one-hall.module';
 @NgModule({
   declarations: [
     AppComponent,
-    MovieCreateComponent,
-    MovieDetailsComponent,
     ErrorDialogComponent,
     SessionListComponent,
     SessionEditComponent,
@@ -56,7 +54,6 @@ import { OneHallModule } from './modules/hall/one-hall/one-hall.module';
     UniquePipe,
     ASD,
     CartComponent,
-    MovieFilterPipe,
     CartComponent,
     ScheduleListComponent
 
