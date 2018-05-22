@@ -50,9 +50,6 @@ export class HallComponent implements OnInit {
         }
       }
     }
-    console.log("bought seats")
-    console.log(this.boughtSeats);
-
   }
 
   public getSeatById(seatId: number): Seat {
@@ -72,9 +69,9 @@ export class HallComponent implements OnInit {
   public getHall(hall_id: number) {
     this.hallService.getHall(hall_id).subscribe(data => {
       this.hall = data;
-      console.log(this.hall.id);
       for (var i = 1; i < this.hall.seats.length; i++) {
         this.hall.seats[i].hall_id = this.hall.id;
+        this.seats.push(this.hall.seats[i]);
       }
     });
   }
@@ -88,11 +85,11 @@ export class HallComponent implements OnInit {
     var index = this.selectedSeats.indexOf(seat);
     if (index !== -1) {
       this.removeSeatFromSelectedSeats(seat)
-    } else if(!this.boughtSeats.includes(seat)) {
+    } else if (!this.boughtSeats.includes(seat)) {
       if (seat.type === "VIP") {
         seat.price = this.session.vipPrice;
         this.selectedSeats.push(seat);
-      } else if(seat.type === 'base') {
+      } else if (seat.type === 'base') {
         seat.price = this.session.basePrice;
         this.selectedSeats.push(seat);
       }
@@ -106,12 +103,12 @@ export class HallComponent implements OnInit {
 
 
   public getStatus(seat: Seat) {
-   if(this.boughtSeats.includes(seat)){
-     return 'buy'; 
-   }else 
-  if (this.selectedSeats.indexOf(seat) !== -1) {
-      return 'selected';
-    }
+    if (this.boughtSeats.includes(seat)) {
+      return 'buy';
+    } else
+      if (this.selectedSeats.indexOf(seat) !== -1) {
+        return 'selected';
+      }
   }
 
 

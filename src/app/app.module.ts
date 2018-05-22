@@ -37,6 +37,7 @@ import { HallListModule } from './modules/hall/hall-list/hall-list.module';
 
 import { ScheduleListComponent } from './modules/sessions/schedule-list/schedule-list.component';
 import { OneHallModule } from './modules/hall/one-hall/one-hall.module';
+import {FdatePipe} from './modules/sessions/session-list/dat.pipe'
 
 
 
@@ -52,7 +53,8 @@ import { OneHallModule } from './modules/hall/one-hall/one-hall.module';
     UniquePipe,
     ASD,
     CartComponent,
-    ScheduleListComponent
+    ScheduleListComponent,
+    FdatePipe
 
   ],
   imports: [
