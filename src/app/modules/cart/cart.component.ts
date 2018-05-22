@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { HallService } from '../hall/hall.service';
+import { HallService, seatArrayInStorage } from '../hall/hall.service';
 import { Seat } from '../hall/model/seat.model';
 import { Session } from '..//sessions/session-edit/session.model';
 import { Hall } from '../hall/model/hall.model';
 import { sessionInStorage } from '../sessions/display-session/display-session.component';
-import { seatArrayInStorage } from '../hall/hall.component';
 import { Order } from '../order/order.model';
 import { Router } from '@angular/router';
 import { OrderService } from '../order/order.service';

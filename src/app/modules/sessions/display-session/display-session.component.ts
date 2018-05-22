@@ -7,8 +7,8 @@ import { Subscription } from 'rxjs/Subscription';
 import { TicketForSession } from '../../hall/model/tictetForSession.model';
 import { Seat } from '../../hall/model/seat.model';
 import { Hall } from '../../hall/model/hall.model';
-import { HallService } from '../../hall/hall.service';
-import { seatArrayInStorage } from '../../hall/hall.component';
+import { HallService, seatArrayInStorage } from '../../hall/hall.service';
+
 
 export const sessionInStorage = "sessionInStorage";
 export const ticketsArray = "ticketsInStorage";
