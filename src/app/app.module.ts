@@ -55,8 +55,8 @@ import {FdatePipe} from './modules/sessions/session-list/dat.pipe'
     CartComponent,
     ScheduleListComponent,
     FdatePipe
-
   ],
+  
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -73,7 +73,6 @@ import {FdatePipe} from './modules/sessions/session-list/dat.pipe'
     ReactiveFormsModule,
     FlexLayoutModule,
     MaterialModule
-
   ],
 
   providers: [

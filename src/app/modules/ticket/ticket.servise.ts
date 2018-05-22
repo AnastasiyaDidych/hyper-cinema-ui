@@ -22,6 +22,10 @@ export class TicketService {
     return this.http.get<Ticket[]>(this.ticketUrl + "/full");
   }
 
+  getMyTickets(): Observable<Ticket[]>{
+    return this.http.get<Ticket[]>(this.ticketUrl + "/my");
+  }
+
   getPageOfTickets(page: number): Observable<Ticket[]> {
     return this.http.get<Ticket[]>(this.ticketUrl + "?page=" + page);
   }
