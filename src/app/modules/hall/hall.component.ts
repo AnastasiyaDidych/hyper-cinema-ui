@@ -95,7 +95,7 @@ export class HallComponent implements OnInit {
       if (seat.type === "VIP") {
         seat.price = this.session.vipPrice;
         this.selectedSeats.push(seat);
-      } else {
+      } else if(seat.type === 'base') {
         seat.price = this.session.basePrice;
         this.selectedSeats.push(seat);
       }

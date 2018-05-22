@@ -20,7 +20,7 @@
           <div class="film-name">
             <p>{{session.title}}</p>
           </div>
-          <div class="tech">
+          <div class="tech" *ngIf = "seat.type !== 'virtual'">
             <p>Technology: {{hall.tech}}</p>
           </div>
           <div class="date-time">
@@ -40,7 +40,7 @@
           <div class="hall-name">
             Type: {{seat.type}}
           </div>
-          <div class="seat">
+          <div class="seat" *ngIf = "seat.type !== 'virtual'">
             <div class="seat-block">
               <p>Row</p>
               <br>
