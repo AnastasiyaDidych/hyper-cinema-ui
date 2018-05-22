@@ -11,8 +11,9 @@ import { Movie } from './movie.model';
 })
 export class MovieCreateComponent implements OnInit {
 
-  private movie :any;
+  movie :any;
   sub : Subscription;
+  title : string;
 
   constructor(
     private movieService : MovieService,
@@ -20,29 +21,32 @@ export class MovieCreateComponent implements OnInit {
     private route        : ActivatedRoute     ) { }
 
   ngOnInit() {
+    
     this.route.params.subscribe(params => {
       const id = params['id'];
       if(id) {
         this.movieService.getMovie(id)
                          .subscribe(params => {
                            this.movie = params;
+                           this.title = this.movie.title;
                          });
       }
       else {
         this.movie = new Movie;
-      }
+        this.title = '';
+        }
     })
   }
 
   saveMovie() :void{
+    // this.movie.title = this.title;
     console.log(this.movie);
     this.movieService.saveMovie(this.movie)
         .subscribe(params => {
           alert("Done");
           this.movieService.gotoList();
         });
-  }
 
-  
+}
 
 }

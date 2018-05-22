@@ -4,24 +4,26 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule, MatCardModule, MatInputModule, MatListModule, MatToolbarModule, MatTableModule, MatGridListModule, MatDialogModule, MatSidenavModule, MatIconModule, MatFormFieldModule, MatMenuModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { HallComponent } from './hall.component';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { HallService } from './hall.service';
 import { RouterModule } from '@angular/router';
-import { SeatService } from './seat.service';
+
+import { SeatService } from '../seat.service';
+import { OneHallComponent } from './one-hall.component';
+
 
 
 
 @NgModule({
     declarations: [
-        HallComponent
+        OneHallComponent,
     ],
     imports: [
         HttpClientModule,
         CommonModule,
         BrowserModule,
         RouterModule,
+    
 
 
         // Angular material Modules
@@ -45,13 +47,12 @@ import { SeatService } from './seat.service';
         MatGridListModule
     ],
     exports: [
-        HallComponent
+       OneHallComponent
     ],
     providers: [
-        HallService,
         SeatService
     ],
 })
-export class HallModule {
+export class OneHallModule {
 
 }

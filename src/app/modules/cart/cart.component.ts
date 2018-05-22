@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HallService } from '../hall/hall.service';
 import { Seat } from '../hall/model/seat.model';
-import { Session } from '../sessions/session-edit/session.model';
+import { Session } from '..//sessions/session-edit/session.model';
 import { Hall } from '../hall/model/hall.model';
 import { sessionInStorage } from '../sessions/display-session/display-session.component';
 import { seatArrayInStorage } from '../hall/hall.component';
@@ -32,6 +32,7 @@ export class CartComponent implements OnInit {
   session: Session = Object();
   hall: Hall = Object();
   totalPrice: number = 0;
+  seat: Seat = Object();
 
 
   ngOnInit() {
@@ -48,13 +49,13 @@ export class CartComponent implements OnInit {
       this.getHallFromSession(this.session.hallId);
       this.calculateOrderTotalPrice();
       this.initOrder();
-    } else {
+    }else{
       throw Error;
     }
   }
   public calculateOrderTotalPrice() {
     this.seatsFromStorage.forEach(seat => {
-      this.totalPrice = this.totalPrice + seat.price
+    this.totalPrice = this.totalPrice + seat.price
     });
     console.log(this.totalPrice);
   }
@@ -65,7 +66,7 @@ export class CartComponent implements OnInit {
   }
 
   public getHallFromSession(hall_id: number) {
-    this.hallService.getOne(hall_id).subscribe(data => {
+    this.hallService.getHall(hall_id).subscribe(data => {
       this.hall = data;
     });
 

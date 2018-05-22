@@ -7,7 +7,6 @@ import { Ticket } from './ticket.model';
 import { Seat } from '../hall/model/seat.model';
 import { Session } from '../sessions/session-edit/session.model';
 
-//var email = require('emailjs/email');
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })

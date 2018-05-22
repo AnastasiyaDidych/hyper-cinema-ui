@@ -4,10 +4,6 @@ import { Subscription } from 'rxjs';
 
 import * as jsPDF from 'jspdf'
 
-import * as pdfMake from 'pdfmake/build/pdfmake';
-import * as pdfFonts from 'pdfmake/build/vfs_fonts';
-pdfMake.vfs = pdfFonts.pdfMake.vfs;
-
 import * as html2canvas from 'html2canvas';
 
 import { TicketService } from '../ticket.servise';

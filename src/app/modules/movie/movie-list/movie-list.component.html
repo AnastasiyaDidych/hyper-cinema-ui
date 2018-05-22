@@ -1,16 +1,29 @@
-<mat-card>
- <h1>Movie list</h1>
+<header>
+    <input type = "text" [(ngModel)]="searchText" placeholder="search text goes here" class="searchBox">
+    <input type="button" value="Create" [routerLink] = "['/movie-create']" class="inputButton">
+</header>
+
+
+<mat-list-item *ngFor="let movie of movies | filter : searchText" class="movieList">
+  
+<mat-card class="example-card">
+  <mat-card-header>
+        <mat-card-title>
+            <a [routerLink] = "['/movie/' + movie.id]" id="titleText">{{movie?.title}}</a>
+          </mat-card-title>
+
+    <mat-card-subtitle>{{movie?.genre}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src] = "movie?.imgUrl" alt="Photo">
+  
   <mat-card-content>
-      <input type="button" value="Create" [routerLink] = "['/movie-create']">
-    <mat-list>
-        <input type = "text" [(ngModel)]="searchText" placeholder="search text goes here">
-      <mat-list-item *ngFor="let movie of movies | filter : searchText">
-
-<a [routerLink] = "['/movie/' + movie.id]">{{movie?.title}}</a>
-
-<input type="button" value="Edit" [routerLink] = "['/movie-create/' + movie.id]">
-<input type="button" value="Delete" (click) = "deleteMovie(movie.id)" [routerLink] = "['/movies']">
-      </mat-list-item>
-    </mat-list>
+    <p>
+      {{movie.description}}
+    </p>
   </mat-card-content>
+  <mat-card-actions>
+    <button mat-button [routerLink] = "['/movie-create/' + movie.id]">Edit</button>
+    <button mat-button (click) = "deleteMovie(movie.id)" [routerLink] = "['/movies']" >Delete</button>
+  </mat-card-actions>
 </mat-card>
+</mat-list-item>

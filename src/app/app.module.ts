@@ -19,8 +19,6 @@ import { ErrorDialogComponent } from './modules/sessions/core/error-dialog.compo
 import { SearchPipe } from './modules/sessions/session-list/search.pipe';
 import { FilterPipe } from './modules/sessions/session-list/filter.pipe';
 import { MovieFilterPipe } from './modules/movie/filter/filter.pipe';
-import { UniquePipe } from './modules/sessions/session-list/unique.pipe';
-import { ASD } from './modules/sessions/session-list/asd.pipe';
 import { AppRoutingModule } from './app.routing.module';
 import { SessionService } from './modules/sessions/shared/session.service';
 import { TicketModule } from './modules/ticket/ticket.module';
@@ -34,7 +32,10 @@ import { TokenStorage } from './shared/auth/token.storage';
 import { Interceptor } from './shared/auth/inteceptor';
 import { MovieDetailsComponent } from './modules/movie/movie-details/movie-details.component';
 import { CartComponent } from './modules/cart/cart.component';
+import { HallListModule } from './modules/hall/hall-list/hall-list.module';
+import { OneHallModule } from './modules/hall/one-hall/one-hall.module';
 import { ScheduleListComponent } from './modules/sessions/schedule-list/schedule-list.component';
+
 
 
 @NgModule({
@@ -43,16 +44,13 @@ import { ScheduleListComponent } from './modules/sessions/schedule-list/schedule
     MovieListComponent,
     MovieCreateComponent,
     MovieDetailsComponent,
-    FilterPipe,
     ErrorDialogComponent,
     SessionListComponent,
     SessionEditComponent,
     DisplaySessionComponent,
     SearchPipe,
     FilterPipe,
-    UniquePipe,
     MovieFilterPipe,
-    ASD,
     CartComponent,
     ScheduleListComponent
 
@@ -62,6 +60,8 @@ import { ScheduleListComponent } from './modules/sessions/schedule-list/schedule
     HttpClientModule,
     AppRoutingModule,
     TicketModule,
+    HallListModule,
+    OneHallModule,
     LoginModule,
     OrderModule,
     HallModule,
@@ -70,12 +70,8 @@ import { ScheduleListComponent } from './modules/sessions/schedule-list/schedule
     ReactiveFormsModule,
     FlexLayoutModule,
     MaterialModule
-  ],
 
-  //entryComponents: [
-    //ErrorDialogComponent,
-   // LoginComponent
-  //],
+  ],
 
   providers: [
     ErrorDialogComponent,
