@@ -42,14 +42,21 @@ export class HallComponent implements OnInit {
 
   public fillBoughtSeats() {
     this.tickets = this.session.tickets;
+    console.log("tick from ses")
+    console.log(this.session.tickets);
     if (this.tickets !== null) {
       for (var i = 0; i < this.tickets.length; i++) {
+        console.log(this.tickets[i]);
         let seat = this.getSeatById(this.tickets[i].seatId);
+        console.log("step2")
         if (seat !== null) {
           this.boughtSeats.push(seat);
+          console.log(seat)
         }
       }
     }
+    // console.log("buy seat")
+    // console.log(this.boughtSeats);
   }
 
   public getSeatById(seatId: number): Seat {
@@ -73,9 +80,11 @@ export class HallComponent implements OnInit {
         this.hall.seats[i].hall_id = this.hall.id;
         this.seats.push(this.hall.seats[i]);
       }
+      this.fillBoughtSeats();
     });
     this.fillBoughtSeats();
   }
+
   public getHalls() {
     this.hallService.getHalls().subscribe(data => {
       this.halls = data;
