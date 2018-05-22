@@ -1,5 +1,4 @@
-<h1>Movie create</h1>
-<form>
+<!-- <form>
   <input type="text" [(ngModel)] = "movie.title" placeholder="title" name = "title" >
   <input type="text" [(ngModel)] = "movie.description" placeholder="description" name = "description">
   <input type="number" [(ngModel)] = "movie.duration" placeholder="duration" name = "duration" min="0">
@@ -13,3 +12,56 @@
   <input type="number" [(ngModel)] = "movie.tmdbId" name="tmdbId" min="0" placeholder="tmdbId">
   <input type="button"  value="save" (click) = "saveMovie()" >
 </form>
+ -->
+
+ <mat-card>
+        <mat-card-title>Movie</mat-card-title>
+    <form>
+        <mat-card-content>
+            
+    <div class="example-container">
+
+    <mat-form-field>
+      <input matInput [(ngModel)] = "movie.title" placeholder="title" name = "title" required>
+    </mat-form-field>
+  
+    <mat-form-field>
+        <input matInput [(ngModel)] = "movie.description" placeholder="description" name = "description">
+    </mat-form-field>
+  
+    <mat-form-field>
+        <input matInput type="number" [(ngModel)] = "movie.duration" placeholder="duration" name = "duration">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput [(ngModel)] = "movie.genre" placeholder="genre" name = "genre">
+    </mat-form-field>
+
+    <mat-form-field>
+        
+      <input matInput type="date"[(ngModel)] = "movie.startRent"  class = "datepicker" name = "startRent" placeholder="Start rent">
+        
+      </mat-form-field>
+      
+      <mat-form-field>
+        <input matInput type="date" [(ngModel)] = "movie.endRent" class = "datepicker" name = "endRent" placeholder="End rent">
+        </mat-form-field>
+
+    <mat-form-field>
+        <input matInput type="number" min="0" [(ngModel)] = "movie.ageRating" placeholder="Age rating" name = "ageRating">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput type="number" min="0" [(ngModel)] = "movie.price" placeholder="price" name = "price">
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput type="number" min="0" [(ngModel)] = "movie.tmdbId" placeholder="tmdbId" name = "tmdbId">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click) = "saveMovie()">Save</button>
+  </div>
+</mat-card-content>
+</form>
+</mat-card>
+

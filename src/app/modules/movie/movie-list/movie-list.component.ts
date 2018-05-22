@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from '../movie-create/movie.model';
 import { MovieService } from '../services/movie.service';
+import { Movie } from '../movie.model';
 
 @Component({
   selector: 'app-movie-list',
@@ -23,6 +23,13 @@ export class MovieListComponent implements OnInit {
     this.movieService.getMovies()
                   .subscribe(param => {
                         this.movies = param;
+                        for(let movie of this.movies) {
+                          this.movieService.getTMDBMovie(movie.tmdbId).subscribe(tmdb => {
+
+                            movie.imgUrl =   this.getEmbedUrlImage(tmdb);
+                            movie.description = tmdb.overview;
+                          });
+                        }
                       });
   }
 
@@ -34,6 +41,16 @@ export class MovieListComponent implements OnInit {
     });
  
   }
+
+  // getTMDBMovie(id : number) : void {
+  //   this.movieService.getTMDBMovie(id).subscribe(params => {
+  //     this.tmdb = params;
+  //   });
+  // }
+
+  getEmbedUrlImage(tmdb : any) {
+    return this.movieService.getEmbedUrlImage(tmdb.poster_path);
+   }
 
 
 }

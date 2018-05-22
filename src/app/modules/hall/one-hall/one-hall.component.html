@@ -20,12 +20,12 @@
         <!-- Free Seats -->
         <span *ngSwitchDefault>
           <!-- Free Vip Seats -->
-          <div *ngIf="seat.type ==='VIP'">
-            <mat-icon class="VIPSeat">brightness_1</mat-icon>
+          <div  *ngIf="seat.type ==='VIP'">
+              <mat-icon class="VIPSeat">check_box_outline_blank</mat-icon>
           </div>
           <!-- Free Base Seats -->
           <div *ngIf="seat.type === 'base'">
-            <mat-icon title={{seat.type}}>crop_3_2</mat-icon>
+              <mat-icon class="freeSeat">check_box_outline_blank</mat-icon>
           </div>
         </span>
       </mat-grid-tile>

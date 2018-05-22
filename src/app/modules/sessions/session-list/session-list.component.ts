@@ -7,6 +7,8 @@ import { DisplaySessionComponent } from '../display-session/display-session.comp
 import { Router } from '@angular/router';
 import { getLocaleDateFormat } from '@angular/common';
 import { DatePipe } from '@angular/common';
+import { FdatePipe } from '../session-list/dat.pipe';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-session-list',
@@ -20,6 +22,9 @@ export class SessionListComponent implements OnInit {
   public now: Date = new Date();
   tomorow : Date;
   titles: Array<any>; 
+  dStr: string;
+  date = new FormControl(new Date());
+  serializedDate = new FormControl((new Date()).toISOString());
   constructor(private sessionService: SessionService, private router: Router, private datePipe: DatePipe) { }
 
   ngOnInit() {

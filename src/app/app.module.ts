@@ -18,9 +18,9 @@ import { ErrorDialogComponent } from './modules/sessions/core/error-dialog.compo
 
 import { SearchPipe } from './modules/sessions/session-list/search.pipe';
 import { FilterPipe } from './modules/sessions/session-list/filter.pipe';
-import { MovieFilterPipe } from './modules/movie/filter/filter.pipe';
 import { UniquePipe } from './modules/sessions/session-list/unique.pipe';
 import { ASD } from './modules/sessions/session-list/asd.pipe';
+import { MovieFilterPipe } from './modules/movie/filter/filter.pipe';
 import { AppRoutingModule } from './app.routing.module';
 import { SessionService } from './modules/sessions/shared/session.service';
 import { TicketModule } from './modules/ticket/ticket.module';
@@ -34,19 +34,18 @@ import { TokenStorage } from './shared/auth/token.storage';
 import { Interceptor } from './shared/auth/inteceptor';
 import { MovieDetailsComponent } from './modules/movie/movie-details/movie-details.component';
 import { CartComponent } from './modules/cart/cart.component';
+import { MovieModule } from './modules/movie/movie.module';
 import { HallListModule } from './modules/hall/hall-list/hall-list.module';
-import { OneHallModule } from './modules/hall/one-hall/one-hall.module';
+
 import { ScheduleListComponent } from './modules/sessions/schedule-list/schedule-list.component';
+import { OneHallModule } from './modules/hall/one-hall/one-hall.module';
+import {FdatePipe} from './modules/sessions/session-list/dat.pipe'
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MovieListComponent,
-    MovieCreateComponent,
-    MovieDetailsComponent,
-    FilterPipe,
     ErrorDialogComponent,
     SessionListComponent,
     SessionEditComponent,
@@ -54,16 +53,17 @@ import { ScheduleListComponent } from './modules/sessions/schedule-list/schedule
     SearchPipe,
     FilterPipe,
     UniquePipe,
-    MovieFilterPipe,
     ASD,
     CartComponent,
-    ScheduleListComponent
+    ScheduleListComponent,
+    FdatePipe
 
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    MovieModule,
     TicketModule,
     HallListModule,
     OneHallModule,
@@ -74,13 +74,9 @@ import { ScheduleListComponent } from './modules/sessions/schedule-list/schedule
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    MaterialModule,
-  ],
+    MaterialModule
 
-  //entryComponents: [
-    //ErrorDialogComponent,
-   // LoginComponent
-  //],
+  ],
 
   providers: [
     ErrorDialogComponent,

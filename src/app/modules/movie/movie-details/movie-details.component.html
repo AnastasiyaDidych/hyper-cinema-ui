@@ -1,4 +1,4 @@
-Title : {{movie?.title}} <br>
+<!-- Title : {{movie?.title}} <br>
 description : {{movie?.description}} <br>
 price : {{movie?.price}}
  <br>
@@ -8,4 +8,21 @@ price : {{movie?.price}}
 </div>
 <div *ngIf="tmdbVideo" >
 <iframe width="560" height="315" [src]="getEmbedUrlVideo()" ></iframe>
-</div>
+</div> -->
+
+
+
+<mat-card>
+        <mat-card-title>{{movie?.title}}</mat-card-title>
+        <mat-card-subtitle>{{movie?.description}}</mat-card-subtitle>
+        <mat-card-content>
+            
+    <div class="example-container">
+            <img [src] = "movie?.imgUrl" height="315">
+            <div id="videoBlock" *ngIf="tmdbVideo">
+                <iframe width="560" height="315" [src]="getEmbedUrlVideo()" ></iframe>
+            </div>
+    </div>
+</mat-card-content>
+
+</mat-card>

@@ -1,53 +1,75 @@
 <div class="widthOfHallPage">
-  <div class="order-cart">
-    <mat-card-title>
-      <div *ngIf="selectedSeats.length > 0">
-        <div>
-          <a routerLink="/cart">
-            <button class="pay-button" mat-raised-button color="primary" (click)="throwSelectedSeatsToCart()">Pay Order</button>
-          </a>
+  
+    <!-- Information about film -->
+    <div class="order-cart">
+      <mat-card-title>
+        Film: {{session.title}}
+        <br> Date: {{session.date}}
+        <br> Start time: {{session.startTime}}
+      </mat-card-title>
+  
+      <!-- Pay and clean buttons -->
+      <mat-card-title>
+        <div *ngIf="selectedSeats.length > 0">
+          <div>
+            <a routerLink="/cart">
+              <button class="pay-button" mat-raised-button color="primary" (click)="throwSelectedSeatsToCart()">Pay Order</button>
+            </a>
+          </div>
+          <div>
+            <button class="pay-button" mat-button (click)="cleanSelect()">Clean list</button>
+          </div>
         </div>
-        <div>
-          <button class="pay-button" mat-button (click)="cleanSelect()">Clean list</button>
-        </div>
+      </mat-card-title>
+  
+      <!-- List of seleted tickets -->
+      <div>
+        <mat-card-content *ngFor="let seat of selectedSeats, let i = index">
+          <button mat-button (click)="removeSeatFromSelectedSeats(seat)">
+            {{i+1}}. number: {{seat.number}} row: {{seat.row}} type: {{seat.type}} price: {{seat.price}}₴;
+          </button>
+          <br>
+        </mat-card-content>
       </div>
-    </mat-card-title>
-
-    <div>
-      <mat-card-content *ngFor="let seat of selectedSeats, let i = index">
-        <button mat-button (click)="removeSeatFromSelectedSeats(seat)">
-          {{i+1}}. number: {{seat.number}} row: {{seat.row}} type: {{seat.type}} price: {{seat.price}}₴;
-        </button>
-        <br>
+    </div>
+    <div class="divPossition">
+      <mat-card-content class="demo-basic-list">
+        <!-- Screen image -->
+        <div>
+          <img src = "../../../assets/pictures/screen.png" title ="screen" style="width: 700px" > 
+        </div>
+  
+        <!-- VIP and base seats icons -->
+        <div class="pricePosition">
+            <p class="freeSeat">{{session.basePrice}} ₴</p>
+            <p> &emsp; | &emsp;</p>
+            <p class="VIPSeat">{{session.vipPrice}} ₴</p>
+        </div>
+  
+        <!-- Grid of seats -->
+        <mat-grid-list cols="10" rowHeight="2:1">
+          <mat-grid-tile *ngFor="let seat of seats" (click)="seatClick(seat)" [ngSwitch]="getStatus(seat)">
+            <!-- Selected Seats -->
+            <span *ngSwitchCase="'selected'" class="selectedSeat">
+              <mat-icon>check_box</mat-icon>
+            </span>
+            <!-- Bought Seats -->
+            <span *ngSwitchCase="'buy'" class="boughtSeat">
+              <mat-icon>indeterminate_check_box</mat-icon>
+            </span>
+            <!-- Free Seats -->
+            <span *ngSwitchDefault>
+              <!-- Free Vip Seats -->
+              <div *ngIf="seat.type ==='VIP'">
+                <mat-icon class="VIPSeat">check_box_outline_blank</mat-icon>
+              </div>
+              <!-- Free Base Seats -->
+              <div *ngIf="seat.type === 'base'">
+                <mat-icon title={{seat.type}} class="freeSeat">check_box_outline_blank</mat-icon>
+              </div>
+            </span>
+          </mat-grid-tile>
+        </mat-grid-list>
       </mat-card-content>
     </div>
   </div>
-  <div class="divPossition">
-    <mat-card-content class="demo-basic-list">
-      <img src = "" title ="screen" style="width: 700px" > 
-      <mat-grid-list cols="10" rowHeight="2:1">
-        <mat-grid-tile *ngFor="let seat of seats" (click)="seatClick(seat)" [ngSwitch]="getStatus(seat)">
-          <!-- Selected Seats -->
-          <span *ngSwitchCase="'selected'" class="selectedSeat">
-            <mat-icon>check_box</mat-icon>
-          </span>
-          <!-- Bought Seats -->
-          <span *ngSwitchCase="'buy'" class="boughtSeat">
-            <mat-icon>indeterminate_check_box</mat-icon>
-          </span>
-          <!-- Free Seats -->
-          <span *ngSwitchDefault>
-            <!-- Free Vip Seats -->
-            <div *ngIf="seat.type ==='VIP'">
-              <mat-icon  class="VIPSeat">check_box_outline_blank</mat-icon>
-            </div>
-            <!-- Free Base Seats -->
-            <div *ngIf="seat.type === 'base'">
-              <mat-icon title = {{seat.type}} class="freeSeat">check_box_outline_blank</mat-icon>
-            </div>
-          </span>
-        </mat-grid-tile>
-      </mat-grid-list>
-    </mat-card-content>
-  </div>
-</div>
