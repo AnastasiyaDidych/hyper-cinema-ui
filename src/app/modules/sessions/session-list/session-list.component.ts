@@ -16,52 +16,30 @@ import { DatePipe } from '@angular/common';
 export class SessionListComponent implements OnInit {
   sessions: Array<Session> = [];
   id: number;
-  searchStr = ''
   pageForm: string;
-  dateStr: string;
   public now: Date = new Date();
   tomorow : Date;
   titles: Array<any>; 
-  schedule: Array<Schedule>=[];
   constructor(private sessionService: SessionService, private router: Router, private datePipe: DatePipe) { }
 
   ngOnInit() {
-    
-   this.setToday();
-    this.sessionService.getSchedule().subscribe(data  => {
-        this.schedule = data;
+    this.sessionService.getAll().subscribe(data  => {
+        this.sessions = data;
+        console.log(data);
        });
-  }
-  public setAll(){
-    this.dateStr = "";
-  }
 
-  public setToday() {
-    this.dateStr = this.datePipe.transform(this.now, 'yyyy-MM-dd');
   }
-
-  public setTomorow() {
-    this.tomorow = new Date();
-    this.tomorow.setDate(this.tomorow.getDate()+1);
-    this.dateStr = this.datePipe.transform(this.tomorow, 'yyyy-MM-dd');
-  }
+  
 
   deleteSession(session: Session): void {
+    if (window.confirm('Delete ticket?')) {
     this.sessionService.deleteSession(session.id)
       .subscribe(data => {
         this.sessions = this.sessions.filter(s => s !== session);
       })
-  } 
+  }}
 }
-export class Schedule{
-  title:string;
-  localDate:string;
-  sessionEntityList:Array<Ses>;
-}
-export class Ses{
-  id : number;
-  localTime:string;
-}
+
 
 
 

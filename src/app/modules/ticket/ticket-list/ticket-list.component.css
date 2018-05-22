@@ -23,7 +23,6 @@ p {
 }
 
 .h-block-1 {
-    /* background-color: yellow; */
     margin: 2px;
     height: 120px;
     width: 35%;
@@ -33,7 +32,6 @@ p {
 }
 
 .film-name {
-    /* background-color: rgb(0, 183, 255);  */
     margin: 1px;
     height: 55%;
     font-size: 25px;
@@ -41,14 +39,12 @@ p {
 }
 
 .tech {
-    /* background-color: rgb(255, 0, 255); */
     margin: 1px;
     height: 15%;
     font-size: 12px;
 }
 
 .date-time{
-    /* background-color: rgb(0, 183, 255); */
     margin: 1px;
     display: flex;
     flex-direction: row;
@@ -57,16 +53,20 @@ p {
 }
 
 .h-block-2 {
-    /* background-color: rgb(60, 255, 0); */
     margin: 2px;
     width:20%;
     display: flex;
     flex-direction: column;
 }
 
+.session-type{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .hall-name{
-    /* background-color: rgb(0, 183, 255); */
-    height: 50%;
+    height: 35%;
     font-weight: 500;
     display: flex;
     align-items: center;
@@ -74,7 +74,6 @@ p {
 }
 
 .seat{
-    /* background-color: rgb(255, 0, 255); */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -88,7 +87,6 @@ p {
 }
 
 .h-block-3 {
-    /* background-color: rgb(0, 183, 255); */
     margin: 2px;
     width: 30%;
     display: flex;
@@ -96,7 +94,6 @@ p {
 }
 
 .ticket-price {
-    /* background-color: rgb(255, 230, 0); */
     height: 30%;
     display: flex;
     align-items: center;
@@ -105,7 +102,6 @@ p {
 }
 
 .barcode-pic{
-    /* background-color: rgb(0, 255, 115); */
     height: 50%;
     display: flex;
     align-items: center;
@@ -113,12 +109,10 @@ p {
 }
 
 .ticket-barcode {
-    /* background-color: rgb(255, 0, 119); */
     text-align: center;
 }
 
 .h-block-4 {
-    /* background-color: rgb(255, 0, 255); */
     margin: 2px;
     width: 12%;
     display: flex;

@@ -18,6 +18,9 @@ export class SessionService {
   getSchedule(): Observable<any> { 
     return this.http.get(this.API+"/schedule");
   }
+  public genetateForDay(id:number) {
+    return this.http.post(this.API + "/generateday/"+ id,id);
+  }
 
   get(id: number):Observable<any> {
     return this.http.get(this.API + '/'+id);

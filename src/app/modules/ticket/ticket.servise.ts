@@ -4,8 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Ticket } from './ticket.model';
-
-var email = require('emailjs/email');
+import { Seat } from '../hall/model/seat.model';
+import { Session } from '../sessions/session-edit/session.model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -19,7 +19,6 @@ export class TicketService {
   constructor(private http: HttpClient) { }
 
   getAllTickets(): Observable<Ticket[]> {
-    console.log('getting All tickets...');
     return this.http.get<Ticket[]>(this.ticketUrl + "/full");
   }
 
@@ -28,8 +27,23 @@ export class TicketService {
   }
 
   getTicket(id: number): Observable<Ticket> {
-    console.log('service works. ID = ' + id);
     return this.http.get<Ticket>(this.ticketUrl + `/full/` + id);
+  }
+
+  buildTicket(session: Session, seat: Seat): Ticket{
+    let ticket = new Ticket;
+    ticket.sessionId = session.id;
+    ticket.seatId = seat.id;
+    ticket.price = seat.price;
+    return ticket;
+  }
+
+  getUnavailableTickets(session: Session): Observable<Ticket[]>{
+    return this.http.get<Ticket[]>(this.ticketUrl + session.id);
+  }
+
+  sendTicketByMail(id: number): Observable<Ticket>{
+    return this.http.get<Ticket>(this.ticketUrl + '/send/'+ id);
   }
 
 }

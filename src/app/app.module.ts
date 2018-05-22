@@ -20,11 +20,11 @@ import { SearchPipe } from './modules/sessions/session-list/search.pipe';
 import { FilterPipe } from './modules/sessions/session-list/filter.pipe';
 import { UniquePipe } from './modules/sessions/session-list/unique.pipe';
 import { ASD } from './modules/sessions/session-list/asd.pipe';
+import { MovieFilterPipe } from './modules/movie/filter/filter.pipe';
 import { AppRoutingModule } from './app.routing.module';
 import { SessionService } from './modules/sessions/shared/session.service';
 import { TicketModule } from './modules/ticket/ticket.module';
 import { OrderModule } from './modules/order/order.module';
-import { OrderDetailsModule } from './modules/order/order-details/order-details.module';
 import { HallModule } from './modules/hall/hall.module';
 import { MovieService } from './modules/movie/services/movie.service';
 import { MaterialModule } from './material.module';
@@ -35,11 +35,18 @@ import { Interceptor } from './shared/auth/inteceptor';
 import { MovieDetailsComponent } from './modules/movie/movie-details/movie-details.component';
 import { CartComponent } from './modules/cart/cart.component';
 import { MovieModule } from './modules/movie/movie.module';
+import { HallListModule } from './modules/hall/hall-list/hall-list.module';
+import { OneHallModule } from './modules/hall/one-hall/one-hall.module';
+import { ScheduleListComponent } from './modules/sessions/schedule-list/schedule-list.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    MovieListComponent,
+    MovieCreateComponent,
+    MovieDetailsComponent,
     ErrorDialogComponent,
     SessionListComponent,
     SessionEditComponent,
@@ -49,6 +56,10 @@ import { MovieModule } from './modules/movie/movie.module';
     UniquePipe,
     ASD,
     CartComponent,
+    MovieFilterPipe,
+    CartComponent,
+    ScheduleListComponent
+
   ],
   imports: [
     BrowserModule,
@@ -56,21 +67,18 @@ import { MovieModule } from './modules/movie/movie.module';
     AppRoutingModule,
     MovieModule,
     TicketModule,
+    HallListModule,
+    OneHallModule,
     LoginModule,
     OrderModule,
-    OrderDetailsModule,
     HallModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
     MaterialModule
-  ],
 
-  //entryComponents: [
-    //ErrorDialogComponent,
-   // LoginComponent
-  //],
+  ],
 
   providers: [
     ErrorDialogComponent,

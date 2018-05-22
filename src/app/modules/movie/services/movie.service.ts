@@ -47,7 +47,6 @@ export class MovieService {
 
   getEmbedUrlImage(key : string)  {
     let url = this.imageUrl + key;
-    console.log(url);
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 

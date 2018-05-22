@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
+
+
 import {
     MatMenuModule,
     MatCardModule,
@@ -12,7 +14,11 @@ import {
     MatDialogModule,
     MatProgressSpinnerModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule    
+    
 } from '@angular/material';
 
 @NgModule({
@@ -28,7 +34,10 @@ import {
     MatDialogModule,
     MatProgressSpinnerModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports: [
     MatSidenavModule,
@@ -42,7 +51,10 @@ import {
     MatDialogModule,
     MatProgressSpinnerModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ]
 })
 export class MaterialModule { }

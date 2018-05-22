@@ -1,3 +1,5 @@
+import { SafeResourceUrl } from "@angular/platform-browser";
+
 export class Movie {
     id : string;
     title : string;
@@ -9,4 +11,5 @@ export class Movie {
     ageRating : number;
     price : number;
     tmdbId : number;
+    imgUrl : SafeResourceUrl;
 }

@@ -10,8 +10,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class MovieDetailsComponent implements OnInit {
 
   private movie : any;
-  private tmdb : any;
   private tmdbVideo : any;
+  private tmdb : any;    
   private imgPath :  string;
   
   constructor(
@@ -28,7 +28,8 @@ export class MovieDetailsComponent implements OnInit {
         this.movieService.getMovie(id)
                          .subscribe(params => {
                            this.movie = params;
-                           this.getTMDBMovie(this.movie.tmdbId);
+                          this.getTMDBMovie(this.movie.tmdbId); 
+                           this.movie.imgUrl =   this.getEmbedUrlImage(this.tmdb);                          
                            this.getTMDBMovieTrailer(this.movie.tmdbId);
 
                          });
@@ -37,12 +38,7 @@ export class MovieDetailsComponent implements OnInit {
    
   }
 
-  getTMDBMovie(id : number) : void {
-    this.movieService.getTMDBMovie(id).subscribe(params => {
-      this.tmdb = params;
-    });
-  }
-
+  
   getTMDBMovieTrailer(id : number) : void {
     this.movieService.getTMDBMovieTrailer(this.movie.tmdbId).subscribe(params => {
       this.tmdbVideo = params;
@@ -53,7 +49,15 @@ export class MovieDetailsComponent implements OnInit {
    return this.movieService.getEmbedUrlVideo(this.tmdbVideo.results[0].key);
   }
 
-  getEmbedUrlImage() {
-    return this.movieService.getEmbedUrlImage(this.tmdb.poster_path);
+  getTMDBMovie(id : number) : void {
+    this.movieService.getTMDBMovie(id).subscribe(params => {
+      this.tmdb = params;
+    });
+  }
+
+  getEmbedUrlImage(tmdb : any) {
+    return this.movieService.getEmbedUrlImage(tmdb.poster_path);
    }
+
+ 
 }
