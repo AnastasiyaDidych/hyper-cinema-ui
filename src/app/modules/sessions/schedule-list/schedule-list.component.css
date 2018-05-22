@@ -2,23 +2,33 @@
     display: flex;
     flex-direction: column;
     
+    
 }
 
 .asd img {
     margin-right: 10s0px;
 }
 
-.schBlock{
-    width: 100%;
+.schList{
     display: flex;
-    justify-content: space-around;
     align-items: center;
 }
 
-
+.qw{
+    margin-top: 5%;
+  
+    border: solid;
+}
+.q{
+    border-color: black;
+    border: solid;
+}
 
 .schInnerBlock1 {
+    margin-top: 5%;
     width: 100%;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .schInnerBlock2 {

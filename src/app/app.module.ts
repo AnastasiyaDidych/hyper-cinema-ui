@@ -8,7 +8,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { MovieListComponent } from './modules/movie/movie-list/movie-list.component';
 import { MovieCreateComponent } from './modules/movie/movie-create/movie-create.component';
 import { SessionListComponent } from './modules/sessions/session-list/session-list.component';
 import { DisplaySessionComponent } from './modules/sessions/display-session/display-session.component';
@@ -20,7 +19,6 @@ import { SearchPipe } from './modules/sessions/session-list/search.pipe';
 import { FilterPipe } from './modules/sessions/session-list/filter.pipe';
 import { UniquePipe } from './modules/sessions/session-list/unique.pipe';
 import { ASD } from './modules/sessions/session-list/asd.pipe';
-import { MovieFilterPipe } from './modules/movie/filter/filter.pipe';
 import { AppRoutingModule } from './app.routing.module';
 import { SessionService } from './modules/sessions/shared/session.service';
 import { TicketModule } from './modules/ticket/ticket.module';
@@ -39,6 +37,7 @@ import { HallListModule } from './modules/hall/hall-list/hall-list.module';
 
 import { ScheduleListComponent } from './modules/sessions/schedule-list/schedule-list.component';
 import { OneHallModule } from './modules/hall/one-hall/one-hall.module';
+import {FdatePipe} from './modules/sessions/session-list/dat.pipe'
 
 
 
@@ -54,8 +53,8 @@ import { OneHallModule } from './modules/hall/one-hall/one-hall.module';
     UniquePipe,
     ASD,
     CartComponent,
-    CartComponent,
-    ScheduleListComponent
+    ScheduleListComponent,
+    FdatePipe
 
   ],
   imports: [
