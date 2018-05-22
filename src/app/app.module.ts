@@ -34,6 +34,11 @@ import { TokenStorage } from './shared/auth/token.storage';
 import { Interceptor } from './shared/auth/inteceptor';
 import { MovieDetailsComponent } from './modules/movie/movie-details/movie-details.component';
 import { CartComponent } from './modules/cart/cart.component';
+import { CoefficientListComponent } from './modules/coefficient/coefficient-list/coefficient-list.component';
+import { CoefficientService } from './modules/coefficient/service/coefficient.service';
+import { CoefficientDetailsComponent } from './/modules/coefficient/coefficient-details/coefficient-details.component';
+import { CoefficientEditComponent } from './/modules/coefficient/coefficient-edit/coefficient-edit.component';
+import { CoefficientFilterPipe } from './modules/coefficient/filter/coefficient-filter.pipe';
 
 
 @NgModule({
@@ -52,8 +57,12 @@ import { CartComponent } from './modules/cart/cart.component';
     UniquePipe,
     MovieFilterPipe,
     ASD,
-    CartComponent
-
+    CartComponent,
+    CoefficientListComponent,
+    CoefficientDetailsComponent,
+    CoefficientEditComponent,
+    CoefficientFilterPipe
+    
   ],
   imports: [
     BrowserModule,
@@ -80,6 +89,7 @@ import { CartComponent } from './modules/cart/cart.component';
     MovieService,
     AuthService,
     SessionService,
+    CoefficientService,
     TokenStorage,
     DatePipe,
     {

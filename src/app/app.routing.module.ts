@@ -12,6 +12,9 @@ import { HallComponent } from './modules/hall/hall.component';
 import { MovieCreateComponent } from './modules/movie/movie-create/movie-create.component';
 import { MovieDetailsComponent } from './modules/movie/movie-details/movie-details.component';
 import { CartComponent } from './modules/cart/cart.component';
+import { CoefficientListComponent } from './modules/coefficient/coefficient-list/coefficient-list.component';
+import { CoefficientDetailsComponent } from './modules/coefficient/coefficient-details/coefficient-details.component';
+import { CoefficientEditComponent } from './modules/coefficient/coefficient-edit/coefficient-edit.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -28,7 +31,11 @@ const routes: Routes = [
   { path: 'session-edit', component: SessionListComponent },
   { path: 'display-session/:id', component: DisplaySessionComponent },
   { path: 'halls', component: HallComponent},
-  { path: 'cart', component: CartComponent}
+  { path: 'cart', component: CartComponent},
+  { path: 'coefficients', component: CoefficientListComponent},
+  { path: 'coefficient/:id', component: CoefficientDetailsComponent},
+  { path: 'coefficient-create', component: CoefficientEditComponent},
+  { path: 'coefficient-edit/:id', component: CoefficientEditComponent}
 ];
 
 @NgModule({

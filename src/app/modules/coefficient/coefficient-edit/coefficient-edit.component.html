@@ -1,0 +1,8 @@
+<h2>{{coefficient.id ? 'Edit' : 'Create'}} Coefficient</h2>
+<div>
+  <form>
+    <input type="text" [(ngModel)] = "coefficient.type" placeholder="type" name = "type" >
+    <input type="text" [(ngModel)] = "coefficient.value" placeholder="value" name = "value">
+    <input type="button"  value="Save" (click) = "saveEditCoefficient()" >
+  </form>
+</div>  
