@@ -82,6 +82,7 @@ export class HallComponent implements OnInit {
       }
       this.fillBoughtSeats();
     });
+    this.fillBoughtSeats();
   }
 
   public getHalls() {
