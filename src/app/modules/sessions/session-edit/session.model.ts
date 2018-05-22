@@ -1,6 +1,4 @@
-
-import { TicketForSession } from '../../hall/model/tictetForSession.model';
-
+import { TicketForSession } from "../../hall/model/tictetForSession.model";
 
 export class Session {
   id : number;
@@ -12,6 +10,5 @@ export class Session {
   active:boolean;
   vipPrice: number;
   basePrice: number;
-  tickets: Array<TicketForSession>;
+  tickets:Array<TicketForSession>;
 }
-

@@ -1,28 +1,50 @@
 <mat-card>
   <form>
       <mat-card-content>
-         <mat-form-field>
-          <input matInput type="date" class = "datepicker" [(ngModel)]="session.date" placeholder="date" name="date" id="date" >
-        
-        </mat-form-field>
+          <form class="example-form">
+              <mat-form-field class="example-full-width">
+                    <mat-icon matPrefix class="app-input-icon">calendar_today</mat-icon>
+                  <input matInput type="date" class = "datepicker" [(ngModel)]="session.date" placeholder="Sesssion date" name="date" id="date" >
+                </mat-form-field>
+            
+                <mat-form-field class="example-full-width">
+                    <mat-icon matPrefix class="app-input-icon">camera_roll</mat-icon>
+                    <input matInput type="number" [(ngModel)]="session.hallId" placeholder="Hall ID" name="hallId" id="hallId">
+                  </mat-form-field>
 
-            <mat-form-field>
-             <input matInput type="number" [(ngModel)]="session.hallId" placeholder="hallId" name="hallId" id="hallId">
-           </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                        <mat-icon matPrefix class="app-input-icon">movie</mat-icon>
+                      <input matInput type="number" [(ngModel)]="session.movieId" placeholder="Movie ID" name="movieId" id="movieId">
+                    </mat-form-field>
+       
 
-              <mat-form-field>
-               <input matInput type="number" [(ngModel)]="session.movieId" placeholder="movieId" name="movieId" id="movieId">
-             </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                            <mat-icon matPrefix class="app-input-icon">watch_later</mat-icon>
+                        <input matInput type="time" [(ngModel)]="session.startTime" placeholder="startTime" name="startTime" id="startTime">
+                      </mat-form-field>
+       
 
-                <mat-form-field>
-                 <input matInput type="time" [(ngModel)]="session.startTime" placeholder="startTime" name="startTime" id="startTime">
-               </mat-form-field>
-
-               <input type="radio" name="virtualActive"  [(ngModel)]="session.virtualActive" [value]=true>True
-               <input type="radio" name="virtualActive" [(ngModel)]="session.virtualActive" [value]=false>False
                 
+                  <div >
+                      <h4 mat-line> Set virtual active</h4>
+                      
+               <input type="radio" name="virtualActive"  [(ngModel)]="session.virtualActive" [value]=true>True 
+               <input type="radio" name="virtualActive" [(ngModel)]="session.virtualActive" [value]=false>False
+              </div>
+              <div>
+                  <h4 mat-line>  Session active?</h4>
                <input type="radio" name="active"  [(ngModel)]="session.active" [value]=true>True
                <input type="radio" name="active" [(ngModel)]="session.active" [value]=false>False
+              </div>
+              </form>
+        
+
+           
+
+              
+               
+                
+               
               </mat-card-content>
 
   <mat-card-actions>
@@ -33,3 +55,4 @@
 </form>
 
 </mat-card>
+
