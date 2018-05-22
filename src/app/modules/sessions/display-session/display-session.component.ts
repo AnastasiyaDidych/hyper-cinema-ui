@@ -11,7 +11,7 @@ import { HallService } from '../../hall/hall.service';
 import { seatArrayInStorage } from '../../hall/hall.component';
 
 export const sessionInStorage = "sessionInStorage";
-export const ticketsArray: Array<TicketForSession> = this.ticketsFromSession;
+export const ticketsArray = "ticketsInStorage";
 
 @Component({
   selector: 'app-display-session',
@@ -40,6 +40,8 @@ export class DisplaySessionComponent implements OnInit {
             for (var i = 1; i < this.session.tickets.length; i++) {
               this.ticketsFromSession.push(this.session.tickets[i]);
             }
+
+            console.log(this.ticketsFromSession);
             this.getHall(this.session.hallId);
           } else {
             console.log(`Car with id '${id}' not found, returning to list`);
@@ -61,6 +63,7 @@ export class DisplaySessionComponent implements OnInit {
 
   public setSessionToLocalStorage(session: DisplaySessionComponent) {
     localStorage.setItem(sessionInStorage, JSON.stringify(session));
+    localStorage.setItem(ticketsArray, JSON.stringify(this.ticketsFromSession));
 
   }
 
