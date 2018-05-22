@@ -37,7 +37,6 @@ export class DisplaySessionComponent implements OnInit {
 
 
   ngOnInit() {
-
     this.sub = this.route.params.subscribe(params => {
       const id = params['id'];
       if (id) {
@@ -54,7 +53,6 @@ export class DisplaySessionComponent implements OnInit {
             });
           } else {
             console.log(`Car with id '${id}' not found, returning to list`);
-
           }
         });
       }
