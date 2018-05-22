@@ -45,7 +45,6 @@ import { OneHallModule } from './modules/hall/one-hall/one-hall.module';
 @NgModule({
   declarations: [
     AppComponent,
-    MovieListComponent,
     MovieCreateComponent,
     MovieDetailsComponent,
     ErrorDialogComponent,
