@@ -8,3 +8,25 @@
 .VIPSeat{
     color: #d10956;
 }
+
+.dInline{
+    display: inline;
+}
+
+.pay-button{
+    background-color: #098dc2;
+    margin-top: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: center;     
+  }
+
+  .pricePosition{
+    display: flex;
+    justify-content: center;
+    
+  }
+
+  .widthOfHallPage{
+    min-width: 800px;
+  }
