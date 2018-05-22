@@ -60,7 +60,7 @@ export class DisplaySessionComponent implements OnInit {
   }
 
   public generateForDay(session: Session): void {
-    if (window.confirm('Delete ticket?')) {
+    if (window.confirm('Generate sessions?')) {
       this.sessionService.genetateForDay(session.id)
         .subscribe(data => {
           this.sessions = this.sessions.filter(s => s !== session);

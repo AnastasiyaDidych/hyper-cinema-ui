@@ -1,0 +1,85 @@
+<mat-card class="user-card">
+  <mat-card-title *ngIf="accountPage">Account</mat-card-title>
+  <mat-card-title *ngIf="!accountPage">Sign Up</mat-card-title>
+  <mat-card-content>
+    <form class="full-width example-container" [formGroup]="userForm" (ngSubmit)="submit()">
+      <table class="full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field>
+              <input matInput placeholder="First Name" formControlName="firstName" required>
+              <mat-error *ngIf="formControls.firstName.errors?.required">
+                First Name is required
+              </mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field>
+              <input matInput placeholder="Last Name" formControlName="lastName" required>
+              <mat-error *ngIf="formControls.lastName.errors?.required">
+                Last Name is required
+              </mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field>
+              <input matInput placeholder="Email" formControlName="email" required>
+              <mat-error *ngIf="formControls.email.errors?.required">
+                Email is required
+              </mat-error>
+              <mat-error *ngIf="formControls.email.errors?.email">
+                Please enter a valid email address
+              </mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field>
+              <input matInput placeholder="Phone" formControlName="phone" required>
+              <mat-error *ngIf="formControls.phone.errors?.required">
+                Phone is required
+              </mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field>
+              <input matInput placeholder="Password" formControlName="password" type="password">
+              <mat-error *ngIf="formControls.password.errors?.required">
+                Password is required
+              </mat-error>
+              <mat-error *ngIf="formControls.password.errors?.pattern">
+                Password must contain minimum eight characters, at least one letter and one number
+              </mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field>
+              <input matInput placeholder="Password Confirm" formControlName="passwordConfirm" type="password">
+              <mat-error *ngIf="formControls.passwordConfirm.errors?.required">
+                Password Confirm is required
+              </mat-error>
+              <mat-error *ngIf="formControls.passwordConfirm.errors?.dontMatch">
+                Passwords don't match
+              </mat-error>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+      <p>
+        <button mat-raised-button type="submit" color="primary" [disabled]="userForm.invalid || submitting">Submit</button>
+      </p>
+      <div *ngIf="submitting" class="submit-progress">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

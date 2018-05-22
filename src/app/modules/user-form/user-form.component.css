@@ -1,11 +1,11 @@
-.login-card {
+.user-card {
   max-width: 400px;
   margin: auto;
   width: 50%;
   margin-top: 10px;
 }
 
-.login-form {
+.user-form {
   min-width: 150px;
   max-width: 500px;
   width: 100%;
@@ -26,17 +26,7 @@ mat-card-content {
   justify-content: center;
 }
 
-.login-error {
-  color: red;
-  text-align: center;
-  margin-top: 8px;
-}
-
-.form-actions {
-  margin-top: 10px;
-}
-
-.login-progress {
+.submit-progress {
   margin-top: 20px;
 }
 
@@ -44,8 +34,7 @@ mat-form-field mat-error:not(:first-child) {
   display: none;
 }
 
-th,
-td {
+th, td {
   padding-top: 5px;
   padding-bottom: 5px;
 }
