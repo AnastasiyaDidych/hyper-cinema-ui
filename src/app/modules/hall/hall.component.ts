@@ -4,13 +4,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Hall } from './model/hall.model';
 import { Ticket } from '../ticket/ticket.model';
 import { Seat } from './model/seat.model';
-import { HallService } from './hall.service';
+import { HallService, seatArrayInStorage } from './hall.service';
 import { Session } from '..//sessions/session-edit/session.model';
 import { sessionInStorage } from '../sessions/display-session/display-session.component';
 import { SeatService } from './seat.service';
 import { TicketForSession } from './model/tictetForSession.model';
-
-export const seatArrayInStorage = "storedSeats";
 
 @Component({
   selector: 'app-hall',

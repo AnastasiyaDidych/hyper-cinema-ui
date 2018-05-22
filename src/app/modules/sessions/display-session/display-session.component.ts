@@ -7,12 +7,12 @@ import { Subscription } from 'rxjs/Subscription';
 import { TicketForSession } from '../../hall/model/tictetForSession.model';
 import { Seat } from '../../hall/model/seat.model';
 import { Hall } from '../../hall/model/hall.model';
-import { HallService } from '../../hall/hall.service';
-import { seatArrayInStorage } from '../../hall/hall.component';
+import { HallService, seatArrayInStorage } from '../../hall/hall.service';
 import { MovieService } from '../../movie/services/movie.service';
 
 export const sessionInStorage = "sessionInStorage";
-export const ticketsArray = "ticketsInStorage";
+export const ticketsInStorage = "ticketsInStorage";
+
 
 @Component({
   selector: 'app-display-session',
@@ -34,6 +34,7 @@ export class DisplaySessionComponent implements OnInit {
     private movieService: MovieService,
     private hallService: HallService,
     private sessionService: SessionService, private router: Router, private route: ActivatedRoute) { }
+
 
   ngOnInit() {
 
@@ -71,7 +72,7 @@ export class DisplaySessionComponent implements OnInit {
 
   public setSessionToLocalStorage(session: DisplaySessionComponent) {
     localStorage.setItem(sessionInStorage, JSON.stringify(session));
-    localStorage.setItem(ticketsArray, JSON.stringify(this.ticketsFromSession));
+    localStorage.setItem(ticketsInStorage, JSON.stringify(this.ticketsFromSession));
 
   }
 

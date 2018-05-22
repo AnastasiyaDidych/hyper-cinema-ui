@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 
 
 const hostUrl = '//localhost:1305/halls';
+export const seatArrayInStorage = "storedSeats";
 @Injectable()
 export class HallService {
 
