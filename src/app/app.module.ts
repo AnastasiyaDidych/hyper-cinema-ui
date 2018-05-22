@@ -8,7 +8,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { MovieListComponent } from './modules/movie/movie-list/movie-list.component';
 import { MovieCreateComponent } from './modules/movie/movie-create/movie-create.component';
 import { SessionListComponent } from './modules/sessions/session-list/session-list.component';
 import { DisplaySessionComponent } from './modules/sessions/display-session/display-session.component';
@@ -20,7 +19,6 @@ import { SearchPipe } from './modules/sessions/session-list/search.pipe';
 import { FilterPipe } from './modules/sessions/session-list/filter.pipe';
 import { UniquePipe } from './modules/sessions/session-list/unique.pipe';
 import { ASD } from './modules/sessions/session-list/asd.pipe';
-import { MovieFilterPipe } from './modules/movie/filter/filter.pipe';
 import { AppRoutingModule } from './app.routing.module';
 import { SessionService } from './modules/sessions/shared/session.service';
 import { TicketModule } from './modules/ticket/ticket.module';

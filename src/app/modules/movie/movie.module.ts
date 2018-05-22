@@ -13,7 +13,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 
 @NgModule({
-    declarations: [MovieCreateComponent, MovieDetailsComponent,MovieListComponent,MovieFilterPipe],
+    declarations: [
+        MovieCreateComponent,
+         MovieDetailsComponent,
+         MovieListComponent,
+         MovieFilterPipe
+    ],
     imports: [ 
         CommonModule,
         MaterialModule,
@@ -22,7 +27,11 @@ import { MatButtonModule, MatCheckboxModule } from '@angular/material';
         RouterModule,
      
     ],
-    exports: [MovieCreateComponent,MovieDetailsComponent,MovieListComponent],
+    exports: [
+        MovieCreateComponent,
+        MovieDetailsComponent,
+        MovieListComponent
+    ],
     providers: [MovieService],
 })
 export class MovieModule {}
