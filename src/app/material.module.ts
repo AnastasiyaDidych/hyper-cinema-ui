@@ -14,6 +14,7 @@ import {
     MatListModule,
     MatTableModule
 } from '@angular/material';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import {
     MatDialogModule,
     MatProgressSpinnerModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
   ],
   exports: [
     MatSidenavModule,
@@ -42,7 +44,8 @@ import {
     MatDialogModule,
     MatProgressSpinnerModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
   ]
 })
 export class MaterialModule { }

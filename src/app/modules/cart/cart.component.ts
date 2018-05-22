@@ -82,7 +82,7 @@ export class CartComponent implements OnInit {
   }
 
   initOrder(): void {
-    this.order = new Order;
+    this.order = new Order();
     this.seatsFromStorage.forEach(
       seat => {
         this.tickets.push(
