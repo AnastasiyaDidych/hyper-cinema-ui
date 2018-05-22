@@ -14,15 +14,14 @@
                 <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
+
+        <button mat-button (click)="showMyTickets()">My tickets</button>
+        <button mat-button (click)="getAllTickets()">All tickets</button>
     </form>
 
-    <mat-paginator 
-    [length]="length" 
-    [pageSize]="pageSize" 
-    [pageSizeOptions]="pageSizeOptions" 
-    (page)="pageEvent = getServerData($event)">
+    <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = getServerData($event)">
     </mat-paginator>
-<!-- 
+    <!-- 
     <div *ngIf="pageEvent">
         <h5>Page Change Event Properties</h5>
         <div>List length: {{pageEvent.length}}</div>

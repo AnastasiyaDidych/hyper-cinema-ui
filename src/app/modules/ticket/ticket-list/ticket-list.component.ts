@@ -38,8 +38,9 @@ export class TicketListComponent implements OnInit {
 
 
     ngOnInit(): void {
-        this.getAllTickets();
-        this.getPageOfTickets();
+        this.showMyTickets();
+        // this.getAllTickets();
+        // this.getPageOfTickets();
     }
 
 // only total quantity of tickets is calculated
@@ -47,7 +48,7 @@ export class TicketListComponent implements OnInit {
         this.ticketService.getAllTickets()
             .subscribe(
                 (success) => {
-                    // this.tickets = success;
+                    this.tickets = success;
                     this.length = success.length;
                 },
                 (error) => {
@@ -87,6 +88,20 @@ export class TicketListComponent implements OnInit {
 
     setPageSizeOptions(setPageSizeOptionsInput: string) {
         this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+    }
+
+
+    showMyTickets(){
+        this.ticketService.getMyTickets()
+        .subscribe(
+            (success) => {
+                this.tickets = success;
+                this.length = success.length;
+            },
+            (error) => {
+                console.log(error);
+            }
+        );
     }
 
     // getServerData(event?:PageEvent){

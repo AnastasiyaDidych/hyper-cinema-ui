@@ -14,30 +14,31 @@
 }
 
 .divPossition{
+    border: 1px solid red;
+    margin-top: 100px;
+    
     cursor: pointer;
     width: 700px;
     float: right;
-    margin-left: 10px;
-    margin-right: 100px;
-    margin-top: 100px;
 
 }
 .order-cart {
+    border: 1px solid red;
     max-width: 295px;
-    margin: auto;
     width: 50%;
-    margin-top: 10px;
     float: left;
   }
 
   .pay-button{
     width: 100%;
     display: flex;
-    justify-content: center;     
   }
 
   .widthOfHallPage{
     min-width: 800px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
 
   p{
@@ -46,8 +47,6 @@
   }
 
   .pricePosition{
-    display: flex;
-    justify-content: center;
     
   }
 

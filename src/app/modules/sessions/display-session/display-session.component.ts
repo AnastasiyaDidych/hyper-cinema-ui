@@ -12,7 +12,7 @@ import { seatArrayInStorage } from '../../hall/hall.component';
 import { MovieService } from '../../movie/services/movie.service';
 
 export const sessionInStorage = "sessionInStorage";
-export const ticketsArray: Array<TicketForSession> = this.ticketsFromSession;
+export const ticketsArray = "ticketsInStorage";
 
 @Component({
   selector: 'app-display-session',
@@ -51,7 +51,6 @@ export class DisplaySessionComponent implements OnInit {
               }
               this.getHall(this.session.hallId);
             });
-            // console.log(this.imageUrl);
           } else {
             console.log(`Car with id '${id}' not found, returning to list`);
 
@@ -72,6 +71,7 @@ export class DisplaySessionComponent implements OnInit {
 
   public setSessionToLocalStorage(session: DisplaySessionComponent) {
     localStorage.setItem(sessionInStorage, JSON.stringify(session));
+    localStorage.setItem(ticketsArray, JSON.stringify(this.ticketsFromSession));
 
   }
 
