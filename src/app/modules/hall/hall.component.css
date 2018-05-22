@@ -1,7 +1,6 @@
 .boughtSeat {
     color: #636060;
-    pointer-events: none;
-    cursor: default;
+    cursor: no-drop;
 }
 .selectedSeat {
     color: #09d11a;
@@ -15,6 +14,7 @@
 }
 
 .divPossition{
+    cursor: pointer;
     width: 700px;
     float: right;
     margin-left: 10px;
@@ -35,7 +35,19 @@
     display: flex;
     justify-content: center;     
   }
+
   .widthOfHallPage{
     min-width: 800px;
+  }
+
+  p{
+      display: inline;
+      font-size: 18px;
+  }
+
+  .pricePosition{
+    display: flex;
+    justify-content: center;
+    
   }
 

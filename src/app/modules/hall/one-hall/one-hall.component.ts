@@ -53,17 +53,18 @@ export class OneHallComponent implements OnInit {
     var index = this.selectedSeats.indexOf(seat);
     if (index !== -1) {
       this.removeSeatFromSelectedSeats(seat)
-    } else
+    } else {
+      this.selectedSeats.push(seat);
       seat.hall_id = this.hall.id;
-    this.selectedSeats.push(seat);
-
-    console.log(seat);
+      console.log(this.selectedSeats);
+    }
   }
 
   public removeSeatFromSelectedSeats(seat: Seat) {
     var index = this.selectedSeats.indexOf(seat);
     this.selectedSeats.splice(index, 1);
   }
+
   public updateSeat(seat: Seat) {
     this.seatService.putSeat(seat);
 

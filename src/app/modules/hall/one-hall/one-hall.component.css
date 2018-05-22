@@ -1,0 +1,10 @@
+.selectedSeat {
+    color: #09d11a;
+}
+.freeSeat {
+    color: rgb(9, 6, 143);
+}
+
+.VIPSeat{
+    color: #d10956;
+}

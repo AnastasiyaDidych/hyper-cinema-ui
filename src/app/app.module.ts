@@ -36,8 +36,9 @@ import { MovieDetailsComponent } from './modules/movie/movie-details/movie-detai
 import { CartComponent } from './modules/cart/cart.component';
 import { MovieModule } from './modules/movie/movie.module';
 import { HallListModule } from './modules/hall/hall-list/hall-list.module';
-import { OneHallModule } from './modules/hall/one-hall/one-hall.module';
+
 import { ScheduleListComponent } from './modules/sessions/schedule-list/schedule-list.component';
+import { OneHallModule } from './modules/hall/one-hall/one-hall.module';
 
 
 
