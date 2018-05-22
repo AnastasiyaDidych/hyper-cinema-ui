@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { TicketService } from '../ticket.servise';
 import { Ticket } from '../ticket.model';
 
+import { PageEvent } from '@angular/material';
+
 
 
 @Component({
@@ -18,6 +20,15 @@ export class TicketListComponent implements OnInit {
     private searchFilm: string = '';
     private searchUser: string = '';
 
+    private pageIndex: number = 0;
+    private totalPages: Array<number>;
+
+
+    private length: number;
+    private pageSize: number = 10;
+    private pageSizeOptions: number[] = [5, 10, 20];
+    private pageEvent: PageEvent;
+
     tickets: Ticket[] = [];
 
     constructor(
@@ -25,20 +36,38 @@ export class TicketListComponent implements OnInit {
         private ticketService: TicketService
     ) { }
 
+
     ngOnInit(): void {
+        this.getAllTickets();
+        this.getPageOfTickets();
+    }
+
+// only total quantity of tickets is calculated
+    getAllTickets(): void {
         this.ticketService.getAllTickets()
             .subscribe(
                 (success) => {
-                    this.tickets = success;
-                    this.tickets.forEach(ticket =>{
-                    });
+                    // this.tickets = success;
+                    this.length = success.length;
                 },
                 (error) => {
                     console.log(error);
                 });
     }
 
-    
+    getPageOfTickets(): void {
+        this.ticketService.getPageOfTickets(this.pageIndex)
+            .subscribe(
+                (success) => {
+                    this.tickets = success['content'];
+                    this.totalPages = new Array(success['totalPages']);
+                    console.log(success);
+                },
+                (error) => {
+                    console.log(error);
+                }
+            );
+    }
 
     delete(ticket: Ticket): void {
         if (window.confirm('Delete ticket?')) {
@@ -52,9 +81,25 @@ export class TicketListComponent implements OnInit {
 
     select(id: number): void {
         console.log('button select was clicked:' + id);
-        this.router.navigateByUrl('/tickets/'+ id);
+        this.router.navigateByUrl('/tickets/' + id);
         // this.ticketService.selectTicket(id).subscribe();
     }
+
+    setPageSizeOptions(setPageSizeOptionsInput: string) {
+        this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+    }
+
+    // getServerData(event?:PageEvent){
+    //     this.ticketService.getPageOfTickets()
+    //     .subscribe(
+    //         (success) => {
+                
+    //         },
+    //         (error) => {
+    //             console.log(error);
+    //         }
+    //     )
+    // }
 }
 
 
