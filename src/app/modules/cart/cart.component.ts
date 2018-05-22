@@ -53,16 +53,15 @@ export class CartComponent implements OnInit {
       throw Error;
     }
   }
+
   public calculateOrderTotalPrice() {
     this.seatsFromStorage.forEach(seat => {
     this.totalPrice = this.totalPrice + seat.price
     });
-    console.log(this.totalPrice);
   }
 
   public getSessionFromStorage() {
     this.session = JSON.parse(localStorage.getItem(sessionInStorage));
-    console.log(this.session);
   }
 
   public getHallFromSession(hall_id: number) {
@@ -108,6 +107,10 @@ export class CartComponent implements OnInit {
           }
         );
     }
+  }
+
+  createVirtualTicket(){
+    
   }
 
 }

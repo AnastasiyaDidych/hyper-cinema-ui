@@ -19,7 +19,9 @@
         <a routerLink="/halls">
           <button mat-raised-button color="primary" (click)="setSessionToLocalStorage(session)">Go to Hall</button>
         </a>
-        <button mat-raised-button color="primary" [routerLink]="['/cart']">Buy Virtual</button>
+        <a routerLink="/cart">
+          <button mat-raised-button color="primary" (click) =" setVirtualSeatToSeatArray()">Buy Virtual</button>
+        </a>
         <button mat-raised-button color="primary" [routerLink]="['/session-list']">Back</button>
 
       </mat-list-item>

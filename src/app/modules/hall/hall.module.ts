@@ -22,6 +22,7 @@ import { SeatService } from './seat.service';
         CommonModule,
         BrowserModule,
         RouterModule,
+    
 
 
         // Angular material Modules

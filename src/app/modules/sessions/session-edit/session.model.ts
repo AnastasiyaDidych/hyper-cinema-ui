@@ -1,6 +1,7 @@
 
 import { TicketForSession } from '../../hall/model/tictetForSession.model';
 
+
 export class Session {
   id : number;
   date: string;
