@@ -1,4 +1,5 @@
-import { TicketForSession } from "../../hall/model/tictetForSession.model";
+
+import { TicketForSession } from '../../hall/model/tictetForSession.model';
 
 
 export class Session {

@@ -22,7 +22,6 @@ export const ticketsArray: Array<TicketForSession> = this.ticketsFromSession;
   styleUrls: ['./display-session.component.css']
 })
 export class DisplaySessionComponent implements OnInit {
-
   sessions: Session[] = [];
   session: Session;
   ticketsFromSession: Array<TicketForSession> = [];

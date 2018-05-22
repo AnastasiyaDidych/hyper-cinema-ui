@@ -5,7 +5,7 @@ import { Hall } from './model/hall.model';
 import { Ticket } from '../ticket/ticket.model';
 import { Seat } from './model/seat.model';
 import { HallService } from './hall.service';
-import { Session } from '../sessions/session-edit/session.model';
+import { Session } from '..//sessions/session-edit/session.model';
 import { sessionInStorage } from '../sessions/display-session/display-session.component';
 import { SeatService } from './seat.service';
 import { TicketForSession } from './model/tictetForSession.model';
@@ -75,12 +75,9 @@ export class HallComponent implements OnInit {
       console.log(this.hall.id);
       for (var i = 1; i < this.hall.seats.length; i++) {
         this.hall.seats[i].hall_id = this.hall.id;
-        this.seats.push(this.hall.seats[i]);
       }
-      this.fillBoughtSeats();
     });
   }
-
   public getHalls() {
     this.hallService.getHalls().subscribe(data => {
       this.halls = data;
@@ -118,13 +115,11 @@ export class HallComponent implements OnInit {
   }
 
 
-
   public getType(seat: Seat) {
     if (seat.type === "VIP") {
       return 'VIP';
     }
   }
-
 
 
   public removeSeatFromSelectedSeats(seat: Seat) {
