@@ -9,6 +9,7 @@ import { Seat } from '../../hall/model/seat.model';
 import { Hall } from '../../hall/model/hall.model';
 import { HallService } from '../../hall/hall.service';
 import { seatArrayInStorage } from '../../hall/hall.component';
+import { MovieService } from '../../movie/services/movie.service';
 
 export const sessionInStorage = "sessionInStorage";
 export const ticketsArray: Array<TicketForSession> = this.ticketsFromSession;
@@ -27,7 +28,12 @@ export class DisplaySessionComponent implements OnInit {
   virtuaSeat: Array<Seat> = [];
   hall: Hall = Object();
 
-  constructor(private hallService: HallService, private sessionService: SessionService, private router: Router, private route: ActivatedRoute) { }
+  private imageUrl: string;
+
+  constructor(
+    private movieService: MovieService,
+    private hallService: HallService,
+    private sessionService: SessionService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
 
@@ -37,10 +43,15 @@ export class DisplaySessionComponent implements OnInit {
         this.sessionService.get(id).subscribe((car: any) => {
           if (car) {
             this.session = car;
-            for (var i = 1; i < this.session.tickets.length; i++) {
-              this.ticketsFromSession.push(this.session.tickets[i]);
-            }
-            this.getHall(this.session.hallId);
+            this.movieService.getImdbUrl(this.session.movieId, (url) => {
+              this.session.movieImageUrl = url;
+              console.log(this.session.movieImageUrl);
+              for (var i = 1; i < this.session.tickets.length; i++) {
+                this.ticketsFromSession.push(this.session.tickets[i]);
+              }
+              this.getHall(this.session.hallId);
+            });
+            // console.log(this.imageUrl);
           } else {
             console.log(`Car with id '${id}' not found, returning to list`);
 

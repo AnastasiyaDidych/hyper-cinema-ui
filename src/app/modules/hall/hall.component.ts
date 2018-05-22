@@ -74,6 +74,7 @@ export class HallComponent implements OnInit {
         this.seats.push(this.hall.seats[i]);
       }
     });
+    this.fillBoughtSeats();
   }
   public getHalls() {
     this.hallService.getHalls().subscribe(data => {
