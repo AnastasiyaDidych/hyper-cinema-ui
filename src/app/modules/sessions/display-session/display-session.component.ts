@@ -51,8 +51,7 @@ export class DisplaySessionComponent implements OnInit {
 
   public setSessionToLocalStorage(session: DisplaySessionComponent){
     localStorage.setItem(sessionInStorage, JSON.stringify(session));
-    console.log(localStorage.getItem(sessionInStorage));
-    console.log("session send to the local storage");
+
   }
 
 }
