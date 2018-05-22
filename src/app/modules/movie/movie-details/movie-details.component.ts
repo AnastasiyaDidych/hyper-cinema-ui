@@ -28,10 +28,10 @@ export class MovieDetailsComponent implements OnInit {
         this.movieService.getMovie(id)
                          .subscribe(params => {
                            this.movie = params;
-                          this.getTMDBMovie(this.movie.tmdbId); 
-                           this.movie.imgUrl =   this.getEmbedUrlImage(this.tmdb);                          
+                           this.movieService.getTMDBMovie(this.movie.tmdbId).subscribe(tmdb => {
+                            this.movie.imgUrl = this.getEmbedUrlImage(tmdb);
+                           }); 
                            this.getTMDBMovieTrailer(this.movie.tmdbId);
-
                          });
       }
     })
