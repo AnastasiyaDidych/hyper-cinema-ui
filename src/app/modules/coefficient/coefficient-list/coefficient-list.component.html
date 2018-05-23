@@ -1,15 +1,28 @@
-<mat-card>
-  <h1>List of Coefficients</h1>
-   <mat-card-content>
-     <mat-list>
-         <input type = "text" [(ngModel)]="searchText" placeholder="Search text goes here">
-       <mat-list-item *ngFor="let coefficient of coefficients | coefficientFilter : searchText"> 
-          <a [routerLink] = "['/coefficient/', coefficient.id]">
-            {{coefficient?.type}}   {{coefficient?.value}}</a>
-          <input type="button" value="Edit" [routerLink] = "['/coefficient-edit/', coefficient.id]">
-          <input type="button" value="Delete" (click) = "deleteCoefficient(coefficient.id)" [routerLink] = "['/coefficients']">
-       </mat-list-item>
-     </mat-list>
-     <input type="button" value="Create" [routerLink] = "['/coefficient-create']">
-   </mat-card-content>
- </mat-card>
+<div class="divCenter">
+    <h1>List of Coefficients</h1>
+  <mat-form-field>
+      <input [(ngModel)]="searchText" matInput placeholder="Search text goes here">
+    </mat-form-field>
+  <button [routerLink] = "['/coefficient-create']" mat-button>Create</button>
+
+<table class="table bordered highlight">
+			<thead>
+				<tr>				
+						<th>Type</th>
+						<th>Value</th>
+						<th>Editing</th>
+						<th>Deleting</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let coefficient of coefficients | coefficientFilter : searchText">
+				
+					<td><a [routerLink] = "['/coefficient/', coefficient.id]">
+            {{coefficient?.type}}</a></td>
+					<td>{{coefficient?.value}}</td>
+					<td><button [routerLink] = "['/coefficient-edit/', coefficient.id]" mat-button>Edit</button></td>
+					<td><button (click) = "deleteCoefficient(coefficient.id)" [routerLink] = "['/coefficients']" mat-button>Delete</button></td>
+				</tr>
+			</tbody>
+    </table>
+  </div>

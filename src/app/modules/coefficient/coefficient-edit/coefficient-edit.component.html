@@ -1,8 +1,22 @@
+<div class="divCenter">
+<mat-card class="example-card">
 <h2>{{coefficient.id ? 'Edit' : 'Create'}} Coefficient</h2>
-<div>
-  <form>
-    <input type="text" [(ngModel)] = "coefficient.type" placeholder="type" name = "type" >
-    <input type="text" [(ngModel)] = "coefficient.value" placeholder="value" name = "value">
-    <input type="button"  value="Save" (click) = "saveEditCoefficient()" >
-  </form>
-</div>  
+<div class="example-container">
+    <mat-form-field>
+      <input matInput [(ngModel)] = "coefficient.type" placeholder="Enter type" [formControl]="type" required>
+      <mat-error *ngIf="type.invalid">{{getErrorTypeMessage()}}</mat-error>
+    </mat-form-field>
+</div>
+
+  <div class="example-container">
+      <mat-form-field>
+        <input matInput [(ngModel)] = "coefficient.value" placeholder="Enter value" [formControl]="value" required>
+        <mat-error *ngIf="value.invalid">{{getErrorValueMessage()}}</mat-error>
+      </mat-form-field>
+  </div>
+  <div>
+    <button (click) = "saveEditCoefficient()" mat-button>Save</button>
+    <button [routerLink] = "['/coefficients']" mat-button>Cancel</button>
+  </div>
+</mat-card>
+</div>
