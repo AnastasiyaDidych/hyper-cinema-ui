@@ -3,6 +3,9 @@
   <mat-card-content>
     <mat-list>
       <mat-list-item>
+
+        <!-- <img mat-card-image *ngIf="session?.movieImageUrl" [src]="session?.movieImageUrl" alt="Photo"> -->
+        <!-- <h3 mat-line>ID: {{session?.movieImageUrl}}</h3> -->
         <h3 mat-line>ID: {{session?.id}}</h3>
         <h3 mat-line>Title: {{session?.title}}</h3>
         <h3 mat-line>Date :{{session?.date}}</h3>
@@ -11,11 +14,20 @@
         <h3 mat-line>HallId: {{session?.hallId}}</h3>
         <h3 mat-line>BasePrice: {{session?.basePrice}}</h3>
         <h3 mat-line>VipPrice: {{session?.vipPrice}}</h3>
-        <h3 mat-line>Virtual?: {{session?.virtualActive}}</h3>
-        <button mat-raised-button color="primary" [routerLink]="['/session-list']">Back</button>
+        <h3 mat-line>VirtualPrice: {{session?.virtualPrice}}</h3>
+        <h3 mat-line>Virtual: {{session?.virtualActive}}</h3>
+        <h3 mat-line>Active: {{session?.active}}</h3>
+        <h3 mat-line>
+          <button mat-raised-button color="primary" (click)="generateForDay(session)"> Gen Session</button>
+        </h3>
         <a routerLink="/halls">
-          <button mat-button (click)="setSessionToLocalStorage(session)">Hall</button>
+          <button mat-raised-button color="primary" (click)="setSessionToLocalStorage(session)">Go to Hall</button>
         </a>
+        <a routerLink="/cart">
+          <button mat-raised-button color="primary" (click)=" setVirtualSeatToSeatArray()">Buy Virtual</button>
+        </a>
+        <button mat-raised-button color="primary" [routerLink]="['/session-list']">Back</button>
+
       </mat-list-item>
     </mat-list>
   </mat-card-content>

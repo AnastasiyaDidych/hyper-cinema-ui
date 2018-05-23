@@ -15,12 +15,6 @@
   width: 100%;
 }
 
-:host {
-  display: flex;
-  justify-content: center;
-  margin: 72px 0;
-}
-
 .mat-form-field {
   width: 100%;
   min-width: 300px;
@@ -35,8 +29,23 @@ mat-card-content {
 .login-error {
   color: red;
   text-align: center;
+  margin-top: 8px;
 }
 
 .form-actions {
   margin-top: 10px;
+}
+
+.login-progress {
+  margin-top: 20px;
+}
+
+mat-form-field mat-error:not(:first-child) {
+  display: none;
+}
+
+th,
+td {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }

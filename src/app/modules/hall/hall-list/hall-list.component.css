@@ -1,0 +1,22 @@
+.rightButton {
+    display: flex;
+    justify-content:space-between; 
+}
+
+.hallCart {
+    max-width: 600px;
+    margin: auto;
+    width: 50%;
+    margin-top: 10px;
+  }
+
+  .hallInf{
+      font-size: 16px;
+  }
+
+  .pay-button{
+      margin-bottom: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: center;     
+  }

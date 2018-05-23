@@ -1,21 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { DisplaySessionComponent } from '../sessions/display-session/display-session.component';
+import { environment } from '../../../environments/environment';
 
 
-const hostUrl = '//localhost:1305/halls';
+const HALL_API_URL = environment.apiUrl + '/halls';
+export const seatArrayInStorage = "storedSeats";
+
 @Injectable()
 export class HallService {
 
   constructor(private http: HttpClient) {
   }
 
-  getAll(): Observable<any> {
-    return this.http.get(hostUrl);
+  getHalls(): Observable<any> {
+    return this.http.get(HALL_API_URL);
   }
 
-  getOne(hall_id :number): Observable<any>{
-      return this.http.get(hostUrl + '/' + hall_id);
+  getHall(hall_id: number): Observable<any> {
+    return this.http.get(HALL_API_URL + '/' + hall_id);
   }
+  
 }

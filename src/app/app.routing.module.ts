@@ -15,18 +15,25 @@ import { CartComponent } from './modules/cart/cart.component';
 import { CoefficientListComponent } from './modules/coefficient/coefficient-list/coefficient-list.component';
 import { CoefficientDetailsComponent } from './modules/coefficient/coefficient-details/coefficient-details.component';
 import { CoefficientEditComponent } from './modules/coefficient/coefficient-edit/coefficient-edit.component';
+import { HallListComponent } from './modules/hall/hall-list/hall-list.component';
+import { OneHallComponent } from './modules/hall/one-hall/one-hall.component';
+import { ScheduleListComponent } from './modules/sessions/schedule-list/schedule-list.component';
+import { UserFormComponent } from './modules/user-form/user-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  {path : "movies", component : MovieListComponent},
-  {path : "movie-create", component : MovieCreateComponent},
-  {path : "movie-create/:id", component : MovieCreateComponent},
-  {path : "movie/:id", component : MovieDetailsComponent},
+  { path: 'signup', component: UserFormComponent },
+  { path: 'account', component: UserFormComponent },
+  { path: "movies", component: MovieListComponent },
+  { path: "movie-create", component: MovieCreateComponent },
+  { path: "movie-create/:id", component: MovieCreateComponent },
+  { path: "movie/:id", component: MovieDetailsComponent },
   { path: 'orders', component: OrderComponent },
   { path: 'tickets', component: TicketListComponent },
   { path: 'tickets/:id', component: SingleTicketComponent },
-  { path: 'sessions', component: SessionListComponent },
+  { path: 'session-list', component: SessionListComponent },
+  { path: 'schedule-list', component: ScheduleListComponent },
   { path: 'session-add', component: SessionEditComponent },
   { path: 'session-edit', component: SessionListComponent },
   { path: 'display-session/:id', component: DisplaySessionComponent },
@@ -35,7 +42,11 @@ const routes: Routes = [
   { path: 'coefficients', component: CoefficientListComponent},
   { path: 'coefficient/:id', component: CoefficientDetailsComponent},
   { path: 'coefficient-create', component: CoefficientEditComponent},
-  { path: 'coefficient-edit/:id', component: CoefficientEditComponent}
+  { path: 'coefficient-edit/:id', component: CoefficientEditComponent},
+  { path: 'halls', component: HallComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'hall-list', component: HallListComponent },
+  { path: 'hall', component: OneHallComponent },
 ];
 
 @NgModule({

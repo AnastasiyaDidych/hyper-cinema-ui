@@ -6,25 +6,25 @@ import { Order } from './order.model';
 
 const httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+};
 
 @Injectable()
 export class OrderService {
 
-    private ticketUrl = 'http://localhost:1305/orders';
+    private orderUrl = 'http://localhost:1305/orders';
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) { }
 
-    getOrders(): Observable<Order[]>{
-        return this.http.get<Order[]>(this.ticketUrl);
+    getOrders(): Observable<Order[]> {
+        return this.http.get<Order[]>(this.orderUrl);
     }
 
-    getAllOrders(): Observable<Order[]>{
-        return this.http.get<Order[]>(this.ticketUrl+'/all');
+    getAllOrders(): Observable<Order[]> {
+        return this.http.get<Order[]>(this.orderUrl + '/all');
     }
 
-    createOrder(order: Order):Observable<Order>{
-        return this.http.post<Order>(this.ticketUrl, order);
+    createOrder(order: Order): Observable<Order> {
+        return this.http.post<Order>(this.orderUrl, order);
     }
-    
+
 }

@@ -6,8 +6,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HallComponent } from './hall.component';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { HallService } from './hall.service';
 import { RouterModule } from '@angular/router';
+import { SeatService } from './seat.service';
+
+
 
 @NgModule({
     declarations: [
@@ -18,6 +22,7 @@ import { RouterModule } from '@angular/router';
         CommonModule,
         BrowserModule,
         RouterModule,
+    
 
 
         // Angular material Modules
@@ -44,7 +49,8 @@ import { RouterModule } from '@angular/router';
         HallComponent
     ],
     providers: [
-        HallService
+        HallService,
+        SeatService
     ],
 })
 export class HallModule {

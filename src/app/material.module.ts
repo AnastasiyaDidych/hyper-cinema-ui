@@ -12,7 +12,12 @@ import {
     MatDialogModule,
     MatProgressSpinnerModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    MatProgressBarModule,
+    MatPaginatorModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
 } from '@angular/material';
 
 @NgModule({
@@ -28,7 +33,12 @@ import {
     MatDialogModule,
     MatProgressSpinnerModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports: [
     MatSidenavModule,
@@ -42,7 +52,12 @@ import {
     MatDialogModule,
     MatProgressSpinnerModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ]
 })
 export class MaterialModule { }

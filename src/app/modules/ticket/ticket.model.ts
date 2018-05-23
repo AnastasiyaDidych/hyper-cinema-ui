@@ -11,7 +11,6 @@ export class Ticket {
     price: number;
     barcode: string;
     virtualActive: boolean;
-
     sessionId: number;
     seatId: number;
 

@@ -4,3 +4,23 @@
     top: 85%; /* Расстояние сверху */
     padding: 10px; /* Поля вокруг текста */   
    }
+.q{
+    border: solid;
+}
+.qw{
+    position: fixed;
+   
+    /* margin-top: 1%; */
+}
+.nav{
+    position: fixed;
+    margin-left: 50%;
+    z-index:99999999;        
+}  
+.w{
+    margin-top: 5%;
+}
+.example-card {
+    margin: 10px 0px;
+    max-width: 400px;
+  }

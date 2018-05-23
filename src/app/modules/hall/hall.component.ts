@@ -4,11 +4,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Hall } from './model/hall.model';
 import { Ticket } from '../ticket/ticket.model';
 import { Seat } from './model/seat.model';
-import { HallService } from './hall.service';
-import { Session } from '../sessions/session-edit/session.model';
+import { HallService, seatArrayInStorage } from './hall.service';
+import { Session } from '..//sessions/session-edit/session.model';
 import { sessionInStorage } from '../sessions/display-session/display-session.component';
-
-export const seatArrayInStorage = "storedSeats";
+import { SeatService } from './seat.service';
+import { TicketForSession } from './model/tictetForSession.model';
 
 @Component({
   selector: 'app-hall',
@@ -22,72 +22,88 @@ export class HallComponent implements OnInit {
   halls: Array<Hall> = [];
   hall: Hall = Object();
   seats: Array<Seat> = [];
-  tickets: Array<Ticket> = [];
+  tickets: Array<TicketForSession> = [];
+  seat: Seat = Object();
 
   selectedSeats: Seat[] = [];
   boughtSeats: Seat[] = [];
   session: Session = Object();
 
-  constructor(private hallService: HallService) { }
+
+  constructor(private hallService: HallService, private seatService: SeatService) { }
 
   ngOnInit() {
     this.getSessionFromStorage();
     this.getHall(this.session.hallId);
-    // ???
-    // this.fillBoughtSeats(this.session);
   }
 
-  // ???
-  // public fillBoughtSeats(session: DisplaySessionComponent) {
 
-  // }
+  public fillBoughtSeats() {
+    this.tickets = this.session.tickets;
+    console.log("tick from ses")
+    console.log(this.session.tickets);
+    if (this.tickets !== null) {
+      for (var i = 0; i < this.tickets.length; i++) {
+        console.log(this.tickets[i]);
+        let seat = this.getSeatById(this.tickets[i].seatId);
+        console.log("step2")
+        if (seat !== null) {
+          this.boughtSeats.push(seat);
+          console.log(seat)
+        }
+      }
+    }
+    // console.log("buy seat")
+    // console.log(this.boughtSeats);
+  }
+
+  public getSeatById(seatId: number): Seat {
+    for (let i in this.seats) {
+      if (this.seats[i].id === seatId) {
+        return this.seats[i];
+      }
+    }
+    return null;
+  }
+
   public getSessionFromStorage() {
-    console.log("session from localStorage")
     this.session = JSON.parse(localStorage.getItem(sessionInStorage));
-    console.log(this.session);
-    console.log(this.session.hallId)
-  }
-
-  public getHalls() {
-    this.hallService.getAll().subscribe(data => {
-      this.halls = data;
-    });
   }
 
 
   public getHall(hall_id: number) {
-    this.hallService.getOne(hall_id).subscribe(data => {
+    this.hallService.getHall(hall_id).subscribe(data => {
       this.hall = data;
       for (var i = 1; i < this.hall.seats.length; i++) {
-        this.seats.push(this.hall.seats[i])
+        this.hall.seats[i].hall_id = this.hall.id;
+        this.seats.push(this.hall.seats[i]);
       }
+      this.fillBoughtSeats();
     });
+    this.fillBoughtSeats();
   }
 
-
+  public getHalls() {
+    this.hallService.getHalls().subscribe(data => {
+      this.halls = data;
+    });
+  }
 
   public seatClick(seat: Seat) {
     var index = this.selectedSeats.indexOf(seat);
     if (index !== -1) {
       this.removeSeatFromSelectedSeats(seat)
-    } else {
+    } else if (!this.boughtSeats.includes(seat)) {
       if (seat.type === "VIP") {
         seat.price = this.session.vipPrice;
         this.selectedSeats.push(seat);
-        console.log("Vip price:")
-        console.log(this.session.vipPrice)
-        console.log("Vip price on seat:")
-        console.log(seat.price);
-      } else{
+      } else if (seat.type === 'base') {
         seat.price = this.session.basePrice;
-        console.log("base price:")
-        console.log(this.session.basePrice)
-        console.log("base price on seat:")
-        console.log(seat.price);
         this.selectedSeats.push(seat);
       }
     }
   }
+
 
   public cleanSelect() {
     this.selectedSeats = [];
@@ -95,13 +111,20 @@ export class HallComponent implements OnInit {
 
 
   public getStatus(seat: Seat) {
-    if (this.boughtSeats.indexOf(seat) !== -1) {
-      return 'bought';
-    } else if (this.selectedSeats.indexOf(seat) !== -1) {
-      return 'selected';
-    }
+    if (this.boughtSeats.includes(seat)) {
+      return 'buy';
+    } else
+      if (this.selectedSeats.indexOf(seat) !== -1) {
+        return 'selected';
+      }
   }
 
+
+  public getType(seat: Seat) {
+    if (seat.type === "VIP") {
+      return 'VIP';
+    }
+  }
 
 
   public removeSeatFromSelectedSeats(seat: Seat) {
@@ -110,7 +133,7 @@ export class HallComponent implements OnInit {
   }
 
 
-  public throwSelectedSeatsToOrder() {
+  public throwSelectedSeatsToCart() {
     localStorage.setItem(seatArrayInStorage, JSON.stringify(this.selectedSeats));
     console.log("seats send to the local storage");
   }

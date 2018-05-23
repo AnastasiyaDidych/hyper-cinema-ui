@@ -1,5 +1,6 @@
 .boughtSeat {
-    color: #be0909;
+    color: #636060;
+    cursor: no-drop;
 }
 .selectedSeat {
     color: #09d11a;
@@ -7,16 +8,47 @@
 .freeSeat {
     color: rgb(9, 6, 143);
 }
+
+.VIPSeat{
+    color: #d10956;
+}
+
 .divPossition{
+    cursor: pointer;
+    width: 700px;
+    float: right;
+    margin-left: 10px;
+    margin-right: 100px;
+    margin-top: 100px;
+
+}
+.order-cart {
+    max-width: 295px;
+    margin: auto;
+    width: 50%;
+    margin-top: 10px;
     float: left;
-}
-.cleanPossition{
+  }
+
+  .pay-button{
+    width: 100%;
     display: flex;
-    justify-content: flex-end;    
-}
+    justify-content: center;     
+  }
 
-.seatSize{
-    width: 2px;
-    height: 2px;
-}
+  .widthOfHallPage{
+    min-width: 800px;
+  }
 
+  p{
+      color: #0a0324;
+      display: inline;
+      font-size: 24px;
+      font-family:Calibri;
+  }
+
+  .pricePosition{
+    display: flex;
+    justify-content: center;
+    
+  }

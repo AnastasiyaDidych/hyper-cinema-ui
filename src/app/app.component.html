@@ -1,19 +1,22 @@
 <mat-sidenav-container fullscreen>
   <mat-toolbar id="navigation-bar" color="primary">
     <mat-toolbar-row>
-      <a routerLink="sessions">
       <mat-icon>movie</mat-icon>
       <span>HyperCinema</span>
-    </a>
+      <span *ngIf="authService.isAdmin">[ADMIN MODE]</span>
+      <span *ngIf="!authService.isAdmin && authService.isManager">[MANAGER MODE]</span>
       <span class="toolbar-spacer"></span>
-      <button mat-button routerLink="/login">Login</button>
-      <button mat-button>Register</button>
+      <button mat-button *ngIf="!authService.isAuthenticated" routerLink="/login">Login</button>
+      <button mat-button *ngIf="!authService.isAuthenticated" routerLink="/signup">Sign Up</button>
+      <button mat-button *ngIf="authService.isAuthenticated" routerLink="/account">Account</button>
       <button mat-button routerLink="/movies">Movies</button>
-      <button mat-button routerLink="/sessions">Sessions</button>
+      <button mat-button routerLink="/session-list">Sessions</button>
+      <button mat-button routerLink="/schedule-list">Schedule</button>
       <button mat-button routerLink="/tickets">Tickets</button>
       <button mat-button routerLink="/orders">Orders</button>
-      <button mat-button routerLink="/coefficients">Coefficients</button>
+      <button mat-button *ngIf="authService.isAuthenticated" routerLink="/coefficients">Coefficients</button>
       <button mat-button>About</button>
+      <button mat-button *ngIf="authService.isAuthenticated" (click)="authService.logout()">Logout</button>
     </mat-toolbar-row>
   </mat-toolbar>
   <router-outlet></router-outlet>

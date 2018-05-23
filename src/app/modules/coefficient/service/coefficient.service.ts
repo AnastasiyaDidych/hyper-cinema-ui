@@ -5,11 +5,12 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 import { Coefficient } from '../coefficient.model';
+import { environment } from '../../../../environments/environment'
 
 @Injectable()
 export class CoefficientService {
 
-  public URL = '//localhost:1305/coefficients';
+  public URL = environment.apiUrl + "/coefficients";
 
   constructor(
     private http : HttpClient,

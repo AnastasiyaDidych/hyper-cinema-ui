@@ -1,14 +1,46 @@
-Film: <input id="first_name" class="validate" [(ngModel)]="searchStr">
-<div>
-    <input type="radio" name="day" (click)="setToday()" checked="checked">Today
-    <input type="radio" name="day" (click)="setTomorow()">Tomorow
-    <input type="radio" name="day" (click)="setAll()">Whole Week
-  </div>
-<div *ngFor="let schedule_data of schedule |search:searchStr |filter:dateStr">
-  {{schedule_data.title}}
-  {{schedule_data.localDate}}
-    <div *ngFor="let sch of schedule_data.sessionEntityList">
-        <a [routerLink]="['/display-session',sch.id]">{{sch.localTime}}</a>
-    </div>
-</div>
 
+<mat-card>
+
+    <mat-card class="nav">
+        <mat-card-content>
+          
+            <mat-form-field >
+                <mat-icon matPrefix class="app-input-icon">local_movies</mat-icon>
+                <input matInput #film placeholder="Search Film" [(ngModel)]="searchStr"/>
+              </mat-form-field>
+              <mat-form-field >
+                  <mat-icon matPrefix class="app-input-icon">date_range</mat-icon>
+                  <input matInput #film placeholder="Search Date" [(ngModel)]="dStr"/>
+                </mat-form-field>
+                <mat-divider></mat-divider>
+                <div class="w">
+                    <button mat-raised-button color="primary" [routerLink]="['/session-add']">Add Session</button>
+                    <button mat-raised-button color="primary" routerLink="/hall-list">Manage Halls</button>
+                
+              </div>
+              </mat-card-content>
+       </mat-card>
+    
+
+       <mat-card class="example-card">
+    <mat-card-content>
+      
+      <mat-list>         
+        <mat-list-item *ngFor="let session of sessions | search:searchStr |fdate:dStr">
+          
+          <h3 mat-line>Date :{{session.date}}</h3>
+          <h3 mat-line>StartTime:  {{session.startTime}}</h3>
+          <h3 mat-line>Title:  {{session.title}}</h3>
+          <h3 mat-line> </h3>
+          <h3 mat-line><button mat-raised-button color="primary" [routerLink]="['/display-session',session.id]"> View all information</button></h3>
+          <h3 mat-line> </h3>
+          <h3 mat-line><button mat-raised-button color="primary" (click)="deleteSession(session)">   Delete Session    </button></h3>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  
+  </mat-card>
+
+  </mat-card>
+ 

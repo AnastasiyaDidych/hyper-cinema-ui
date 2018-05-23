@@ -1,0 +1,40 @@
+.asd {
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+
+.asd img {
+    margin-right: 10s0px;
+}
+
+.schList{
+    display: flex;
+    align-items: center;
+}
+
+.qw{
+    margin-top: 5%;
+  
+    border: solid;
+}
+.q{
+    border-color: black;
+    border: solid;
+}
+
+.schInnerBlock1 {
+    margin-top: 5%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.schInnerBlock2 {
+    height: 100%;
+}
+.img{
+    max-width: 100px;
+    margin-left:2%; 
+}
