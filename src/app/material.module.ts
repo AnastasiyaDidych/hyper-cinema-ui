@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
-
-
 import {
     MatMenuModule,
     MatCardModule,
@@ -15,12 +13,12 @@ import {
     MatProgressSpinnerModule,
     MatListModule,
     MatTableModule,
+    MatProgressBarModule,
+    MatPaginatorModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule    
-    
+    MatNativeDateModule
 } from '@angular/material';
-import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   imports: [
@@ -37,6 +35,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatListModule,
     MatTableModule,
     MatPaginatorModule,
+    MatProgressBarModule,
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule
@@ -55,6 +54,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatListModule,
     MatTableModule,
     MatPaginatorModule,
+    MatProgressBarModule,
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule

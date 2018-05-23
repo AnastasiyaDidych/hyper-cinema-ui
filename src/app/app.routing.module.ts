@@ -15,10 +15,13 @@ import { CartComponent } from './modules/cart/cart.component';
 import { HallListComponent } from './modules/hall/hall-list/hall-list.component';
 import { OneHallComponent } from './modules/hall/one-hall/one-hall.component';
 import { ScheduleListComponent } from './modules/sessions/schedule-list/schedule-list.component';
+import { UserFormComponent } from './modules/user-form/user-form.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  { path: 'signup', component: UserFormComponent },
+  { path: 'account', component: UserFormComponent },
   { path: "movies", component: MovieListComponent },
   { path: "movie-create", component: MovieCreateComponent },
   { path: "movie-create/:id", component: MovieCreateComponent },

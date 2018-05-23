@@ -6,6 +6,9 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Movie } from '../movie.model';
+import { environment } from '../../../../environments/environment';
+
+const MOVIE_API_URL = environment.apiUrl + '/movies';
 
 @Injectable()
 export class MovieService {
@@ -19,17 +22,16 @@ export class MovieService {
   private url = 'https://api.themoviedb.org/3/movie/';
   private imageUrl = 'https://image.tmdb.org/t/p/w300';
   private apiKey = '68b4fe2a513155a58dd0af4adacb281b';
-  public URL = '//localhost:1305/movies';
 
   getMovies(): Observable<any> {
-    return this.http.get(this.URL)
+    return this.http.get(MOVIE_API_URL)
       .pipe(
         catchError(this.handleError('getMovies', []))
       );
   }
 
   getMovie(id: number) {
-    return this.http.get(this.URL + '/' + id);
+    return this.http.get(MOVIE_API_URL + '/' + id);
   }
   getTMDBMovie(id: number): Observable<any> {
     let moviesUrl = `${this.url}` + id + `?api_key=${this.apiKey}`;
@@ -52,14 +54,14 @@ export class MovieService {
 
   saveMovie(movie) {
     if (movie['id']) {
-      return this.http.put<Movie>(this.URL + '/' + movie.id, movie);
+      return this.http.put<Movie>(MOVIE_API_URL + '/' + movie.id, movie);
     } else {
-      return this.http.post<Movie>(this.URL, movie);
+      return this.http.post<Movie>(MOVIE_API_URL, movie);
     }
   }
 
   deleteMovie(id: string) {
-    return this.http.delete(this.URL + '/' + id);
+    return this.http.delete(MOVIE_API_URL + '/' + id);
   }
 
   gotoList() {

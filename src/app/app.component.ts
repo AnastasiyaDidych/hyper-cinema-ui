@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
+import { AuthService } from './shared/security/auth.service';
+
 
 @Component({
   selector: 'app-root',
@@ -7,7 +9,9 @@ import {Router} from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-	
+
   title = 'Hyper Cinema';
-  
+
+  constructor(public authService: AuthService) { }
+
 }

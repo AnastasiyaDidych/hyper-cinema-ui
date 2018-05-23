@@ -1,9 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { TokenStorage } from '../../shared/auth/token.storage';
-import { AuthService } from '../../shared/auth/auth.service';
+import { AuthService } from '../../shared/security/auth.service';
 import { Router } from '@angular/router';
+import { Credentials } from '../../shared/security/credentials.model';
 
 @Component({
   selector: 'app-login',
@@ -13,21 +13,27 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-  isSpinnerVisible: boolean;
-  isLoginFailed: boolean;
-
-  email: string;
-  password: string;
+  submitting: boolean;
+  loginFailed: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private token: TokenStorage,
     private router: Router
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.createForm();
+  }
+
+  get formControls() {
+    return this.loginForm.controls;
+  }
+
+  submit(): void {
+    this.onSubmit();
+    this.authService.login(this.getCredentials())
+      .subscribe(() => this.onLoginSuccess(), () => this.onLoginFailed());
   }
 
   private createForm(): void {
@@ -37,20 +43,26 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  login(): void {
-    this.isLoginFailed = false;
-    this.isSpinnerVisible = true;
-    this.authService.attemptAuth(this.email, this.password).subscribe(
-      data => {
-        this.token.saveToken(data.token);
-        this.isSpinnerVisible = false;
-        this.router.navigate(['/schedule-list']);
-      },
-      () => {
-        this.isSpinnerVisible = false;
-        this.isLoginFailed = true;
-      }
-    );
+  private getCredentials(): Credentials {
+    return {
+      email: this.loginForm.get('email').value,
+      password: this.loginForm.get('password').value
+    };
+  }
+
+  private onSubmit(): void {
+    this.loginFailed = false;
+    this.submitting = true;
+  }
+
+  private onLoginSuccess(): void {
+    this.submitting = false;
+    this.router.navigate(['/schedule-list']);
+  }
+
+  private onLoginFailed(): void {
+    this.submitting = false;
+    this.loginFailed = true;
   }
 
 }
