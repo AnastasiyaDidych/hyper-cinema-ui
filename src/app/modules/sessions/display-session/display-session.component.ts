@@ -76,14 +76,24 @@ export class DisplaySessionComponent implements OnInit {
 
   public setVirtualSeatToSeatArray() {
     localStorage.setItem(seatArrayInStorage, JSON.stringify(this.virtuaSeat));
+    console.log(JSON.parse(localStorage.getItem(seatArrayInStorage)));
   }
 
   public getHall(hall_id: number) {
     this.hallService.getHall(hall_id).subscribe(data => {
       this.hall = data;
+      console.log("hall in displaySession");
+      console.log(this.hall);
       if (this.hall.seats !== null) {
+        console.log("hall seats in display session");
+        console.log(this.hall.seats);
         this.virtuaSeat.push(this.hall.seats[0]);
-        this.virtuaSeat[0].price = (this.session.vipPrice + 100);
+        console.log("virtual seat");
+        console.log(this.virtuaSeat);
+        this.virtuaSeat[0].price = this.session.virtualPrice;
+        this.virtuaSeat[0].hall_id = this.session.hallId;
+        console.log("virtual price");
+        console.log(this.virtuaSeat);
       }
     });
   }

@@ -72,6 +72,7 @@ export class CartComponent implements OnInit {
 
   public getSeatFromStorage() {
     this.seatsFromStorage = JSON.parse(localStorage.getItem(seatArrayInStorage));
+    console.log(this.seatsFromStorage);
   }
 
   public cleanSeatArrayInStorage() {

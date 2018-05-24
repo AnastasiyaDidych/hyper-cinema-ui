@@ -10,6 +10,7 @@ export class Session {
   active:boolean;
   vipPrice: number;
   basePrice: number;
+  virtualPrice: number;
   tickets:Array<TicketForSession>;
   movieImageUrl: string;
 }

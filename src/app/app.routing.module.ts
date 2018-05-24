@@ -38,6 +38,7 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'hall-list', component: HallListComponent },
   { path: 'hall', component: OneHallComponent },
+  
 ];
 
 @NgModule({
