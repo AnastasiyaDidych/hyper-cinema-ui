@@ -38,6 +38,7 @@ import { ASD } from './modules/sessions/session-list/asd.pipe';
 import { FdatePipe } from './modules/sessions/session-list/dat.pipe';
 import { AuthService } from './shared/security/auth.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +52,8 @@ import { AuthService } from './shared/security/auth.service';
     ASD,
     CartComponent,
     ScheduleListComponent,
-    FdatePipe
+    FdatePipe,
+
   ],
   imports: [
     BrowserModule,
