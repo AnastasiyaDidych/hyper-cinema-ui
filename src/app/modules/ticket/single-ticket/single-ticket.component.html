@@ -2,7 +2,7 @@
     <div class="ticket-column">
         <div class="ticket-row h50">
             <h4>
-                HyperCinema Ticket {{ticket.id}}
+                HyperCinema Ticket
             </h4>
         </div>
         <div class="ticket-row h25">
@@ -22,7 +22,7 @@
                     <h5>Date:</h5>
                 </div>
                 <div>
-                    <h4>{{ticket.sessionDate}}</h4>
+                    <h4>{{ticket.sessionDate | date:'dd-MM-yyyy'}}</h4>
                 </div>
             </div>
             <div class="ticket-column">
@@ -43,7 +43,7 @@
                     <h3>{{ticket.hallName}}</h3>
                 </div>
             </div>
-            <div class="ticket-column">
+            <div class="ticket-column" *ngIf="ticket.seatRow !== 0">
                 <div>
                     <h5>Row:</h5>
                 </div>
@@ -51,7 +51,7 @@
                     <h3>{{ticket.seatRow}}</h3>
                 </div>
             </div>
-            <div class="ticket-column">
+            <div class="ticket-column" *ngIf="ticket.seatRow !== 0">
                 <div>
                     <h5>Seat:</h5>
                 </div>
@@ -59,6 +59,14 @@
                     <h3>{{ticket.seatNumber}}</h3>
                 </div>
             </div>
+            <div class="ticket-column" *ngIf="ticket.seatRow === 0">
+                    <div>
+                        <h5>Seat:</h5>
+                    </div>
+                    <div>
+                        <h3>VIRTUAL</h3>
+                    </div>
+                </div>
         </div>
         <div class="ticket-row">
             <h4>Price: {{ticket.price}} UAH</h4>
@@ -77,7 +85,7 @@
         <div class="ticket-row h50 not-printable" id="pdfUrlContainer">
                 <button class="ticket-button" mat-button (click)="sendTicketByMail(ticket.id)">Send by mail</button>
                 <button class="ticket-button" mat-button (click)="download()">Download PDF</button>
-                <button class="ticket-button" mat-button (click)="delete(ticket)">Remove ticket</button>
+                <button class="ticket-button" mat-button (click)="delete(ticket)" *ngIf="authService.isManager">Remove ticket</button>
         </div>
     </div>
 </mat-card>

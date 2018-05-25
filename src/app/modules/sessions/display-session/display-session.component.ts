@@ -83,6 +83,7 @@ export class DisplaySessionComponent implements OnInit {
       this.hall = data;
       if (this.hall.seats !== null) {
         this.virtuaSeat.push(this.hall.seats[0]);
+        this.virtuaSeat[0].hall_id = this.session.hallId;
         this.virtuaSeat[0].price = (this.session.vipPrice + 100);
       }
     });
