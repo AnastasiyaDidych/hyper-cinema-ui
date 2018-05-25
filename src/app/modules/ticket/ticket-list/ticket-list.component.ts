@@ -90,7 +90,6 @@ export class TicketListComponent implements OnInit {
         this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
     }
 
-
     showMyTickets(){
         this.ticketService.getMyTickets()
         .subscribe(

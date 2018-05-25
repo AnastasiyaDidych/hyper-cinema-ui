@@ -1,22 +1,23 @@
 <mat-card class="hallCart">
-    <div>
-      <a routerLink="/session-list">
-        <button class="pay-button" mat-raised-button color="primary">Back</button>
-      </a>
-    </div>
-    <div *ngFor="let hall of halls">
-      <mat-card class="rightButton">
-        <div class="hallInf">
-          Id: {{hall.id}}
-          <br> Name: {{hall.name}} hall
-          <br> Seats: {{hall.capacity}}
-          <br> Technology: {{hall.tech}}
-        </div>
-        <div>
-          <a routerLink="/hall">
-            <button class="pay-button" mat-raised-button color="primary" (click)="throwHallIdToStorage(hall.id)">Edit</button>
-          </a>
-        </div>
-      </mat-card>
-    </div>
-  </mat-card>
+  <div>
+    <a routerLink="/session-list">
+      <button class="pay-button" mat-raised-button color="primary">Back</button>
+    </a>
+    <button class="pay-button" mat-raised-button color="primary">Add hall</button>
+  </div>
+  <div *ngFor="let hall of halls">
+    <mat-card class="rightButton">
+      <div class="hallInf">
+        Id: {{hall.id}}
+        <br> Name: {{hall.name}} hall
+        <br> Seats: {{hall.capacity}}
+        <br> Technology: {{hall.tech}}
+      </div>
+      <div>
+        <a routerLink="/hall">
+          <button class="pay-button" mat-raised-button color="primary" (click)="throwHallIdToStorage(hall.id)">Edit</button>
+        </a>
+      </div>
+    </mat-card>
+  </div>
+</mat-card>

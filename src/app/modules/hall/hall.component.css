@@ -46,9 +46,23 @@
       font-size: 24px;
       font-family:Calibri;
   }
+  .ppp{
+    display: inline;
+  }
 
   .pricePosition{
     display: flex;
     justify-content: center;
     
+  }
+
+  .full-width {
+    width: 100%;
+  }
+
+  .hall-card {
+    max-width: 400px;
+    margin: auto;
+    width: 50%;
+    margin-top: 10px;
   }

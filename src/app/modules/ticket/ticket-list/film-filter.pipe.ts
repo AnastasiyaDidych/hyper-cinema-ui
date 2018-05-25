@@ -7,7 +7,6 @@ import { Ticket } from "../ticket.model";
 export class FilmPipe implements PipeTransform {
 
     transform(tickets: any, attr1: any, attr2: any, attr3: any) {
-        // if (!value) return tickets;
         return tickets.filter(ticket => {
             return ticket.filmName.includes(attr1) 
             && ticket.userEmail.includes(attr2) 

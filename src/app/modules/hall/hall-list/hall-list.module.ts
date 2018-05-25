@@ -46,7 +46,7 @@ import { SeatService } from '../seat.service';
         MatGridListModule
     ],
     exports: [
-       HallListComponent
+       HallListComponent,
     ],
     providers: [
         SeatService

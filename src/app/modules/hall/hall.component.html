@@ -4,10 +4,12 @@
   <div class="order-cart">
     <mat-card-title>
       <p>
-      Film: {{session.title}}
-      <br> Date: {{session.date}}
-      <br> Start time: {{session.startTime}}
-    </p>
+        <mat-icon>movie</mat-icon> {{session.title}}
+        <br>
+        <mat-icon>event</mat-icon> {{session.date}}
+        <br>
+        <mat-icon>query_builder</mat-icon> {{session.startTime}}
+      </p>
     </mat-card-title>
 
     <!-- Pay and clean buttons -->
@@ -52,7 +54,7 @@
       <mat-grid-list cols="10" rowHeight="2:1">
         <mat-grid-tile *ngFor="let seat of seats" (click)="seatClick(seat)" [ngSwitch]="getStatus(seat)">
           <!-- Selected Seats -->
-          <span *ngSwitchCase="'selected'" class="selectedSeat" >
+          <span *ngSwitchCase="'selected'" class="selectedSeat">
             <mat-icon>check_box</mat-icon>
           </span>
           <!-- Bought Seats -->
@@ -74,4 +76,9 @@
       </mat-grid-list>
     </mat-card-content>
   </div>
+</div>
+
+
+<div>
+    <button mat-raised-button  color="primary" (click)="openDialog()">Pick one</button>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Hall } from './model/hall.model';
@@ -9,6 +9,11 @@ import { Session } from '..//sessions/session-edit/session.model';
 import { sessionInStorage } from '../sessions/display-session/display-session.component';
 import { SeatService } from './seat.service';
 import { TicketForSession } from './model/tictetForSession.model';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { ShortHall } from './model/short-hall.model';
+import { HallCreateAlertComponent } from './hall-list/hall-create-alert/hall-create-alert.component';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { CartComponent } from '../cart/cart.component';
 
 @Component({
   selector: 'app-hall',
@@ -19,6 +24,7 @@ import { TicketForSession } from './model/tictetForSession.model';
 
 export class HallComponent implements OnInit {
 
+  hallForm: FormGroup;
   halls: Array<Hall> = [];
   hall: Hall = Object();
   seats: Array<Seat> = [];
@@ -30,7 +36,11 @@ export class HallComponent implements OnInit {
   session: Session = Object();
 
 
-  constructor(private hallService: HallService, private seatService: SeatService) { }
+  constructor(
+    private hallService: HallService,
+    private seatService: SeatService,
+    private userService: HallService,
+    private dialog: MatDialog, ) { }
 
   ngOnInit() {
     this.getSessionFromStorage();
@@ -40,21 +50,14 @@ export class HallComponent implements OnInit {
 
   public fillBoughtSeats() {
     this.tickets = this.session.tickets;
-    console.log("tick from ses")
-    console.log(this.session.tickets);
     if (this.tickets !== null) {
       for (var i = 0; i < this.tickets.length; i++) {
-        console.log(this.tickets[i]);
         let seat = this.getSeatById(this.tickets[i].seatId);
-        console.log("step2")
         if (seat !== null) {
           this.boughtSeats.push(seat);
-          console.log(seat)
         }
       }
     }
-    // console.log("buy seat")
-    // console.log(this.boughtSeats);
   }
 
   public getSeatById(seatId: number): Seat {
@@ -135,9 +138,21 @@ export class HallComponent implements OnInit {
 
   public throwSelectedSeatsToCart() {
     localStorage.setItem(seatArrayInStorage, JSON.stringify(this.selectedSeats));
-    console.log("seats send to the local storage");
   }
 
+  public openDialog() {
+    let dialogRef = this.dialog.open(HallCreateAlertComponent, {
+      width: '250px',
+      data: { capacity: this.hall.capacity, name: this.hall.name }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+
+    });
+
+  }
 }
+
 
 

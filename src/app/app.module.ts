@@ -7,7 +7,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-
 import { AppComponent } from './app.component';
 
 import { MaterialModule } from './material.module';
@@ -37,6 +36,7 @@ import { ScheduleListComponent } from './modules/sessions/schedule-list/schedule
 import { ASD } from './modules/sessions/session-list/asd.pipe';
 import { FdatePipe } from './modules/sessions/session-list/dat.pipe';
 import { AuthService } from './shared/security/auth.service';
+import { HallCreateAlertComponent } from './modules/hall/hall-list/hall-create-alert/hall-create-alert.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +51,9 @@ import { AuthService } from './shared/security/auth.service';
     ASD,
     CartComponent,
     ScheduleListComponent,
-    FdatePipe
+    HallCreateAlertComponent,
+    FdatePipe,
+
   ],
   imports: [
     BrowserModule,
