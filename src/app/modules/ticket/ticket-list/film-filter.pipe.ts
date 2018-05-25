@@ -6,10 +6,11 @@ import { Ticket } from "../ticket.model";
 })
 export class FilmPipe implements PipeTransform {
 
-    transform(tickets: Ticket[], attr1: string, attr2: string) {
-        // if (!value) return tickets;
+    transform(tickets: any, attr1: any, attr2: any, attr3: any) {
         return tickets.filter(ticket => {
-            return ticket.filmName.includes(attr1) && ticket.hallName.includes(attr2);
+            return ticket.filmName.includes(attr1) 
+            && ticket.userEmail.includes(attr2) 
+            && ticket.sessionDate.includes(attr3);
         })
     }
     
