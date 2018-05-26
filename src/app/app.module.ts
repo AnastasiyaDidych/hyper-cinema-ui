@@ -38,6 +38,7 @@ import { ASD } from './modules/sessions/session-list/asd.pipe';
 import { FdatePipe } from './modules/sessions/session-list/dat.pipe';
 import { AuthService } from './shared/security/auth.service';
 import { HallCreateAlertComponent } from './modules/hall/hall-list/hall-create-alert/hall-create-alert.component';
+import { OneHallComponent } from './modules/hall/one-hall/one-hall.component';
 
 
 @NgModule({
@@ -90,7 +91,7 @@ import { HallCreateAlertComponent } from './modules/hall/hall-list/hall-create-a
   exports: [
     BrowserAnimationsModule
   ],
-  entryComponents: [HallCreateAlertComponent],
+  entryComponents: [HallCreateAlertComponent,  OneHallComponent],
 
   bootstrap: [AppComponent]
 })

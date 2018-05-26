@@ -14,6 +14,8 @@
 }
 
 .divPossition{
+  font-size: 16px;
+    font-family:Calibri;
     cursor: pointer;
     width: 700px;
     float: right;
@@ -23,6 +25,8 @@
 
 }
 .order-cart {
+  font-size: 16px;
+    font-family:Calibri;
     max-width: 295px;
     margin: auto;
     width: 50%;
@@ -31,6 +35,8 @@
   }
 
   .pay-button{
+    font-size: 16px;
+    font-family:Calibri;
     width: 100%;
     display: flex;
     justify-content: center;     
@@ -48,9 +54,13 @@
   }
   .ppp{
     display: inline;
+    font-size: 16px;
+    font-family:Calibri;
   }
 
   .pricePosition{
+    font-size: 16px;
+    font-family:Calibri;
     display: flex;
     justify-content: center;
     
@@ -65,4 +75,13 @@
     margin: auto;
     width: 50%;
     margin-top: 10px;
+  }
+
+  .textDec{
+    font-size: 16px;
+    font-family:Calibri;
+  }
+
+  .payCart{
+    border: 4px rgb(192, 6, 6);
   }

@@ -50,7 +50,6 @@ import { HallCreateAlertComponent } from './hall-create-alert/hall-create-alert.
     exports: [
        HallListComponent,
     ],
-
     providers: [
         SeatService
     ],

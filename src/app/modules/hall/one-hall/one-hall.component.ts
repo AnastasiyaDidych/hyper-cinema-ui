@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { Router, ActivatedRoute } from '@angular/router';
-import { HallService } from '../hall.service';
+import { HallService, hallIdInStorage } from '../hall.service';
 import { Hall } from '../model/hall.model';
 import { Seat } from '../model/seat.model';
-import { hallIdInStorage } from '../hall-list/hall-list.component';
 import { SeatService } from '../seat.service';
 import { forEach } from '@angular/router/src/utils/collection';
 import { Observable } from 'rxjs/Observable';

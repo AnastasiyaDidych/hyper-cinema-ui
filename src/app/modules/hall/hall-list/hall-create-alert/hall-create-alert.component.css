@@ -12,12 +12,16 @@ div {
   }
 
   .submitButton{
+    font-size: 16px;
+    font-family:Calibri;
     display: flex;
     justify-content:flex-end;
     margin-right: 35px; 
 }
 
 .hallCreated{
+    font-size: 16px;
+    font-family:Calibri;
     display: flex;
     justify-content:center;
     font-family: Calibri, 'Trebuchet MS';

@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Seat } from '../model/seat.model';
 import { Session } from '../../sessions/session-edit/session.model';
 import { sessionInStorage } from '../../sessions/display-session/display-session.component';
-import { HallService } from '../hall.service';
+import { HallService, hallIdInStorage } from '../hall.service';
 import { Hall } from '../model/hall.model';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { HallCreateAlertComponent } from './hall-create-alert/hall-create-alert.component';
 import { FormGroup } from '@angular/forms';
+import { OneHallComponent } from '../one-hall/one-hall.component';
 
-export const hallIdInStorage = "hallIdInStorage";
 
 @Component({
   selector: 'app-hall-list',
@@ -35,12 +35,19 @@ export class HallListComponent implements OnInit {
 
   public throwHallIdToStorage(hall_id: number) {
     localStorage.setItem(hallIdInStorage, JSON.stringify(hall_id));
+    this.openEditDialog();
   }
 
-  public openDialog() {
+  public openCreateDialog() {
     let dialogRef = this.dialog.open(HallCreateAlertComponent, {
       width: '600px',
       data: { capacity: this.hall.capacity, name: this.hall.name }
+    });
+  }
+
+  public openEditDialog() {
+    let dialogRef = this.dialog.open(OneHallComponent, {
+      width: '600px',
     });
   }
 }
