@@ -31,6 +31,7 @@ export class HallDeleteAlertComponent {
         this.hallService.removeHall(hall.id).subscribe(
             (success) => {
                 console.log("ALL OK!")
+                this.dialogRef.close();
             },
             (error) => {
                 console.log(error);

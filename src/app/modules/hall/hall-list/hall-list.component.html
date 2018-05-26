@@ -3,7 +3,7 @@
     <a routerLink="/session-list">
       <button class="pay-button" mat-raised-button color="primary">Back</button>
     </a>
-    <button class="pay-button" mat-raised-button color="primary" (click) = "openCreateDialog()">Add hall</button>
+    <button class="pay-button" mat-raised-button color="primary" (click) = "createHall()">Add hall</button>
   </div>
   <div *ngFor="let hall of halls">
     <mat-card class="rightButton">

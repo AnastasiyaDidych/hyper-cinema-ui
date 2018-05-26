@@ -44,23 +44,28 @@ export class HallListComponent implements OnInit {
 
   public throwHallIdToStorage(hall_id: number) {
     localStorage.setItem(hallIdInStorage, JSON.stringify(hall_id));
-    this.openEditDialog();
+    this.editHall();
   }
 
-  public openCreateDialog() {
+  public createHall() {
     let dialogRef = this.dialog.open(HallCreateAlertComponent, {
       width: '600px',
       data: { capacity: this.hall.capacity, name: this.hall.name }
     });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The create dialog was closed');
+      //TODO
+      window.location.reload();
+    });
   }
 
-  public openEditDialog() {
+  public editHall() {
     let dialogRef = this.dialog.open(OneHallComponent, {
       width: '600px',
     });
+   console.log("2")
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      window.location.reload();
+      console.log('The edit dialog was closed');
     });
   }
 
@@ -72,8 +77,9 @@ export class HallListComponent implements OnInit {
       data: { hall }
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      window.location.reload();
+      console.log('The remove dialog was closed');
+      var index = this.halls.indexOf(hall);
+      this.halls.splice(index,1);
     });
   }
 }

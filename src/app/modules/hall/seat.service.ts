@@ -21,7 +21,7 @@ export class SeatService {
     console.log(hostUrl +'/' +  seat.id);
     this.http.put<Seat>(hostUrl + '/' + seat.id, seat).subscribe(
       (success) => {
-        console.log(success);
+        console.log("Seat type changed");
       },
       (error) => {
         console.log(error);
