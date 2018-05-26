@@ -4,6 +4,7 @@ import { Hall } from '../../model/hall.model';
 import { ShortHall } from '../../model/short-hall.model';
 import { HallService } from '../../hall.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from '../../../../shared/security/auth.service';
 
 @Component({
     selector: 'app-alert-component',
@@ -25,6 +26,7 @@ export class HallCreateAlertComponent {
     hallForm: FormGroup;
 
     constructor(
+        public authService: AuthService,
         private hallService: HallService,
         private formBuilder: FormBuilder,
         public dialogRef: MatDialogRef<HallCreateAlertComponent>,

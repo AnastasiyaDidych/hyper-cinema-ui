@@ -29,7 +29,7 @@
     <div *ngIf="message ==='ERROR'" class="hallCreated" style="color: rgb(138, 4, 4);">
       Something went wrong. Try again
     </div>
-    <div class="submitButton">
+    <div class="submitButton" *ngIf = "authService.isManager">
       <button mat-raised-button type="submit" [disabled]="hallForm.invalid" color="primary">Create hall</button>
     </div>
   </form>

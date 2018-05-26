@@ -1,5 +1,5 @@
 <mat-card class="hallCart">
-  <div>
+  <div *ngIf = "authService.isManager">
     <a routerLink="/session-list">
       <button class="pay-button" mat-raised-button color="primary">Back</button>
     </a>
@@ -13,8 +13,9 @@
         <br> Seats: {{hall.capacity}}
         <br> Technology: {{hall.tech}}
       </div>
-      <div>
+      <div *ngIf = "authService.isManager">
           <button class="pay-button" mat-raised-button color="primary" (click)="throwHallIdToStorage(hall.id)">Edit</button>
+          <button class="pay-button" mat-raised-button color="primary" (click)="removeHall(hall)">Remove</button>
       </div>
     </mat-card>
   </div>

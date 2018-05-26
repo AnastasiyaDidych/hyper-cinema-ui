@@ -37,7 +37,7 @@
         </mat-grid-tile>
       </mat-grid-list>
 
-      <div>
+      <div *ngIf = "authService.isManager">
         <button class="pay-button" mat-raised-button color = "primary" [disabled]="selectedSeats.length == 0" (click)="changeSeatType()">Change seat type</button>
       </div>
     </mat-card-content>

@@ -28,4 +28,8 @@ export class HallService {
     return this.http.post(HALL_API_URL, hall);
   }
 
+  removeHall(hall_id: number){
+    return this.http.delete(HALL_API_URL + '/' + hall_id);
+  }
+
 }

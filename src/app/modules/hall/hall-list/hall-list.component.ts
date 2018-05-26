@@ -8,6 +8,9 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { HallCreateAlertComponent } from './hall-create-alert/hall-create-alert.component';
 import { FormGroup } from '@angular/forms';
 import { OneHallComponent } from '../one-hall/one-hall.component';
+import { AuthService } from '../../../shared/security/auth.service';
+import { HallDeleteAlertComponent } from './hall-delete-alert/hall-delete-alert.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,8 +20,11 @@ import { OneHallComponent } from '../one-hall/one-hall.component';
 })
 export class HallListComponent implements OnInit {
 
-  constructor(private hallService: HallService,
-    private dialog: MatDialog, ) { }
+  constructor(
+    public authService: AuthService,
+    private hallService: HallService,
+    private dialog: MatDialog, 
+    private router: Router) { }
 
   ngOnInit() {
     this.getHalls();
@@ -49,5 +55,15 @@ export class HallListComponent implements OnInit {
     let dialogRef = this.dialog.open(OneHallComponent, {
       width: '600px',
     });
+  }
+
+  
+
+  public removeHall(hall: Hall, halls: Array<Hall> ) {
+    let dialogRef = this.dialog.open(HallDeleteAlertComponent, {
+      width: '500px',
+      data: {halls, hall}
+    });
+    dialogRef.afterClosed().subscribe(() => this.router.navigate(['/hall-list']))
   }
 }
