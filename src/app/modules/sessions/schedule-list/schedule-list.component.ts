@@ -16,6 +16,7 @@ import { MovieService } from '../../movie/services/movie.service';
   styleUrls: ['./schedule-list.component.css']
 })
 export class ScheduleListComponent implements OnInit {
+  //sessions: Array<Session> = [];
   id: number;
   searchStr = '';
   pageForm: string;
@@ -28,20 +29,27 @@ export class ScheduleListComponent implements OnInit {
   constructor(private movieService: MovieService, private sessionService: SessionService, private router: Router, private datePipe: DatePipe) { }
 
   ngOnInit() {
+
     this.setToday();
+
+
     this.sessionService.getSchedule().subscribe(data => {
       this.schedule = data;
       console.log(data);
       for (let sch of this.schedule) {
-
+       
         this.movieService.getImdbUrl(sch.movieId, (url) => {
           sch.movieImageUrl = url;
           console.log(sch.movieImageUrl);
         }
-        )
-      }
+        )}
     });
+
+
+    
+
   }
+
 
   public setAll() {
     this.dateStr = "";
