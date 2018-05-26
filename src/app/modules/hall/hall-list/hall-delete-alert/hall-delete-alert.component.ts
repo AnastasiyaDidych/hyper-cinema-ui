@@ -17,7 +17,9 @@ export class HallDeleteAlertComponent {
     ngOnInit() {
     }
 
-
+    onNoClick(): void {
+        this.dialogRef.close();
+    }
     constructor(
         public authService: AuthService,
         private hallService: HallService,
@@ -27,16 +29,11 @@ export class HallDeleteAlertComponent {
 
     public submitDeleteHall(hall: Hall) {
         this.hallService.removeHall(hall.id).subscribe(
-              (success) => {
-                // var index = this.halls.indexOf(hall);
-                // this.halls.splice(index, 1);
+            (success) => {
                 console.log("ALL OK!")
-              },
-              (error) => {
-        
-              });
-
+            },
+            (error) => {
+                console.log(error);
+            });
     }
-
-
 }

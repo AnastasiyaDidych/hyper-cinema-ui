@@ -17,6 +17,10 @@ export class HallCreateAlertComponent {
         this.initForm();
     }
 
+    onNoClick(): void {
+        this.dialogRef.close();
+    }
+
     get formControls() {
         return this.hallForm.controls;
       }
@@ -52,7 +56,6 @@ export class HallCreateAlertComponent {
             tech: this.hallForm.get('tech').value,
             name: this.hallForm.get('hallName').value,
         }
-        console.log(newHall);
         this.createHall(newHall);
     }
 

@@ -23,12 +23,15 @@ export class HallListComponent implements OnInit {
   constructor(
     public authService: AuthService,
     private hallService: HallService,
-    private dialog: MatDialog, 
+    private dialog: MatDialog,
     private router: Router) { }
 
   ngOnInit() {
     this.getHalls();
   }
+
+
+
   hallForm: FormGroup;
   halls: Array<Hall> = [];
   hall: Hall = Object();
@@ -55,15 +58,22 @@ export class HallListComponent implements OnInit {
     let dialogRef = this.dialog.open(OneHallComponent, {
       width: '600px',
     });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      window.location.reload();
+    });
   }
 
-  
 
-  public removeHall(hall: Hall, halls: Array<Hall> ) {
+
+  public removeHall(hall: Hall) {
     let dialogRef = this.dialog.open(HallDeleteAlertComponent, {
       width: '500px',
-      data: {halls, hall}
+      data: { hall }
     });
-    dialogRef.afterClosed().subscribe(() => this.router.navigate(['/hall-list']))
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      window.location.reload();
+    });
   }
 }
