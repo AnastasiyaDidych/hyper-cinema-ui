@@ -11,5 +11,6 @@ export class Session {
   vipPrice: number;
   basePrice: number;
   tickets:Array<TicketForSession>;
+  virtualPrice: number;
   movieImageUrl: string;
 }
