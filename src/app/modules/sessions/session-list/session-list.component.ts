@@ -37,7 +37,7 @@ export class SessionListComponent implements OnInit {
   
 
   deleteSession(session: Session): void {
-    if (window.confirm('Delete ticket?')) {
+    if (window.confirm('Delete session?')) {
     this.sessionService.deleteSession(session.id)
       .subscribe(data => {
         this.sessions = this.sessions.filter(s => s !== session);

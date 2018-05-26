@@ -7,11 +7,12 @@ import { Subscription } from 'rxjs/Subscription';
 import { TicketForSession } from '../../hall/model/tictetForSession.model';
 import { Seat } from '../../hall/model/seat.model';
 import { Hall } from '../../hall/model/hall.model';
-import { HallService, seatArrayInStorage } from '../../hall/hall.service';
+import { HallService } from '../../hall/hall.service';
+import { seatArrayInStorage } from '../../hall/hall.component';
 import { MovieService } from '../../movie/services/movie.service';
 
 export const sessionInStorage = "sessionInStorage";
-export const ticketsInStorage = "ticketsInStorage";
+//export const ticketsArray: Array<TicketForSession> = this.ticketsFromSession;
 
 
 @Component({
@@ -37,6 +38,7 @@ export class DisplaySessionComponent implements OnInit {
 
 
   ngOnInit() {
+
     this.sub = this.route.params.subscribe(params => {
       const id = params['id'];
       if (id) {
@@ -53,6 +55,7 @@ export class DisplaySessionComponent implements OnInit {
             });
           } else {
             console.log(`Car with id '${id}' not found, returning to list`);
+
           }
         });
       }
@@ -60,7 +63,7 @@ export class DisplaySessionComponent implements OnInit {
   }
 
   public generateForDay(session: Session): void {
-    if (window.confirm('Generate sessions?')) {
+    if (window.confirm('Generate for a day?')) {
       this.sessionService.genetateForDay(session.id)
         .subscribe(data => {
           this.sessions = this.sessions.filter(s => s !== session);
@@ -70,7 +73,7 @@ export class DisplaySessionComponent implements OnInit {
 
   public setSessionToLocalStorage(session: DisplaySessionComponent) {
     localStorage.setItem(sessionInStorage, JSON.stringify(session));
-    localStorage.setItem(ticketsInStorage, JSON.stringify(this.ticketsFromSession));
+   // localStorage.setItem(ticketsArray, JSON.stringify(this.ticketsFromSession));
 
   }
 
@@ -83,8 +86,7 @@ export class DisplaySessionComponent implements OnInit {
       this.hall = data;
       if (this.hall.seats !== null) {
         this.virtuaSeat.push(this.hall.seats[0]);
-        this.virtuaSeat[0].price = this.session.virtualPrice;
-        this.virtuaSeat[0].hall_id = this.session.hallId;
+        this.virtuaSeat[0].price = (this.session.vipPrice + 100);
       }
     });
   }
