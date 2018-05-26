@@ -9,10 +9,6 @@ import { Session } from '..//sessions/session-edit/session.model';
 import { sessionInStorage } from '../sessions/display-session/display-session.component';
 import { SeatService } from './seat.service';
 import { TicketForSession } from './model/tictetForSession.model';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { ShortHall } from './model/short-hall.model';
-import { HallCreateAlertComponent } from './hall-list/hall-create-alert/hall-create-alert.component';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { CartComponent } from '../cart/cart.component';
 
 @Component({
@@ -24,7 +20,6 @@ import { CartComponent } from '../cart/cart.component';
 
 export class HallComponent implements OnInit {
 
-  hallForm: FormGroup;
   halls: Array<Hall> = [];
   hall: Hall = Object();
   seats: Array<Seat> = [];
@@ -38,9 +33,7 @@ export class HallComponent implements OnInit {
 
   constructor(
     private hallService: HallService,
-    private seatService: SeatService,
-    private userService: HallService,
-    private dialog: MatDialog, ) { }
+    private seatService: SeatService,) { }
 
   ngOnInit() {
     this.getSessionFromStorage();
@@ -83,7 +76,6 @@ export class HallComponent implements OnInit {
       }
       this.fillBoughtSeats();
     });
-    this.fillBoughtSeats();
   }
 
   public getHalls() {
@@ -138,19 +130,6 @@ export class HallComponent implements OnInit {
 
   public throwSelectedSeatsToCart() {
     localStorage.setItem(seatArrayInStorage, JSON.stringify(this.selectedSeats));
-  }
-
-  public openDialog() {
-    let dialogRef = this.dialog.open(HallCreateAlertComponent, {
-      width: '250px',
-      data: { capacity: this.hall.capacity, name: this.hall.name }
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-
-    });
-
   }
 }
 

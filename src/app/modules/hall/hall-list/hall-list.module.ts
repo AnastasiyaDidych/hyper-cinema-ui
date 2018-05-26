@@ -9,6 +9,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { HallListComponent } from './hall-list.component';
 import { SeatService } from '../seat.service';
+import { HallCreateAlertComponent } from './hall-create-alert/hall-create-alert.component';
 
 
 
@@ -22,6 +23,7 @@ import { SeatService } from '../seat.service';
         CommonModule,
         BrowserModule,
         RouterModule,
+    
     
 
 
@@ -48,6 +50,7 @@ import { SeatService } from '../seat.service';
     exports: [
        HallListComponent,
     ],
+
     providers: [
         SeatService
     ],

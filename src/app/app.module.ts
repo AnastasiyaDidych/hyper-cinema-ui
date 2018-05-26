@@ -52,8 +52,8 @@ import { HallCreateAlertComponent } from './modules/hall/hall-list/hall-create-a
     UniquePipe,
     ASD,
     CartComponent,
-    ScheduleListComponent,
     HallCreateAlertComponent,
+    ScheduleListComponent,
     FdatePipe,
 
   ],
@@ -90,6 +90,7 @@ import { HallCreateAlertComponent } from './modules/hall/hall-list/hall-create-a
   exports: [
     BrowserAnimationsModule
   ],
+  entryComponents: [HallCreateAlertComponent],
 
   bootstrap: [AppComponent]
 })

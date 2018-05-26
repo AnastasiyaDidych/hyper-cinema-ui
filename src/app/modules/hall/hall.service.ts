@@ -23,8 +23,8 @@ export class HallService {
     return this.http.get(HALL_API_URL + '/' + hall_id);
   }
 
-  saveHall(hall: ShortHall){
+  saveHall(hall: ShortHall) {
     return this.http.post(HALL_API_URL, hall);
   }
-  
+
 }

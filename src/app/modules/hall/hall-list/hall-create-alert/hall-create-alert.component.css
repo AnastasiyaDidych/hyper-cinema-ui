@@ -1,3 +1,25 @@
 div {
     margin-bottom: 12px;
 }
+
+.closeClear{
+    display: flex;
+    justify-content: flex-end; 
+}
+
+.full-width {
+    width: 100%;
+  }
+
+  .submitButton{
+    display: flex;
+    justify-content:flex-end;
+    margin-right: 35px; 
+}
+
+.hallCreated{
+    display: flex;
+    justify-content:center;
+    font-family: Calibri, 'Trebuchet MS';
+    font-size: 16px;
+}
