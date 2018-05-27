@@ -119,14 +119,12 @@ export class TicketListComponent implements OnInit {
     // }
 
     public sortTickets() {
-        console.log(this.tickets);
         for (var i = 1; i < this.tickets.length; i++) {
             if (this.tickets[i].seatRow === 0) {
-                console.log(this.tickets[i]);
                 this.virtualTickets.push(this.tickets[i]);
-                console.log(this.virtualTickets);
             }
         }
+        console.log(this.virtualTickets);
     }
 
     public throwVirtualTicketInStorage() {
