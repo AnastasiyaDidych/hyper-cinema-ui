@@ -64,8 +64,8 @@ p {
 
 .film-name {
     font-weight: 400; 
-    margin-top: 5px;
-    height: 30%;
+    margin-top: 1px;
+    height: 40%;
     margin: 2px;
     margin-left: 5px;
     font-size: 24px;
@@ -86,7 +86,7 @@ p {
 .date-time{
     margin: 2px;
     display: flex;
-    margin-top: 5px;
+    margin-top: 10px;
     margin-left: 5px;
     font-size: 16px;
     color: #0a0324;

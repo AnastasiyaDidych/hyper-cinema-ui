@@ -7,6 +7,8 @@ const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
+const watchVirtual = "watchVirtual";
+
 @Injectable()
 export class UserService {
 

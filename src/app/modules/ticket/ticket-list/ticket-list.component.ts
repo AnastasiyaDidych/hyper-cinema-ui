@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { TicketService } from '../ticket.servise';
+import { TicketService, virtualTicketsInStorage } from '../ticket.servise';
 import { Ticket } from '../ticket.model';
 
 import { PageEvent, MatPaginator } from '@angular/material';
@@ -26,6 +26,7 @@ export class TicketListComponent implements OnInit {
     private totalPages: Array<number>;
 
     tickets: Ticket[] = [];
+    virtualTickets: Array<Ticket> = [];
 
     private length: number;
     private pageSize: number = 20;
@@ -90,16 +91,17 @@ export class TicketListComponent implements OnInit {
         this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
     }
 
-    showMyTickets(){
+    showMyTickets() {
         this.ticketService.getMyTickets()
-        .subscribe(
-            (success) => {
-                this.tickets = success;
-            },
-            (error) => {
-                console.log(error);
-            }
-        );
+            .subscribe(
+                (success) => {
+                    this.tickets = success;
+                    this.sortTickets();
+                },
+                (error) => {
+                    console.log(error);
+                }
+            );
     }
 
 
@@ -108,13 +110,26 @@ export class TicketListComponent implements OnInit {
     //     this.ticketService.getPageOfTickets()
     //     .subscribe(
     //         (success) => {
-                
+
     //         },
     //         (error) => {
     //             console.log(error);
     //         }
     //     )
     // }
+
+    public sortTickets() {
+        for (var i = 1; i < this.tickets.length; i++) {
+            if (this.tickets[i].seatRow === 0) {
+                this.virtualTickets.push(this.tickets[i]);
+            }
+        }
+        console.log(this.virtualTickets);
+    }
+
+    public throwVirtualTicketInStorage() {
+        localStorage.setItem(virtualTicketsInStorage, JSON.stringify(this.virtualTickets));
+    }
 }
 
 

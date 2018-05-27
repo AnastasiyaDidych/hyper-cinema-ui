@@ -12,6 +12,8 @@ const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
+export const virtualTicketsInStorage = "virtualTicketsInStorage";
+
 const TICKET_API_URL = environment.apiUrl + '/tickets';
 
 @Injectable()

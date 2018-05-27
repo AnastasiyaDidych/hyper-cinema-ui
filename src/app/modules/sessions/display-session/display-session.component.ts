@@ -72,11 +72,14 @@ export class DisplaySessionComponent implements OnInit {
 
   public setSessionToLocalStorage(session: DisplaySessionComponent) {
     localStorage.setItem(sessionInStorage, JSON.stringify(session));
+    console.log(this.session);
     localStorage.setItem(ticketsInStorage, JSON.stringify(this.ticketsFromSession));
 
   }
 
-  public setVirtualSeatToSeatArray() {
+  public setVirtualSeatToSeatArray(session: DisplaySessionComponent) {
+    console.log(session);
+    localStorage.setItem(sessionInStorage, JSON.stringify(session));
     localStorage.setItem(seatArrayInStorage, JSON.stringify(this.virtuaSeat));
   }
 
