@@ -1,0 +1,19 @@
+.submitButton{
+    font-size: 16px;
+    font-family:Calibri;
+    display: flex;
+    justify-content:flex-end;
+    margin-top: 10px;
+    
+}
+.closeClear{
+    display: flex;
+    justify-content: flex-end; 
+}
+.textDec{
+    font-family: Calibri;
+    font-size: 24px;
+    color: #0a0324;
+    display: flex;
+    justify-content: center; 
+}

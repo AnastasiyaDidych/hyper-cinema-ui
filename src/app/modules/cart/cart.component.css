@@ -6,13 +6,22 @@
   }
 
   .pay-button{
+    font-size: 16px;
+    font-family:Calibri;
     width: 100%;
     display: flex;
     justify-content: center;     
   }
 
 p {
-    margin: 0;
+    font-size: 16px;
+    font-family:Calibri;
+}
+
+.textDec{
+    color: #0a0324;
+    font-size: 16px;
+    font-family:Calibri;
 }
 
 .my-wrapper {

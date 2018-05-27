@@ -1,15 +1,19 @@
-<!-- <div class="hall-card">
-  <form class="full-width example-container" (ngSubmit)="submitCreateHall()">
+<div class="hall-card">
+  <div class="closeClear">
+    <button mat-icon-button mat-dialog-close>
+      <mat-icon> clear</mat-icon>
+    </button>
+  </div>
+  <form class="full-width example-container" [formGroup]="hallForm" (ngSubmit)="submitCreateHall()">
     <table class="full-width" cellspacing="0">
       <tr>
         <th>
           <mat-form-field>
             <input type="text" matInput placeholder="Hall name" formControlName="hallName" pattern="[A-Za-z]{3,}" required>
           </mat-form-field>
-        </th>
         <th>
           <mat-form-field>
-            <input type="text" matInput placeholder="Technology" formControlName="tech" pattern="[A-Za-z]{2,}" required>
+            <input type="text" matInput placeholder="Technology" formControlName="tech" pattern="[1-9A-Za-z]{2,}" required>
           </mat-form-field>
         </th>
         <th>
@@ -17,19 +21,16 @@
             <input type="number" matInput placeholder="Capacity" formControlName="capacity" min="0" step="10" required>
           </mat-form-field>
         </th>
-        <th>
-          <mat-form-field>
-            <input type="text" matInput placeholder="Type" formControlName="type" required>
-          </mat-form-field>
-        </th>
       </tr>
     </table>
-    <p>
-      <button mat-raised-button type="submit" color="primary">Submit</button>
-    </p>
+    <div *ngIf="message ==='CREATED'" class="hallCreated" style="color: rgb(2, 119, 17);">
+      Hall successfully created!
+    </div>
+    <div *ngIf="message ==='ERROR'" class="hallCreated" style="color: rgb(138, 4, 4);">
+      Something went wrong. Try again
+    </div>
+    <div class="submitButton" *ngIf = "authService.isManager">
+      <button mat-raised-button type="submit" [disabled]="hallForm.invalid" color="primary">Create hall</button>
+    </div>
   </form>
-</div> -->
-
-<div>
-  Hello!
 </div>

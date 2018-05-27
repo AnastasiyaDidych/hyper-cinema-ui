@@ -13,23 +13,25 @@
     </mat-card-title>
 
     <!-- Pay and clean buttons -->
-    <mat-card-title>
-      <div *ngIf="selectedSeats.length > 0">
-        <div>
-          <a routerLink="/cart">
-            <button class="pay-button" mat-raised-button color="primary" (click)="throwSelectedSeatsToCart()">Add to cart</button>
-          </a>
+    <div class="payCart">
+      <mat-card-title>
+        <div *ngIf="selectedSeats.length > 0">
+          <div>
+            <a routerLink="/cart">
+              <button class="pay-button" mat-raised-button color="primary" (click)="throwSelectedSeatsToCart()">Add to cart</button>
+            </a>
+          </div>
+          <div>
+            <button class="pay-button" mat-button (click)="cleanSelect()">Clean list</button>
+          </div>
         </div>
-        <div>
-          <button class="pay-button" mat-button (click)="cleanSelect()">Clean list</button>
-        </div>
-      </div>
-    </mat-card-title>
+      </mat-card-title>
+    </div>
 
     <!-- List of seleted tickets -->
     <div>
       <mat-card-content *ngFor="let seat of selectedSeats, let i = index">
-        <button mat-button (click)="removeSeatFromSelectedSeats(seat)">
+        <button mat-button (click)="removeSeatFromSelectedSeats(seat)" class="textDec">
           {{i+1}}. number: {{seat.number}} row: {{seat.row}} type: {{seat.type}} price: {{seat.price}}₴;
         </button>
         <br>
@@ -76,9 +78,4 @@
       </mat-grid-list>
     </mat-card-content>
   </div>
-</div>
-
-
-<div>
-    <button mat-raised-button  color="primary" (click)="openDialog()">Pick one</button>
 </div>

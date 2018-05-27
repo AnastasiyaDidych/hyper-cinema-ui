@@ -1,0 +1,12 @@
+<div class="closeClear">
+    <button mat-icon-button mat-dialog-close>
+        <mat-icon> clear</mat-icon>
+    </button>
+</div>
+<div class="textDec">
+    Are you sure?
+</div>
+
+<div class="submitButton" *ngIf="authService.isManager">
+        <button mat-raised-button type="submit" color="primary" (click)="submitDeleteHall(data.hall)">Remove hall</button>
+</div>

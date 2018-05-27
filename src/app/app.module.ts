@@ -37,6 +37,8 @@ import { ASD } from './modules/sessions/session-list/asd.pipe';
 import { FdatePipe } from './modules/sessions/session-list/dat.pipe';
 import { AuthService } from './shared/security/auth.service';
 import { HallCreateAlertComponent } from './modules/hall/hall-list/hall-create-alert/hall-create-alert.component';
+import { OneHallComponent } from './modules/hall/one-hall/one-hall.component';
+import { HallDeleteAlertComponent } from './modules/hall/hall-list/hall-delete-alert/hall-delete-alert.component';
 
 @NgModule({
   declarations: [
@@ -50,8 +52,9 @@ import { HallCreateAlertComponent } from './modules/hall/hall-list/hall-create-a
     UniquePipe,
     ASD,
     CartComponent,
-    ScheduleListComponent,
     HallCreateAlertComponent,
+    HallDeleteAlertComponent,
+    ScheduleListComponent,
     FdatePipe,
 
   ],
@@ -88,6 +91,7 @@ import { HallCreateAlertComponent } from './modules/hall/hall-list/hall-create-a
   exports: [
     BrowserAnimationsModule
   ],
+  entryComponents: [HallCreateAlertComponent,  OneHallComponent, HallDeleteAlertComponent],
 
   bootstrap: [AppComponent]
 })

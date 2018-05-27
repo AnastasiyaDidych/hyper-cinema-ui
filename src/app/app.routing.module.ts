@@ -13,7 +13,6 @@ import { MovieCreateComponent } from './modules/movie/movie-create/movie-create.
 import { MovieDetailsComponent } from './modules/movie/movie-details/movie-details.component';
 import { CartComponent } from './modules/cart/cart.component';
 import { HallListComponent } from './modules/hall/hall-list/hall-list.component';
-import { OneHallComponent } from './modules/hall/one-hall/one-hall.component';
 import { ScheduleListComponent } from './modules/sessions/schedule-list/schedule-list.component';
 import { UserFormComponent } from './modules/user-form/user-form.component';
 
@@ -37,7 +36,6 @@ const routes: Routes = [
   { path: 'halls', component: HallComponent },
   { path: 'cart', component: CartComponent },
   { path: 'hall-list', component: HallListComponent },
-  { path: 'hall', component: OneHallComponent },
   
 ];
 

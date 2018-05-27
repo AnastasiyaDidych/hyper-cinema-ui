@@ -1,44 +1,45 @@
+<div class="closeClear">
+  <button mat-icon-button mat-dialog-close>
+    <mat-icon> clear</mat-icon>
+  </button>
+</div>
+<div class="textView">
+    Name: {{hall.name}} hall
+    <br> Technology: {{hall.tech}}
+    <br> Seats: {{hall.capacity}}
+  </div>
+
 <div>
-    <a routerLink="/hall-list">
-      <button class="pay-button" mat-raised-button >Back</button>
-    </a>
-    <div *ngIf="selectedSeats.length > 0">
-      <button class="pay-button" mat-raised-button  (click)="changeSeatType()">Change seat type</button>
-    </div>
-  
-    <div>
-      Name: {{hall.name}} hall
-      <br> Type: {{hall.type}}
-      <br> Seats: {{hall.capacity}}
-    </div>
+  <div class="widthOfHallPage">
+    <mat-card-content class="demo-basic-list">
+      <div class="pricePosition">
+        <mat-icon class="VIPSeat">check_box_outline_blank</mat-icon> - VIP seat
+        <p> &emsp; &emsp;</p>
+        <mat-icon class="freeSeat">check_box_outline_blank</mat-icon> - base seat
+      </div>
+      <mat-grid-list cols="10" rowHeight="2:1">
+        <mat-grid-tile *ngFor="let seat of seats" (click)="seatClick(seat)" [ngSwitch]="getStatus(seat)">
+          <!-- Selected Seats -->
+          <span *ngSwitchCase="'selected'" class="selectedSeat">
+            <mat-icon>done_outline</mat-icon>
+          </span>
+          <!-- Seats -->
+          <span *ngSwitchDefault>
+            <!-- Vip Seats -->
+            <div *ngIf="seat.type ==='VIP'">
+              <mat-icon class="VIPSeat">check_box_outline_blank</mat-icon>
+            </div>
+            <!-- Base Seats -->
+            <div *ngIf="seat.type === 'base'">
+              <mat-icon class="freeSeat">check_box_outline_blank</mat-icon>
+            </div>
+          </span>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <div *ngIf = "authService.isManager">
+        <button class="pay-button" mat-raised-button color = "primary" [disabled]="selectedSeats.length == 0" (click)="changeSeatType()">Change seat type</button>
+      </div>
+    </mat-card-content>
   </div>
-  <div>
-    <div class="widthOfHallPage">
-      <mat-card-content class="demo-basic-list">
-        <div class="pricePosition">
-          <mat-icon class="VIPSeat">check_box_outline_blank</mat-icon> - VIP seat
-          <p> &emsp; &emsp;</p>
-          <mat-icon class="freeSeat">check_box_outline_blank</mat-icon> - base seat
-        </div>
-        <mat-grid-list cols="10" rowHeight="2:1">
-          <mat-grid-tile *ngFor="let seat of seats" (click)="seatClick(seat)" [ngSwitch]="getStatus(seat)">
-            <!-- Selected Seats -->
-            <span *ngSwitchCase="'selected'" class="selectedSeat">
-              <mat-icon>done_outline</mat-icon>
-            </span>
-            <!-- Seats -->
-            <span *ngSwitchDefault>
-              <!-- Vip Seats -->
-              <div *ngIf="seat.type ==='VIP'">
-                <mat-icon class="VIPSeat">check_box_outline_blank</mat-icon>
-              </div>
-              <!-- Base Seats -->
-              <div *ngIf="seat.type === 'base'">
-                <mat-icon class="freeSeat">check_box_outline_blank</mat-icon>
-              </div>
-            </span>
-          </mat-grid-tile>
-        </mat-grid-list>
-      </mat-card-content>
-    </div>
-  </div>
+</div>

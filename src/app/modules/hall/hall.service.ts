@@ -8,6 +8,7 @@ import { ShortHall } from './model/short-hall.model';
 
 const HALL_API_URL = environment.apiUrl + '/halls';
 export const seatArrayInStorage = "storedSeats";
+export const hallIdInStorage = "hallIdInStorage";
 
 @Injectable()
 export class HallService {
@@ -23,8 +24,12 @@ export class HallService {
     return this.http.get(HALL_API_URL + '/' + hall_id);
   }
 
-  saveHall(hall: ShortHall){
+  saveHall(hall: ShortHall) {
     return this.http.post(HALL_API_URL, hall);
   }
-  
+
+  removeHall(hall_id: number){
+    return this.http.delete(HALL_API_URL + '/' + hall_id);
+  }
+
 }

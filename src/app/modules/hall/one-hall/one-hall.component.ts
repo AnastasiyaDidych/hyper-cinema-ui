@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { Router, ActivatedRoute } from '@angular/router';
-import { HallService } from '../hall.service';
+import { HallService, hallIdInStorage } from '../hall.service';
 import { Hall } from '../model/hall.model';
 import { Seat } from '../model/seat.model';
-import { hallIdInStorage } from '../hall-list/hall-list.component';
 import { SeatService } from '../seat.service';
 import { forEach } from '@angular/router/src/utils/collection';
 import { Observable } from 'rxjs/Observable';
+import { AuthService } from '../../../shared/security/auth.service';
 
 @Component({
   selector: 'app-one-hall',
@@ -23,7 +23,12 @@ export class OneHallComponent implements OnInit {
   selectedSeats: Seat[] = [];
 
 
-  constructor(private seatService: SeatService, private hallService: HallService, private router: Router, private route: ActivatedRoute) { }
+  constructor(
+    public authService: AuthService,
+    private seatService: SeatService,
+    private hallService: HallService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.getHallIdFromStorage();

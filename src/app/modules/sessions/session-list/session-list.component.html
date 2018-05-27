@@ -13,10 +13,9 @@
                   <input matInput #film placeholder="Search Date" [(ngModel)]="dStr"/>
                 </mat-form-field>
                 <mat-divider></mat-divider>
-                <div class="w">
+                <div class="w" *ngIf = "authService.isManager">
                     <button mat-raised-button color="primary" [routerLink]="['/session-add']">Add Session</button>
                     <button mat-raised-button color="primary" routerLink="/hall-list">Manage Halls</button>
-                
               </div>
               </mat-card-content>
        </mat-card>
