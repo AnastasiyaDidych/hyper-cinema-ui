@@ -13,14 +13,14 @@
     <button class="pay-button" mat-raised-button color="primary" (click)="createOrder()">Pay order ({{totalPrice}}₴)</button>
   </mat-card-content>
 
-  <mat-card-content>
+  <!-- <mat-card-content>
     <div *ngFor="let seat of seatsFromStorage">
       <div class="ticket">
         <div class="h-block-1">
           <div class="film-name">
             <p>{{session.title}}</p>
           </div>
-          <div class="tech" *ngIf = "seat.type !== 'virtual'">
+          <div class="tech" *ngIf="seat.type !== 'virtual'">
             <p>Technology: {{hall.tech}}</p>
           </div>
           <div class="date-time">
@@ -40,7 +40,7 @@
           <div class="hall-name">
             Type: {{seat.type}}
           </div>
-          <div class="seat" *ngIf = "seat.type !== 'virtual'">
+          <div class="seat" *ngIf="seat.type !== 'virtual'">
             <div class="seat-block">
               <p>Row</p>
               <br>
@@ -61,9 +61,67 @@
             </p>
           </div>
         </div>
+      </div>
+    </div>
+  </mat-card-content> -->
 
+  <mat-card-content>
+    <div *ngFor="let seat of seatsFromStorage">
+
+      <div class="ticket">
+
+        <div class="h-block-1">
+          <div class="film-name">
+            <p>{{session.title}}</p>
+          </div>
+
+          <div class="tech" *ngIf = "seat.row !== 0">
+            <p>Technology: {{hall.tech}}</p>
+          </div>
+
+          <div class="date-time">
+            <div>
+              <p>Time: {{session.startTime}}</p>
+            </div>
+            <div>
+              <p>Date: {{session.date | date:'dd-MM-yyyy'}}</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="h-block-2">
+          <div class="hall-name">
+            {{hall.name}} hall
+          </div>
+          <div class="seat" *ngIf="seat.row !== 0">
+            <div class="seat-block">
+              <p>Row</p>
+              <br>
+              <p style="font-weight: 500; font-size: 25px">{{seat.row}}</p>
+            </div>
+            <div class="seat-block">
+              <p>Seat</p>
+              <br>
+              <p style="font-weight: 500; font-size: 25px">{{seat.number}}</p>
+            </div>
+          </div>
+          <div class="seat-block-virtual" *ngIf="seat.row === 0">
+            VIRTUAL
+          </div>
+        </div>
+
+
+        <div class="h-block-3">
+          <div class="ticket-price">
+            <p>Price:
+              <br> {{seat.price}}₴</p>
+          </div>
+        </div>
 
       </div>
     </div>
   </mat-card-content>
+
+
 </mat-card>

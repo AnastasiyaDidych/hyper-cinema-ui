@@ -67,11 +67,11 @@
           <span *ngSwitchDefault>
             <!-- Free Vip Seats -->
             <div *ngIf="seat.type ==='VIP'">
-              <mat-icon class="VIPSeat" title="row: {{seat.row}}, number: {{seat.number}}, price: {{seat.price}}">check_box_outline_blank</mat-icon>
+              <mat-icon class="VIPSeat" title="row: {{seat.row}}, number: {{seat.number}}">check_box_outline_blank</mat-icon>
             </div>
             <!-- Free Base Seats -->
             <div *ngIf="seat.type === 'base'">
-              <mat-icon title={{seat.type}} class="freeSeat" title="row: {{seat.row}}, number: {{seat.number}}, price: {{seat.price}}">check_box_outline_blank</mat-icon>
+              <mat-icon title={{seat.type}} class="freeSeat" title="row: {{seat.row}}, number: {{seat.number}}">check_box_outline_blank</mat-icon>
             </div>
           </span>
         </mat-grid-tile>

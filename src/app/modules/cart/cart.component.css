@@ -13,15 +13,24 @@
     justify-content: center;     
   }
 
-p {
-    font-size: 16px;
-    font-family:Calibri;
-}
-
 .textDec{
     color: #0a0324;
     font-size: 16px;
     font-family:Calibri;
+}
+
+
+
+
+
+.rightButton {
+    display: flex;
+    justify-content:space-between; 
+}
+
+
+p {
+    margin: 0;
 }
 
 .my-wrapper {
@@ -54,23 +63,35 @@ p {
 }
 
 .film-name {
-    margin: 1px;
-    height: auto;
-    font-size: 18px;
-    font-weight: 400;
+    font-weight: 400; 
+    margin-top: 5px;
+    height: 30%;
+    margin: 2px;
+    margin-left: 5px;
+    font-size: 24px;
+    color: #0a0324;
+    font-family:Calibri;
+
 }
 
 .tech {
-    margin: 1px;
     height: 15%;
-    font-size: 16px;
+    margin: 2px;
+    margin-left: 5px;
+    font-size: 18px;
+    color: #0a0324;
+    font-family:Calibri;
 }
 
 .date-time{
-    margin: 1px;
+    margin: 2px;
     display: flex;
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: 16px;
+    color: #0a0324;
+    font-family:Calibri;
     flex-direction: row;
-    font-size: 12px;
     justify-content: space-between;
 }
 
@@ -81,9 +102,17 @@ p {
     flex-direction: column;
 }
 
+.session-type{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .hall-name{
-    height: 20%;
-    font-weight: 500;
+    height: 35%;
+    font-size: 18px;
+    color: #0a0324;
+    font-family:Calibri;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -96,27 +125,42 @@ p {
     text-align: center;
     vertical-align: middle;
     line-height: 15px;
+    font-size: 16px;
+    color: #0a0324;
+    font-family:Calibri;
 }
 
 .seat-block{
     width: 45%;
 }
 
-.h-block-3 {
-    margin: 2px;
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-}
-
-.ticket-price {
-    height: 50%;
+.seat-block-virtual{
+    font-weight: 500; 
+    margin-top: 10px;
     font-size: 24px;
+    color: #0a0324;
+    font-family:Calibri;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.ticket-price {
+    font-size: 24px;
+    color: #0a0324;
+    font-family:Calibri;
+
+}
+
+
+.h-block-3 {
+    margin: 2px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
 
 .h-block-4 {
     margin: 2px;
@@ -127,7 +171,6 @@ p {
     justify-content: center;
 }
 
-.rightButton {
-    display: flex;
-    justify-content:space-between; 
-}
+
+
+
