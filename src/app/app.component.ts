@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, Data } from '@angular/router';
 import { AuthService } from './shared/security/auth.service';
 
 
@@ -10,8 +10,13 @@ import { AuthService } from './shared/security/auth.service';
 })
 export class AppComponent {
 
+  date: Date = new Date();
   title = 'Hyper Cinema';
 
   constructor(public authService: AuthService) { }
+
+public checkVirtualSession(){
+  console.log(this.date);
+}
 
 }

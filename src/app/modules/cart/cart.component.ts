@@ -37,9 +37,6 @@ export class CartComponent implements OnInit {
   ngOnInit() {
     this.start();
   }
-  ngOnDestroy(): void {
-    this.cleanSeatArrayInStorage();
-  }
 
   public start() {
     if (localStorage.getItem(sessionInStorage) !== null) {
@@ -61,6 +58,7 @@ export class CartComponent implements OnInit {
 
   public getSessionFromStorage() {
     this.session = JSON.parse(localStorage.getItem(sessionInStorage));
+    console.log(this.session);
   }
 
   public getHallFromSession(hall_id: number) {
@@ -108,9 +106,4 @@ export class CartComponent implements OnInit {
         );
     }
   }
-
-  createVirtualTicket(){
-    
-  }
-
 }
