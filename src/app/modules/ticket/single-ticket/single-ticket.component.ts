@@ -1,14 +1,14 @@
 import { Component, OnInit, Input, Inject, ViewChild, ElementRef } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import * as jsPDF from 'jspdf'
-
 import * as html2canvas from 'html2canvas';
 
 import { TicketService } from '../ticket.servise';
 import { Ticket } from '../ticket.model';
-import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from '../../../shared/security/auth.service';
 
 @Component({
     selector: 'app-single-ticket',
@@ -30,6 +30,7 @@ export class SingleTicketComponent implements OnInit {
         private router: Router,
         private route: ActivatedRoute,
         private ticketService: TicketService,
+        private authService: AuthService
     ) { }
 
     ngOnInit(): void {

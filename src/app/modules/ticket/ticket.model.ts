@@ -13,5 +13,6 @@ export class Ticket {
     virtualActive: boolean;
     sessionId: number;
     seatId: number;
+    userEmail: string;
 
 }

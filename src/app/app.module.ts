@@ -7,7 +7,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-
 import { AppComponent } from './app.component';
 
 import { MaterialModule } from './material.module';
@@ -40,7 +39,6 @@ import { AuthService } from './shared/security/auth.service';
 import { HallCreateAlertComponent } from './modules/hall/hall-list/hall-create-alert/hall-create-alert.component';
 import { OneHallComponent } from './modules/hall/one-hall/one-hall.component';
 import { HallDeleteAlertComponent } from './modules/hall/hall-list/hall-delete-alert/hall-delete-alert.component';
-
 
 @NgModule({
   declarations: [

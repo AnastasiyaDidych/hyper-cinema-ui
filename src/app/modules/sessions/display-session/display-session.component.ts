@@ -37,6 +37,7 @@ export class DisplaySessionComponent implements OnInit {
 
 
   ngOnInit() {
+
     this.sub = this.route.params.subscribe(params => {
       const id = params['id'];
       if (id) {
@@ -53,6 +54,7 @@ export class DisplaySessionComponent implements OnInit {
             });
           } else {
             console.log(`Car with id '${id}' not found, returning to list`);
+
           }
         });
       }
@@ -60,7 +62,7 @@ export class DisplaySessionComponent implements OnInit {
   }
 
   public generateForDay(session: Session): void {
-    if (window.confirm('Generate sessions?')) {
+    if (window.confirm('Generate for a day?')) {
       this.sessionService.genetateForDay(session.id)
         .subscribe(data => {
           this.sessions = this.sessions.filter(s => s !== session);

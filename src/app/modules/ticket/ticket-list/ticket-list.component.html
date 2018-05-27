@@ -9,27 +9,27 @@
         </mat-form-field>
 
         <mat-form-field>
+            <input matInput placeholder="Search by Date" [(ngModel)]="searchDate" [ngModelOptions]="{standalone: true}">
+            <button mat-button *ngIf="searchDate" matSuffix mat-icon-button aria-label="Clear" (click)="searchDate=''">
+                <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <mat-form-field *ngIf="authService.isManager">
             <input matInput placeholder="Search by Email" [(ngModel)]="searchUser" [ngModelOptions]="{standalone: true}">
             <button mat-button *ngIf="searchUser" matSuffix mat-icon-button aria-label="Clear" (click)="searchUser=''">
                 <mat-icon>close</mat-icon>
             </button>
         </mat-form-field>
 
-        <button mat-button (click)="showMyTickets()">My tickets</button>
-        <button mat-button (click)="getAllTickets()">All tickets</button>
+        <button mat-button (click)="showMyTickets()" *ngIf="authService.isManager">My tickets</button>
+        <button mat-button (click)="getAllTickets()" *ngIf="authService.isManager">All tickets</button>
     </form>
 
-    <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = getServerData($event)">
+    <mat-paginator [length]="tickets?.length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = getServerData($event)">
     </mat-paginator>
-    <!-- 
-    <div *ngIf="pageEvent">
-        <h5>Page Change Event Properties</h5>
-        <div>List length: {{pageEvent.length}}</div>
-        <div>Page size: {{pageEvent.pageSize}}</div>
-        <div>Page index: {{pageEvent.pageIndex}}</div>
-    </div> -->
 
-    <ng-container *ngFor="let ticket of tickets|ticketFilter:searchFilm:searchUser">
+    <ng-container *ngFor="let ticket of tickets|ticketFilter:searchFilm:searchUser:searchDate">
 
         <div class="ticket">
 
@@ -45,20 +45,16 @@
                         <p>Time: {{ticket.sessionTime}}</p>
                     </div>
                     <div>
-                        <p>Date: {{ticket.sessionDate}}</p>
+                        <p>Date: {{ticket.sessionDate | date:'dd-MM-yyyy'}}</p>
                     </div>
                 </div>
             </div>
 
             <div class="h-block-2">
-                <!-- <div class="session-type" [ngSwitch]="ticket.virtualActive">
-                    <span *ngSwitchCase="true">Virtual session</span>
-                    <span *ngSwitchCase="false">Static session</span>
-                </div> -->
                 <div class="hall-name">
                     {{ticket.hallName}} hall
                 </div>
-                <div class="seat">
+                <div class="seat" *ngIf="ticket.seatRow !== 0">
                     <div class="seat-block">
                         <p>Row</p>
                         <br>
@@ -69,6 +65,9 @@
                         <br>
                         <p style="font-weight: 500; font-size: 25px">{{ticket.seatNumber}}</p>
                     </div>
+                </div>
+                <div class="seat-block-virtual" *ngIf="ticket.seatRow === 0">
+                    VIRTUAL
                 </div>
             </div>
 
@@ -86,17 +85,10 @@
 
             <div class="h-block-4">
                 <button class="ticket-button" mat-button (click)="select(ticket.id)">Select</button>
-                <button class="ticket-button" mat-button (click)="delete(ticket)">
-                    <!-- [ngSwitch]="ticket.virtualActive" -->
-                    <!-- (*ngSwitchCase="true" display="hidden") -->
-                    <!-- *ngSwitchCase="false" -->
-                    Cancel</button>
+                <button class="ticket-button" mat-button (click)="delete(ticket)" *ngIf="authService.isManager">Remove</button>
             </div>
 
         </div>
     </ng-container>
-
-    <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = $event">
-    </mat-paginator>
 
 </div>
