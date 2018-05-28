@@ -60,10 +60,10 @@ export class HallListComponent implements OnInit {
 
       if (this.successCreate !== null) {
         if (this.successCreate[0] === "created") {
-          status = "TRUE";
+          status = "CREATED";
           localStorage.removeItem(successAction);
         }
-        if (status === "TRUE") {
+        if (status === "CREATED") {
           window.location.reload();
         }
       }
@@ -95,10 +95,10 @@ export class HallListComponent implements OnInit {
 
       if (this.successRemove !== null) {
         if (this.successRemove[0] === "removed") {
-          status = "TRUE";
+          status = "REMOVED";
           localStorage.removeItem(successAction);
         }
-        if (status === "TRUE") {
+        if (status === "REMOVED") {
           var index = this.halls.indexOf(hall);
           this.halls.splice(index, 1);
         }
