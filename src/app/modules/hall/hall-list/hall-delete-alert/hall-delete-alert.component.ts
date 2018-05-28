@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Hall } from '../../model/hall.model';
 import { ShortHall } from '../../model/short-hall.model';
-import { HallService } from '../../hall.service';
+import { HallService, successRemove } from '../../hall.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../../../shared/security/auth.service';
 import { Data } from '@angular/router';
@@ -13,6 +13,8 @@ import { Data } from '@angular/router';
     styleUrls: ['./hall-delete-alert.component.css']
 })
 export class HallDeleteAlertComponent {
+
+    successRemove: Array<any> = [];
 
     ngOnInit() {
     }
@@ -31,6 +33,9 @@ export class HallDeleteAlertComponent {
         this.hallService.removeHall(hall.id).subscribe(
             (success) => {
                 console.log("ALL OK!")
+                var checkPoint = "removed";
+                this.successRemove.push(checkPoint);
+                localStorage.setItem(successRemove, JSON.stringify(this.successRemove));
                 this.dialogRef.close();
             },
             (error) => {

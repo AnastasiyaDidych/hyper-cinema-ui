@@ -9,9 +9,12 @@ import { ShortHall } from './model/short-hall.model';
 const HALL_API_URL = environment.apiUrl + '/halls';
 export const seatArrayInStorage = "storedSeats";
 export const hallIdInStorage = "hallIdInStorage";
+export var successRemove = "successRemove";
 
 @Injectable()
 export class HallService {
+
+  message: string = null;
 
   constructor(private http: HttpClient) {
   }
