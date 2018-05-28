@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Hall } from '../../model/hall.model';
 import { ShortHall } from '../../model/short-hall.model';
-import { HallService } from '../../hall.service';
+import { HallService, successAction } from '../../hall.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../../../shared/security/auth.service';
 
@@ -28,6 +28,7 @@ export class HallCreateAlertComponent {
     message: string;
     hallPage: boolean;
     hallForm: FormGroup;
+    successCreate: Array<any> = [];
 
     constructor(
         public authService: AuthService,
@@ -39,7 +40,10 @@ export class HallCreateAlertComponent {
     public createHall(hall: ShortHall) {
         this.hallService.saveHall(hall).subscribe(
             (success) => {
-              this.message = "CREATED";
+                var checkPoint = "created";
+                this.successCreate.push(checkPoint);
+                localStorage.setItem(successAction, JSON.stringify(this.successCreate));
+                this.dialogRef.close();
             },
             (error) => {
               this.message = "ERROR";
