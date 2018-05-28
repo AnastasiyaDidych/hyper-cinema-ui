@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Seat } from '../model/seat.model';
 import { Session } from '../../sessions/session-edit/session.model';
 import { sessionInStorage } from '../../sessions/display-session/display-session.component';
-import { HallService, hallIdInStorage } from '../hall.service';
+import { HallService, hallIdInStorage, successRemove } from '../hall.service';
 import { Hall } from '../model/hall.model';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { HallCreateAlertComponent } from './hall-create-alert/hall-create-alert.component';
@@ -31,7 +31,7 @@ export class HallListComponent implements OnInit {
   }
 
 
-
+  successRemove: Array<any> = [];
   hallForm: FormGroup;
   halls: Array<Hall> = [];
   hall: Hall = Object();
@@ -63,7 +63,7 @@ export class HallListComponent implements OnInit {
     let dialogRef = this.dialog.open(OneHallComponent, {
       width: '600px',
     });
-   console.log("2")
+    console.log("2")
     dialogRef.afterClosed().subscribe(result => {
       console.log('The edit dialog was closed');
     });
@@ -76,10 +76,22 @@ export class HallListComponent implements OnInit {
       width: '500px',
       data: { hall }
     });
+
     dialogRef.afterClosed().subscribe(result => {
       console.log('The remove dialog was closed');
-      var index = this.halls.indexOf(hall);
-      this.halls.splice(index,1);
+      var status = null;
+      this.successRemove = JSON.parse(localStorage.getItem(successRemove));
+
+      if (this.successRemove !== null) {
+        if (this.successRemove[0] === "removed") {
+          status = "TRUE";
+          localStorage.removeItem(successRemove);
+        }
+        if (status === "TRUE") {
+          var index = this.halls.indexOf(hall);
+          this.halls.splice(index, 1);
+        }
+      }
     });
   }
 }
