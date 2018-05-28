@@ -32,7 +32,6 @@ export class HallDeleteAlertComponent {
     public submitDeleteHall(hall: Hall) {
         this.hallService.removeHall(hall.id).subscribe(
             (success) => {
-                console.log("ALL OK!")
                 var checkPoint = "removed";
                 this.successRemove.push(checkPoint);
                 localStorage.setItem(successRemove, JSON.stringify(this.successRemove));
