@@ -54,7 +54,6 @@ export class HallListComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The create dialog was closed');
-      console.log('The remove dialog was closed');
       var status = null;
       this.successCreate = JSON.parse(localStorage.getItem(successAction));
 
