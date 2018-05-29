@@ -47,6 +47,7 @@ export class TicketListComponent implements OnInit {
         this.showMyTickets();
     }
 
+
     getAllTickets(): void {
         this.ticketService.getAllTickets()
             .subscribe(
@@ -124,7 +125,7 @@ export class TicketListComponent implements OnInit {
                 this.virtualTickets.push(this.tickets[i]);
             }
         }
-        console.log(this.virtualTickets);
+        this.throwVirtualTicketInStorage();
     }
 
     public throwVirtualTicketInStorage() {

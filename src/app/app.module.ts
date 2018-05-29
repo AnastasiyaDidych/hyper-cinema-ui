@@ -39,6 +39,7 @@ import { AuthService } from './shared/security/auth.service';
 import { HallCreateAlertComponent } from './modules/hall/hall-list/hall-create-alert/hall-create-alert.component';
 import { OneHallComponent } from './modules/hall/one-hall/one-hall.component';
 import { HallDeleteAlertComponent } from './modules/hall/hall-list/hall-delete-alert/hall-delete-alert.component';
+import { OnlineFilmModule } from './modules/online-film/online-film.module';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { HallDeleteAlertComponent } from './modules/hall/hall-list/hall-delete-a
     UserFormModule,
     OrderModule,
     HallModule,
+    OnlineFilmModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,

@@ -19,15 +19,8 @@ export class AppComponent {
   constructor(public authService: AuthService) { }
 
   ngOnInit() {
-    // this.virtualTickets = JSON.parse(localStorage.getItem(virtualTicketsInStorage));
-    // this.checkVirtualSession();
+    this.virtualTickets = JSON.parse(localStorage.getItem(virtualTicketsInStorage));
   }
 
-  // public checkVirtualSession() {
-  //   this.virtualTickets = JSON.parse(localStorage.getItem(virtualTicketsInStorage));
-  //   console.log(this.date);
-  //   console.log("virtualTickets in storage:");
-  //   console.log(this.virtualTickets);
-  // }
 
 }

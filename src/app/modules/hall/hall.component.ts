@@ -29,11 +29,10 @@ export class HallComponent implements OnInit {
   selectedSeats: Seat[] = [];
   boughtSeats: Seat[] = [];
   session: Session = Object();
-
-
+  
   constructor(
     private hallService: HallService,
-    private seatService: SeatService,) { }
+    private seatService: SeatService, ) { }
 
   ngOnInit() {
     this.getSessionFromStorage();

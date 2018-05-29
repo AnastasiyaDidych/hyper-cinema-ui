@@ -15,6 +15,7 @@ import { CartComponent } from './modules/cart/cart.component';
 import { HallListComponent } from './modules/hall/hall-list/hall-list.component';
 import { ScheduleListComponent } from './modules/sessions/schedule-list/schedule-list.component';
 import { UserFormComponent } from './modules/user-form/user-form.component';
+import { OnlineFilmComponent } from './modules/online-film/online-film.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'halls', component: HallComponent },
   { path: 'cart', component: CartComponent },
   { path: 'hall-list', component: HallListComponent },
+  { path: 'online-review', component: OnlineFilmComponent},
   
 ];
 
