@@ -10,9 +10,11 @@
       <button mat-button *ngIf="!authService.isAuthenticated" routerLink="/signup">Sign Up</button>
       <button mat-button *ngIf="authService.isAuthenticated" routerLink="/account">Account</button>
       <button mat-button routerLink="/movies">Movies</button>
-      <button mat-button routerLink="/session-list">Sessions</button>
+      <div class="w" *ngIf="authService.isManager">
+        <button mat-button routerLink="/session-list">Sessions</button>
+      </div>
       <button mat-button routerLink="/schedule-list">Schedule</button>
-      <!-- <button mat-button>{{date}}</button> -->
+
       <button mat-button routerLink="/tickets">Tickets</button>
       <button mat-button routerLink="/orders">Orders</button>
       <button mat-button *ngIf="authService.isAuthenticated" (click)="authService.logout()">Logout</button>
