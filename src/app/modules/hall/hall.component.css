@@ -30,8 +30,10 @@
     max-width: 295px;
     margin: auto;
     width: 50%;
-    margin-top: 10px;
     float: left;
+    /* border-style: solid; */
+    margin-left: 20px;
+    margin-top: 50px; 
   }
 
   .pay-button{
@@ -45,6 +47,7 @@
   .widthOfHallPage{
     min-width: 800px;
   }
+
 
   p{
       color: #0a0324;
@@ -80,8 +83,4 @@
   .textDec{
     font-size: 16px;
     font-family:Calibri;
-  }
-
-  .payCart{
-    border: 4px rgb(192, 6, 6);
   }
