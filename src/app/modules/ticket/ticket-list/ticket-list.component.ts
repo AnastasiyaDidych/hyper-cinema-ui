@@ -4,10 +4,7 @@ import { Router } from '@angular/router';
 import { TicketService } from '../ticket.servise';
 import { Ticket } from '../ticket.model';
 
-import { PageEvent, MatPaginator } from '@angular/material';
 import { AuthService } from '../../../shared/security/auth.service';
-
-
 
 @Component({
     selector: 'app-ticket-list',
@@ -22,25 +19,13 @@ export class TicketListComponent implements OnInit {
     private searchUser: string = '';
     private searchDate: string = '';
 
-    private pageIndex: number = 0;
-    private totalPages: Array<number>;
-
     tickets: Ticket[] = [];
-
-    private length: number;
-    private pageSize: number = 20;
-    private pageSizeOptions: number[] = [5, 10, 20];
-    private pageEvent: PageEvent;
-
-
-    @ViewChild(MatPaginator) paginator: MatPaginator;
 
     constructor(
         private router: Router,
         private ticketService: TicketService,
         private authService: AuthService
     ) { }
-
 
     ngOnInit(): void {
         this.showMyTickets();
@@ -55,20 +40,6 @@ export class TicketListComponent implements OnInit {
                 (error) => {
                     console.log(error);
                 });
-    }
-
-    getPageOfTickets(): void {
-        this.ticketService.getPageOfTickets(this.pageIndex)
-            .subscribe(
-                (success) => {
-                    this.tickets = success['content'];
-                    this.totalPages = new Array(success['totalPages']);
-                    console.log(success);
-                },
-                (error) => {
-                    console.log(error);
-                }
-            );
     }
 
     delete(ticket: Ticket): void {
@@ -86,37 +57,16 @@ export class TicketListComponent implements OnInit {
         this.router.navigateByUrl('/tickets/' + id);
     }
 
-    setPageSizeOptions(setPageSizeOptionsInput: string) {
-        this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
-    }
-
-    showMyTickets(){
+    showMyTickets() {
         this.ticketService.getMyTickets()
-        .subscribe(
-            (success) => {
-                this.tickets = success;
-            },
-            (error) => {
-                console.log(error);
-            }
-        );
+            .subscribe(
+                (success) => {
+                    this.tickets = success;
+                },
+                (error) => {
+                    console.log(error);
+                }
+            );
     }
 
-
-
-    // getServerData(event?:PageEvent){
-    //     this.ticketService.getPageOfTickets()
-    //     .subscribe(
-    //         (success) => {
-                
-    //         },
-    //         (error) => {
-    //             console.log(error);
-    //         }
-    //     )
-    // }
 }
-
-
-
-

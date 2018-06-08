@@ -27,9 +27,9 @@ export class TicketService {
     return this.http.get<Ticket[]>(TICKET_API_URL + "/my");
   }
 
-  getPageOfTickets(page: number): Observable<Ticket[]> {
-    return this.http.get<Ticket[]>(TICKET_API_URL + "?page=" + page);
-  }
+  // getPageOfTickets(pageIndex: number, pageSize: number): Observable<Ticket[]> {
+  //   return this.http.get<Ticket[]>(TICKET_API_URL + "?page=" + pageIndex + "&size=" + pageSize);
+  // }
 
   deleteTicket(ticket: Ticket): Observable<Ticket> {
     return this.http.delete<Ticket>(TICKET_API_URL + `/${ticket.id}`, httpOptions);

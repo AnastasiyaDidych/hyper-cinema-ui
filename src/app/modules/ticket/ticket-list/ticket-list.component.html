@@ -26,10 +26,14 @@
         <button mat-button (click)="getAllTickets()" *ngIf="authService.isManager">All tickets</button>
     </form>
 
-    <mat-paginator [length]="tickets?.length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = getServerData($event)">
-    </mat-paginator>
+    <!-- <mat-paginator [length]="tickets?.length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="getServerData($event)">
+    </mat-paginator> -->
+
+
+    <!-- <mat-table [dataSource]="dataSource" matSort> -->
 
     <ng-container *ngFor="let ticket of tickets|ticketFilter:searchFilm:searchUser:searchDate">
+    <!-- <ng-container *ngFor="let ticket of tickets"> -->
 
         <div class="ticket">
 

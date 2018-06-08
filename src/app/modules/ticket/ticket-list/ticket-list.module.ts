@@ -31,10 +31,7 @@ import { FilmPipe } from './film-filter.pipe';
     ],
     providers: [
         TicketService,
-    ],
-    // schemas: [
-    //     NO_ERRORS_SCHEMA
-    // ]
+    ]
 })
 export class TicketListModule {
 
